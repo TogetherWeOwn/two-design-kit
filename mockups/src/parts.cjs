@@ -45,6 +45,8 @@ const NAV = [
   ["members", "Members"],
   ["about", "About"],
 ];
+// who: "member", "guest" (live presence), or "static" (B1 static anonymous: a cached
+// public page, so no presence cluster and the guest actions for every visitor).
 const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
   <a href="#" aria-label="Together We Own, home"><img class="lockup" src="brand/lockup-horizontal.svg" alt=""></a>
@@ -52,16 +54,20 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     ([k, l]) => `<li><a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a></li>`,
   ).join("")}</ul></nav>
   <div class="h-right">
-    <span class="status mono"><span class="dot ok" aria-hidden="true"></span>132 online</span>
+    ${who === "static" ? "" : '<span class="status mono"><span class="dot ok" aria-hidden="true"></span>132 online</span>'}
     ${
-      who === "guest"
+      who !== "member"
         ? `<a class="pill ghost sm hide-m" href="#">Sign in</a><a class="pill sm" href="#">Join</a>`
         : `<a class="pill ghost sm hide-m" href="#" aria-label="Notifications">${I.bell}</a><a class="me" href="#"><span class="av m" style="--c:var(--two-color-avatar-7)">MO</span><span class="hide-m">Mora</span></a>`
     }
-    <button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>
+    ${
+      who === "static"
+        ? `<a class="pill ghost sm menu" href="#menu-sheet" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</a>`
+        : `<button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>`
+    }
   </div>
 </div></header>
-<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who === "guest" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
+<nav class="sheet${who === "static" ? " nojs" : ""}" id="menu-sheet" aria-label="Menu"${who === "static" ? "" : " hidden"}>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who !== "member" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}${who === "static" ? '<a class="close" href="#">Close menu</a>' : ""}</nav>
 <script>
 (() => {
   const btn = document.querySelector(".pill.menu");
@@ -69,6 +75,21 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
   // Everything except the header and the sheet goes inert while the sheet is open.
   const background = () =>
     [...document.body.children].filter((el) => el !== sheet && !el.matches("header.top, script"));
+  // Static header: without JS the Menu link opens the sheet through :target and
+  // "Close menu" clears it. With JS, swap to the button behaviour below.
+  if (sheet.classList.contains("nojs")) {
+    sheet.classList.remove("nojs");
+    sheet.hidden = true;
+    sheet.querySelector(".close").remove();
+    btn.setAttribute("role", "button");
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === " ") {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  }
   const links = () => [...sheet.querySelectorAll("a")];
   const set = (open) => {
     btn.setAttribute("aria-expanded", String(open));
@@ -77,7 +98,10 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     if (open) links()[0].focus();
     else btn.focus();
   };
-  btn.addEventListener("click", () => set(sheet.hidden));
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    set(sheet.hidden);
+  });
   document.addEventListener("keydown", (e) => {
     if (sheet.hidden) return;
     if (e.key === "Escape") set(false);
@@ -92,7 +116,7 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
 })();
 </script>`;
 
-const footer = `<footer class="foot"><div class="wrap"><span>Together We Own · a Discord gaming community since 2023</span><nav aria-label="Footer"><a href="#">Rules</a><a href="#">FAQ</a><a href="#">Privacy</a><a href="#">Status</a></nav></div></footer>`;
+const footer = `<footer class="foot"><div class="wrap"><span>Together We Own · adult gaming community · founded&nbsp;1998</span><nav aria-label="Footer"><a href="#">About</a><a href="#">FAQ</a><a href="#">House rules</a><a href="#">Privacy</a></nav></div></footer>`;
 
 const page = (title, body, extraCss = "", bodyClass = "") => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">

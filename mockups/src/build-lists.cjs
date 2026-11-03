@@ -289,10 +289,10 @@ const joinCss = `
 }`;
 const join = page(
   "Join",
-  `${header("guest", "")}
+  `${header("static", "")}
 <main id="main"><div class="wrap jn">
   <div class="jintro">
-    <div class="idn"><img src="brand/icon-two-brand.svg" alt=""><div><b style="font:var(--two-font-weight-semibold) var(--two-font-size-lede)/1 var(--two-font-display)">Together We Own</b><span class="mono">A Discord gaming community · since 2023 · English</span></div></div>
+    <div class="idn"><img src="brand/icon-two-brand.svg" alt=""><div><b style="font:var(--two-font-weight-semibold) var(--two-font-size-lede)/1 var(--two-font-display)">Together We Own</b><span class="mono">A Discord gaming community · founded 1998 · English</span></div></div>
     <h1>Play with people <span class="serif">who show up.</span></h1>
     <p class="lede">We're 814 members across Europe and the Americas. We run events most nights, and a bot keeps track so nobody has to chase anyone.</p>
   </div>

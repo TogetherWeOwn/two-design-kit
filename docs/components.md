@@ -200,17 +200,19 @@ First focusable element. A `primary sm` pill, off-screen until focused, then at 
 
 **Sizing:** 68 px (60 at 390), sticky, `elevation.sticky` ground, bottom hairline. Nav links are 40 px pills, 15 px medium, `text.secondary`; current page `bg.raised` + `text.primary`.
 
-**States:** current page (`aria-current="page"`); signed out / signed in; presence stale (dot `state.warn`, "online" count greyed, title attribute is not used to explain; the freshness line on the page does).
+**States:** current page (`aria-current="page"`); signed out / signed in; presence stale (dot `state.warn`, "online" count greyed, title attribute is not used to explain; the freshness line on the page does); static anonymous (below).
+
+**Static anonymous** (a public page served from a shared cache, which can't read the session or live presence): the presence cluster is omitted entirely: no count, no dot, no placeholder. Don't fetch presence to fill it. Every visitor gets the guest cluster (Sign in + Join), members included, because the bytes are the same for everyone; Join signs a member straight in (H4 "already a member"). No greeting caption ("Welcome, guest" is wrong for a member reading the cached page). The B2 sheet holds the same links and must open without JavaScript (`<details>`, `:target`, or the links inline) and stay keyboard-operable.
 
 **A11y:** `<header>` landmark; `<nav aria-label="Main">`; the lockup link is named "Together We Own, home" with `alt=""` on the image. Sticky header height is in `scroll-padding-top` so focused elements are never hidden under it (WCAG 2.4.11).
 
 ### B2. Mobile menu sheet
 
-Opens from the Menu button at ≤ 820 px. Full-width sheet under the header, `elevation.sheet`, nav links as 52 px rows, then Sign in / Join or Profile / Sign out. Opens with a 240 ms fade and 8 px slide under `no-preference` only. `aria-expanded` on the button; focus moves to the first link; Tab is trapped inside; Escape and the Menu button close it and return focus to the button. The page behind is `inert`.
+Opens from the Menu button at ≤ 820 px. Full-width sheet under the header, `elevation.sheet`, nav links as 52 px rows, then Sign in / Join or Profile / Sign out. Opens with a 240 ms fade and 8 px slide under `no-preference` only. `aria-expanded` on the button; focus moves to the first link; Tab is trapped inside; Escape and the Menu button close it and return focus to the button. The page behind is `inert`. Static anonymous (B1) without JavaScript: Menu is a link to `#menu-sheet` with no `aria-expanded` (it cannot track `:target`), the sheet opens through `:target`, and a last "Close menu" row links back to `#`; the script adds `role="button"` and `aria-expanded` and swaps in the behaviour above when it runs.
 
 ### B3. Footer
 
-Hairline top, 32 / 44 px padding, 14 px `text.tertiary`. Left: "Together We Own · a Discord gaming community since 2023". Right: `<nav aria-label="Footer">` Rules, FAQ, Privacy, Status. Column at 390.
+Hairline top, 32 / 44 px padding, 14 px `text.tertiary`. Left: "Together We Own · adult gaming community · founded 1998". Right: `<nav aria-label="Footer">` About, FAQ, House rules, Privacy. Column at 390; a no-break space keeps "founded 1998" on one line. Founded is 1998 everywhere; never print another year until a later date is verified.
 
 ### B4. Mobile action bar
 
@@ -596,7 +598,7 @@ Toggles (A12), each with its consequence: Show my usual hours · Show my region 
 
 ### H1. Identity line
 
-64 px icon · "Together We Own" (18 px semibold) · mono "A Discord gaming community · since 2023 · English".
+64 px icon · "Together We Own" (18 px semibold) · mono "A Discord gaming community · founded 1998 · English".
 
 ### H2. Join steps
 
