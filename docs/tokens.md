@@ -230,6 +230,7 @@ Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative lumi
 | Token | Family | Job | Budget |
 |---|---|---|---|
 | `font.display` | Mona Sans (variable: wdth 75–125, wght 200–900) | Display and all UI | ~98 KB, preloaded, `font-display: swap` with a metric-matched fallback |
+| `font.ui` | Alias of `font.display` (Mona Sans) | Body and UI: body copy, buttons, nav, inputs. Set `body` and the Kit `--font-sans` to `--two-font-ui` | same file as `font.display` |
 | `font.accent` | Instrument Serif Italic | One accent phrase per heading, in ember | subset < 12 KB, `font-display: optional` |
 | `font.data` | Fragment Mono | Times, counts, freshness, labels | subset < 12 KB, `font-display: optional` |
 
@@ -246,12 +247,13 @@ Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative lumi
 | `font-size.title` | 20px | 600 / 1.3 | Card titles (seat-card state) |
 | `font-size.lede` | 18px (16 at 390) | 400 / 1.55 | Page lede |
 | `font-size.body-reading` | 17px | 400 / 1.6 | Long copy: About, rules, FAQ, event description |
-| `font-size.body` | 16px | 400 / 1.55 | UI body |
+| `font-size.body` | 16px | 400 / 1.55 | UI body, in `font.ui` at `line-height.body` |
 | `font-size.ui` | 15px | 500–600 / 1.3, buttons at 105% width | Buttons, nav, list secondary |
 | `font-size.small` | 14px | 400 / 1.4 | Meta, notes |
 | `font-size.label` | 12px | Fragment Mono 400, uppercase, +0.04 em | Labels, freshness, group headers. **The floor.** |
 
 **Rules:**
+- **Body is Mona Sans, not `system-ui`.** Every text that isn't an accent phrase or data uses `font.ui` (`--two-font-ui`, `twoFontUi`). `system-ui` is only the fallback inside the stack.
 - **Fixed body, fluid display.** Only `font-size.*` scales with the viewport.
 - **12 px floor.** No text is smaller, including avatar initials and chart labels.
 - **One serif phrase per heading,** in `text.accent`, at 1.08–1.1 em. Never a whole heading, never body copy, never in buttons.

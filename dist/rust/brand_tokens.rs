@@ -169,5 +169,5 @@ pub const BRAND_ELEVATION_2: u32 = 0x241C19;
 pub const BRAND_ELEVATION_3: u32 = 0x2E2420;
 pub const BRAND_ELEVATION_BLUR_PX: u32 = 14;
 
-// 59 token(s) have no Rust scalar form (fluid sizes, font stacks,
+// 60 token(s) have no Rust scalar form (fluid sizes, font stacks,
 // translucent hairlines, easing curves) and stay web-only.
