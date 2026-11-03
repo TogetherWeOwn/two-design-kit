@@ -208,7 +208,7 @@ First focusable element. A `primary sm` pill, off-screen until focused, then at 
 
 ### B2. Mobile menu sheet
 
-Opens from the Menu button at ≤ 820 px. Full-width sheet under the header, `elevation.sheet`, nav links as 52 px rows, then Sign in / Join or Profile / Sign out. Opens with a 240 ms fade and 8 px slide under `no-preference` only. `aria-expanded` on the button; focus moves to the first link; Tab is trapped inside; Escape and the Menu button close it and return focus to the button. The page behind is `inert`.
+Opens from the Menu button at ≤ 820 px. Full-width sheet under the header, `elevation.sheet`, nav links as 52 px rows, then Sign in / Join or Profile / Sign out. Opens with a 240 ms fade and 8 px slide under `no-preference` only. `aria-expanded` on the button; focus moves to the first link; Tab is trapped inside; Escape and the Menu button close it and return focus to the button. The page behind is `inert`. Static anonymous (B1) without JavaScript: Menu is a link to `#menu-sheet`, the sheet opens through `:target`, and a last "Close menu" row links back to `#`; the script swaps in the behaviour above when it runs.
 
 ### B3. Footer
 

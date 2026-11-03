@@ -60,10 +60,14 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
         ? `<a class="pill ghost sm hide-m" href="#">Sign in</a><a class="pill sm" href="#">Join</a>`
         : `<a class="pill ghost sm hide-m" href="#" aria-label="Notifications">${I.bell}</a><a class="me" href="#"><span class="av m" style="--c:var(--two-color-avatar-7)">MO</span><span class="hide-m">Mora</span></a>`
     }
-    <button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>
+    ${
+      who === "static"
+        ? `<a class="pill ghost sm menu" href="#menu-sheet" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</a>`
+        : `<button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>`
+    }
   </div>
 </div></header>
-<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who !== "member" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
+<nav class="sheet${who === "static" ? " nojs" : ""}" id="menu-sheet" aria-label="Menu"${who === "static" ? "" : " hidden"}>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who !== "member" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}${who === "static" ? '<a class="close" href="#">Close menu</a>' : ""}</nav>
 <script>
 (() => {
   const btn = document.querySelector(".pill.menu");
@@ -71,6 +75,20 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
   // Everything except the header and the sheet goes inert while the sheet is open.
   const background = () =>
     [...document.body.children].filter((el) => el !== sheet && !el.matches("header.top, script"));
+  // Static header: without JS the Menu link opens the sheet through :target and
+  // "Close menu" clears it. With JS, swap to the button behaviour below.
+  if (sheet.classList.contains("nojs")) {
+    sheet.classList.remove("nojs");
+    sheet.hidden = true;
+    sheet.querySelector(".close").remove();
+    btn.setAttribute("role", "button");
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === " ") {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  }
   const links = () => [...sheet.querySelectorAll("a")];
   const set = (open) => {
     btn.setAttribute("aria-expanded", String(open));
@@ -79,7 +97,10 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     if (open) links()[0].focus();
     else btn.focus();
   };
-  btn.addEventListener("click", () => set(sheet.hidden));
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    set(sheet.hidden);
+  });
   document.addEventListener("keydown", (e) => {
     if (sheet.hidden) return;
     if (e.key === "Escape") set(false);

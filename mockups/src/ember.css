@@ -920,7 +920,8 @@ footer.foot nav {
   border-bottom: 1px solid var(--two-color-line-hairline-strong);
   padding: var(--two-space-2) var(--gut) var(--two-space-4);
 }
-.sheet[hidden] {
+.sheet[hidden],
+.sheet.nojs:not(:target) {
   display: none;
 }
 .sheet a {
