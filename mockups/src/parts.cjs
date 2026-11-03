@@ -61,17 +61,19 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     <button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>
   </div>
 </div></header>
-<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who === "guest" ? '<a href="#">Sign in</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
+<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who === "guest" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
 <script>
 (() => {
   const btn = document.querySelector(".pill.menu");
   const sheet = document.getElementById("menu-sheet");
-  const main = document.getElementById("main");
+  // Everything except the header and the sheet goes inert while the sheet is open.
+  const background = () =>
+    [...document.body.children].filter((el) => el !== sheet && !el.matches("header.top, script"));
   const links = () => [...sheet.querySelectorAll("a")];
   const set = (open) => {
     btn.setAttribute("aria-expanded", String(open));
     sheet.hidden = !open;
-    if (main) main.inert = open;
+    for (const el of background()) el.inert = open;
     if (open) links()[0].focus();
     else btn.focus();
   };

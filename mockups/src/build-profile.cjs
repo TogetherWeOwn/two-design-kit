@@ -119,7 +119,7 @@ const body = `${header("member", "members")}
     </aside>
     <div class="maincol">
       <section class="blk" aria-labelledby="trail-h">
-        <h2 id="trail-h">Echo trail <span class="mono only-d">Last 26 weeks</span><span class="mono only-m">Last 13 weeks</span></h2>
+        <h2 id="trail-h">Echo trail <span class="mono only-d">Last 26 weeks</span><span class="mono only-m">Last 13 weeks<span class="sr"> shown; the chart description and the table cover 26</span></span></h2>
         <div class="trail" role="img" aria-label="Events attended per week over the last 26 weeks: ${total} events, hosted in ${hosted} weeks, ${missed} weeks with none.">${trail}</div>
         <div class="trail-ax only-d-flex"><span class="mono">May</span><span class="mono">Jul</span><span class="mono">Sep</span><span class="mono">This week</span></div>
         <div class="trail-ax only-m-flex"><span class="mono">Aug</span><span class="mono">Sep</span><span class="mono">Oct</span><span class="mono">This week</span></div>
