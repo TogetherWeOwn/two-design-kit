@@ -62,7 +62,7 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     }
     ${
       who === "static"
-        ? `<a class="pill ghost sm menu" href="#menu-sheet" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</a>`
+        ? `<a class="pill ghost sm menu" href="#menu-sheet" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</a>`
         : `<button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>`
     }
   </div>
@@ -82,6 +82,7 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     sheet.hidden = true;
     sheet.querySelector(".close").remove();
     btn.setAttribute("role", "button");
+    btn.setAttribute("aria-expanded", "false");
     btn.addEventListener("keydown", (e) => {
       if (e.key === " ") {
         e.preventDefault();
