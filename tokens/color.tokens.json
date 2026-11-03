@@ -17,15 +17,19 @@
       "3": {
         "$value": "#2e2420",
         "$description": "Chip and event block. Never under violet Echo text."
+      },
+      "4": {
+        "$value": "#3e322c",
+        "$description": "Unlit rank-glyph arc and +N avatar disc. Decorative only."
       }
     },
     "hair": {
       "1": {
-        "$value": "rgba(246, 241, 234, 0.08)",
+        "$value": "rgba(255, 236, 220, 0.08)",
         "$description": "Decorative separator only, never a control boundary."
       },
       "2": {
-        "$value": "rgba(246, 241, 234, 0.14)",
+        "$value": "rgba(255, 236, 220, 0.14)",
         "$description": "Stronger decorative separator only."
       }
     },
@@ -98,6 +102,84 @@
     "grad-violet": {
       "$value": "#5701ae",
       "$description": "Brand gradient stop 3 of 3."
+    },
+    "echo-bg": {
+      "$value": "#261c3c",
+      "$description": "Echo pill ground."
+    },
+    "warn-bg": {
+      "$value": "#2e2410",
+      "$description": "Caution notice ground."
+    },
+    "danger-bg": {
+      "$value": "#3a1a16",
+      "$description": "Error notice ground."
+    },
+    "avatar-text": {
+      "$value": "#ffffff",
+      "$description": "Initials on fallback avatar discs."
+    },
+    "discord-embed-bg": {
+      "$value": "#2b2d31",
+      "$description": "Discord dark-theme embed surface. Only for checking embed colour contrast; never used on the site."
+    },
+    "scrim": {
+      "sticky": {
+        "$value": "rgba(21, 16, 15, 0.86)",
+        "$description": "Sticky header and toolbars, with a 14 px backdrop blur."
+      },
+      "sheet": {
+        "$value": "rgba(28, 22, 20, 0.94)",
+        "$description": "Mobile action bar and menu sheet, with a 14 px backdrop blur."
+      }
+    },
+    "heat": {
+      "$description": "Now Line hot-zone shading over the surface ground. Decorative; the text list carries the data.",
+      "min": {
+        "$value": "rgba(255, 156, 54, 0)"
+      },
+      "max": {
+        "$value": "rgba(255, 156, 54, 0.42)"
+      }
+    },
+    "avatar": {
+      "$description": "Fallback initials discs when a member has no Discord avatar. Pick by a stable hash of the member id. White initials are at least 5.1:1 on each.",
+      "0": {
+        "$value": "#ab4e00"
+      },
+      "1": {
+        "$value": "#5701ae"
+      },
+      "2": {
+        "$value": "#b9001c"
+      },
+      "3": {
+        "$value": "#430093"
+      },
+      "4": {
+        "$value": "#822800"
+      },
+      "5": {
+        "$value": "#dc0037"
+      },
+      "6": {
+        "$value": "#4d00a1"
+      },
+      "7": {
+        "$value": "#7a2bd1"
+      },
+      "8": {
+        "$value": "#9a3b00"
+      },
+      "9": {
+        "$value": "#3a0086"
+      },
+      "10": {
+        "$value": "#c2185b"
+      },
+      "11": {
+        "$value": "#5e35b1"
+      }
     }
   }
 }

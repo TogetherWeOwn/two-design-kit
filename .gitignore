@@ -1,2 +1,4 @@
 node_modules/
 .DS_Store
+mockups/src/fonts/
+mockups/src/*.html

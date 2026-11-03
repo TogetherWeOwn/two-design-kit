@@ -35,6 +35,38 @@
     "11": {
       "$value": 88,
       "$description": "Section band."
+    },
+    "section": {
+      "$value": "{space.11}",
+      "$description": "Section band padding at 1280."
+    },
+    "section-compact": {
+      "$value": "{space.9}",
+      "$description": "Section band padding at 390."
+    },
+    "inset": {
+      "$description": "Component insets off the 4 px scale on purpose; named so no component uses a raw value.",
+      "tag-y": {
+        "$value": 5
+      },
+      "tag-x": {
+        "$value": 7
+      },
+      "tight": {
+        "$value": 10
+      },
+      "room": {
+        "$value": 14
+      },
+      "compact": {
+        "$value": 18
+      },
+      "card": {
+        "$value": 22
+      },
+      "card-lg": {
+        "$value": 28
+      }
     }
   },
   "radius": {
@@ -97,7 +129,210 @@
     },
     "label": {
       "$value": 12,
-      "$description": "Mono labels, uppercase, 12 px floor."
+      "$description": "Mono uppercase labels. The floor: no text is smaller."
+    },
+    "band": {
+      "$value": "clamp(40px, 5.5vw, 76px)",
+      "$description": "Join band heading only."
+    },
+    "lede": {
+      "$value": 18,
+      "$description": "Page lede at 1280; 16 at 390."
+    },
+    "ui": {
+      "$value": 15,
+      "$description": "Buttons, nav, list secondary text."
+    },
+    "figure-compact": {
+      "$value": 40,
+      "$description": "Three-up facts in a card at 390."
+    },
+    "tile": {
+      "$value": 40,
+      "$description": "Profile stat tiles."
+    }
+  },
+  "tracking": {
+    "$type": "dimension",
+    "$description": "letter-spacing.",
+    "display": {
+      "$value": "-0.04em"
+    },
+    "h2": {
+      "$value": "-0.035em"
+    },
+    "h3": {
+      "$value": "-0.025em"
+    },
+    "figure": {
+      "$value": "-0.05em"
+    },
+    "body": {
+      "$value": "-0.005em"
+    },
+    "label": {
+      "$value": "0.04em",
+      "$description": "Mono uppercase labels."
+    }
+  },
+  "size": {
+    "$type": "dimension",
+    "control": {
+      "sm": {
+        "$value": 36,
+        "$description": "Small pill, chip, segment. House minimum for any control."
+      },
+      "md": {
+        "$value": 44,
+        "$description": "Default pill, text field."
+      },
+      "lg": {
+        "$value": 56,
+        "$description": "Hero and join actions."
+      },
+      "nav": {
+        "$value": 40
+      }
+    },
+    "target-min": {
+      "$value": 24,
+      "$description": "WCAG 2.2 SC 2.5.8 floor; the house minimum (36) sits above it."
+    },
+    "icon": {
+      "sm": {
+        "$value": 16
+      },
+      "md": {
+        "$value": 20
+      },
+      "grid": {
+        "$value": 24,
+        "$description": "Icon drawing grid; stroke 1.75, round caps and joins."
+      }
+    },
+    "avatar": {
+      "xs": {
+        "$value": 24
+      },
+      "sm": {
+        "$value": 28
+      },
+      "md": {
+        "$value": 36
+      },
+      "lg": {
+        "$value": 44
+      },
+      "xl": {
+        "$value": 120,
+        "$description": "Profile at 1280; 72 at 390."
+      }
+    },
+    "row": {
+      "calm": {
+        "$value": 68
+      },
+      "table": {
+        "$value": 60
+      },
+      "dense": {
+        "$value": 56
+      },
+      "admin": {
+        "$value": 40
+      }
+    },
+    "header": {
+      "wide": {
+        "$value": 68
+      },
+      "compact": {
+        "$value": 60
+      }
+    },
+    "focus": {
+      "width": {
+        "$value": 2
+      },
+      "offset": {
+        "$value": 3
+      }
+    },
+    "live-dot": {
+      "$value": 7
+    },
+    "state-glyph": {
+      "$value": 16
+    },
+    "lifeline-marker": {
+      "$value": 28
+    }
+  },
+  "layout": {
+    "$type": "dimension",
+    "container": {
+      "$value": "{grid.wrap}",
+      "$description": "Max content width."
+    },
+    "gutter": {
+      "wide": {
+        "$value": "{grid.gutter}",
+        "$description": "Page margin and gutter above the compact breakpoint."
+      },
+      "compact": {
+        "$value": 20
+      }
+    },
+    "rail": {
+      "min": {
+        "$value": 320
+      },
+      "default": {
+        "$value": 360
+      },
+      "seat": {
+        "$value": 380
+      },
+      "max": {
+        "$value": 420
+      }
+    },
+    "hero-panel": {
+      "$value": 400
+    },
+    "sticky-offset": {
+      "$value": 92,
+      "$description": "Top offset for sticky rails."
+    },
+    "columns": {
+      "$type": "number",
+      "$value": 12
+    },
+    "measure": {
+      "$type": "number",
+      "$description": "Max line length in ch.",
+      "lede": {
+        "$value": 52
+      },
+      "reading": {
+        "$value": 62
+      },
+      "note": {
+        "$value": 36
+      }
+    }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "compact-max": {
+      "$value": 820,
+      "$description": "At or below: one column, compact gutter, menu sheet, action bar."
+    },
+    "review-mobile": {
+      "$value": 390
+    },
+    "review-desktop": {
+      "$value": 1280
     }
   }
 }

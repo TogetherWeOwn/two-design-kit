@@ -1,0 +1,72 @@
+{
+  "discord": {
+    "$description": "Discord bot surfaces. Rust: BRAND_DISCORD_EMBED_* as u32. Same meanings as the site.",
+    "embed": {
+      "$type": "color",
+      "default": {
+        "$value": "{color.ember}",
+        "$description": "Help, announcements, event posts, rank changes. Replaces 0xFF0E52 so pink keeps one meaning (live)."
+      },
+      "live": {
+        "$value": "{color.live}",
+        "$description": "Event is live, room is open."
+      },
+      "echo": {
+        "$value": "{color.echo}",
+        "$description": "Echo frozen."
+      },
+      "ok": {
+        "$value": "{color.ok}",
+        "$description": "Your seat is saved, promoted from reserve, moved rooms."
+      },
+      "warn": {
+        "$value": "{color.warn}",
+        "$description": "Time changed, bot degraded, reserve."
+      },
+      "danger": {
+        "$value": "{color.danger}",
+        "$description": "Event cancelled, an action failed."
+      },
+      "neutral": {
+        "$value": "{color.border}",
+        "$description": "Moderator-only and diagnostic embeds."
+      }
+    },
+    "limit": {
+      "$type": "number",
+      "$description": "Discord platform limits, and two house rules.",
+      "title": {
+        "$value": 256
+      },
+      "description": {
+        "$value": 4096
+      },
+      "field-name": {
+        "$value": 256
+      },
+      "field-value": {
+        "$value": 1024
+      },
+      "fields": {
+        "$value": 25
+      },
+      "footer": {
+        "$value": 2048
+      },
+      "button-label": {
+        "$value": 80
+      },
+      "buttons-per-row": {
+        "$value": 5
+      },
+      "house-title": {
+        "$value": 80,
+        "$description": "House rule: titles under 80 characters."
+      },
+      "house-fields": {
+        "$value": 6,
+        "$description": "House rule: at most 6 fields."
+      }
+    }
+  }
+}
