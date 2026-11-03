@@ -1,0 +1,183 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "$description": "Grounds, lowest to highest. Each step is one level of elevation.",
+      "canvas": {
+        "$value": "{color.ground.0}",
+        "$description": "Page. Inside of text fields. Hollow Lifeline marker."
+      },
+      "surface": {
+        "$value": "{color.ground.1}",
+        "$description": "Cards, panels, boxes, the Now Line frame, row hover."
+      },
+      "raised": {
+        "$value": "{color.ground.2}",
+        "$description": "Live row, active nav pill, pressed chip, odd voice rooms, your ladder row."
+      },
+      "overlay": {
+        "$value": "{color.ground.3}",
+        "$description": "Chips on cards, Now Line event blocks, selected segment, done markers, empty bar tracks."
+      },
+      "sticky": {
+        "$value": "{color.scrim.sticky}",
+        "$description": "Sticky header and toolbars."
+      },
+      "sheet": {
+        "$value": "{color.scrim.sheet}",
+        "$description": "Mobile action bar and menu sheet."
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{color.text.1}",
+        "$description": "Headings, names, values."
+      },
+      "secondary": {
+        "$value": "{color.text.2}",
+        "$description": "Body copy, ledes, row meta."
+      },
+      "tertiary": {
+        "$value": "{color.text.3}",
+        "$description": "Mono labels, times, freshness, the muted half of a two-tone heading."
+      },
+      "on-accent": {
+        "$value": "{color.on-accent}",
+        "$description": "Text and icons on ember."
+      },
+      "accent": {
+        "$value": "{color.ember}",
+        "$description": "The one serif accent phrase per heading, step numbers, rail links. Not body copy."
+      },
+      "link": {
+        "$value": "{color.ember}",
+        "$description": "Links in rails and facts lists. Body links stay text colour, underlined."
+      }
+    },
+    "line": {
+      "hairline": {
+        "$value": "{color.hair.1}",
+        "$description": "Decorative separators between rows and around cards."
+      },
+      "hairline-strong": {
+        "$value": "{color.hair.2}",
+        "$description": "Tag outlines, ghost buttons, chips, fact rules."
+      },
+      "control": {
+        "$value": "{color.border}",
+        "$description": "Any edge a user must see to operate a control. 3:1 or more."
+      }
+    },
+    "accent": {
+      "default": {
+        "$value": "{color.ember}",
+        "$description": "Primary action surface, your-RSVP outline, progress fill. One ember surface per view."
+      },
+      "hover": {
+        "$value": "{color.accent-hi}"
+      }
+    },
+    "focus": {
+      "ring": {
+        "$value": "{color.ember}",
+        "$description": "2 px outline, 3 px offset, on every focusable element."
+      },
+      "ring-on-accent": {
+        "$value": "{color.on-accent}",
+        "$description": "Focus inside the ember join band."
+      }
+    },
+    "state": {
+      "live": {
+        "$value": "{color.live}",
+        "$description": "Live only: an event happening now."
+      },
+      "live-bg": {
+        "$value": "{color.live-bg}"
+      },
+      "echo": {
+        "$value": "{color.echo}",
+        "$description": "Echo only. Never on bg.overlay."
+      },
+      "echo-bg": {
+        "$value": "{color.echo-bg}"
+      },
+      "ok": {
+        "$value": "{color.ok}",
+        "$description": "Saved, confirmed, sign-ups open, online, first time, new."
+      },
+      "ok-bg": {
+        "$value": "{color.ok-bg}"
+      },
+      "warn": {
+        "$value": "{color.warn}",
+        "$description": "Stale data, reserve position, an estimate that matters."
+      },
+      "warn-bg": {
+        "$value": "{color.warn-bg}"
+      },
+      "danger": {
+        "$value": "{color.danger}",
+        "$description": "Errors, a downward ladder move, destructive actions."
+      },
+      "danger-bg": {
+        "$value": "{color.danger-bg}"
+      }
+    },
+    "rank": {
+      "$description": "Rank-glyph arcs, lit from arc 1. A rank name always sits next to the glyph.",
+      "arc-1": {
+        "$value": "{color.ember}"
+      },
+      "arc-2": {
+        "$value": "{color.ember}"
+      },
+      "arc-3": {
+        "$value": "{color.grad-magenta}"
+      },
+      "arc-4": {
+        "$value": "{color.grad-magenta}"
+      },
+      "arc-5": {
+        "$value": "{color.echo}"
+      },
+      "arc-off": {
+        "$value": "{color.ground.4}"
+      }
+    }
+  },
+  "gradient": {
+    "brand": {
+      "$type": "other",
+      "$value": "linear-gradient(180deg, #ff9c36 0%, #ff0e52 52.12%, #5701ae 100%)",
+      "$description": "Logo/Icon 1 gradient. Exactly three places: the logo, the Now marker, the bot mark."
+    }
+  },
+  "elevation": {
+    "$description": "No drop shadows. Elevation is one ground step plus a hairline.",
+    "$type": "color",
+    "0": {
+      "$value": "{color.ground.0}"
+    },
+    "1": {
+      "$value": "{color.ground.1}"
+    },
+    "2": {
+      "$value": "{color.ground.2}"
+    },
+    "3": {
+      "$value": "{color.ground.3}"
+    },
+    "sticky": {
+      "$value": "{color.scrim.sticky}"
+    },
+    "sheet": {
+      "$value": "{color.scrim.sheet}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": 14,
+      "$description": "Backdrop blur on sticky and sheet layers."
+    }
+  }
+}

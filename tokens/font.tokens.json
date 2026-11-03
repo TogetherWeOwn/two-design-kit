@@ -15,5 +15,58 @@
       "$value": ["Fragment Mono", "ui-monospace", "monospace"],
       "$description": "Mono labels and figures."
     }
+  },
+  "font-weight": {
+    "$type": "fontWeight",
+    "regular": {
+      "$value": 400
+    },
+    "medium": {
+      "$value": 500
+    },
+    "display": {
+      "$value": 560,
+      "$description": "Display headings (Mona Sans variable)."
+    },
+    "semibold": {
+      "$value": 600
+    }
+  },
+  "font-width": {
+    "$type": "other",
+    "$description": "Mona Sans wdth axis as CSS font-stretch.",
+    "body": {
+      "$value": "100%"
+    },
+    "button": {
+      "$value": "105%"
+    },
+    "display": {
+      "$value": "108%"
+    },
+    "band": {
+      "$value": "110%"
+    }
+  },
+  "line-height": {
+    "$type": "number",
+    "display": {
+      "$value": 0.98
+    },
+    "heading": {
+      "$value": 1.1
+    },
+    "title": {
+      "$value": 1.3
+    },
+    "body": {
+      "$value": 1.55
+    },
+    "reading": {
+      "$value": 1.6
+    },
+    "label": {
+      "$value": 1.4
+    }
   }
 }

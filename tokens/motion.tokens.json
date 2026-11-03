@@ -21,6 +21,23 @@
         "$value": 500,
         "$description": "Live Sentence fade-up."
       }
+    },
+    "distance": {
+      "enter": {
+        "$type": "dimension",
+        "$value": 8,
+        "$description": "Fade-up travel on the Live Sentence."
+      }
+    },
+    "poll": {
+      "$type": "number",
+      "$description": "Live-data cadence in ms (data, not animation, so not zeroed under reduced motion).",
+      "live": {
+        "$value": 30000
+      },
+      "stale-after": {
+        "$value": 300000
+      }
     }
   }
 }

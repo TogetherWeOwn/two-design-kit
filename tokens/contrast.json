@@ -1,52 +1,696 @@
 {
   "$meta": {
-    "note": "Declared colour-role pairs for the WCAG 2.2 AA contrast gate. Text pairs need 4.5:1, non-text (control boundaries) need 3:1. Exclusions are deliberate design rules, not gaps: the checker prints them as skipped."
+    "note": "Declared colour-role pairs for the WCAG 2.2 AA contrast gate. Text pairs need 4.5:1, non-text (control boundaries) need 3:1. Exclusions are deliberate design rules, not gaps: the checker prints them as skipped. Kind house-avatar is the kit rule for fallback avatar initials (5.1:1). Role pairs (color.bg.*, color.text.*, color.state.*, color.line.*) are the ones components use; primitive pairs are kept from v0.1.0."
   },
   "minimums": {
     "text": 4.5,
-    "non-text": 3
+    "non-text": 3,
+    "house-avatar": 5.1
   },
   "pairs": [
-    { "fg": "color.text.1", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.text.1", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.text.1", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.text.1", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.text.2", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.text.2", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.text.2", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.text.2", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.text.3", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.text.3", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.text.3", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.text.3", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.ember", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.ember", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.ember", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.ember", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.on-accent", "bg": "color.ember", "kind": "text" },
-    { "fg": "color.live", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.live", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.live", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.live", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.echo", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.echo", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.echo", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.ok", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.ok", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.ok", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.ok", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.danger", "bg": "color.ground.0", "kind": "text" },
-    { "fg": "color.danger", "bg": "color.ground.1", "kind": "text" },
-    { "fg": "color.danger", "bg": "color.ground.2", "kind": "text" },
-    { "fg": "color.danger", "bg": "color.ground.3", "kind": "text" },
-    { "fg": "color.border", "bg": "color.ground.0", "kind": "non-text" },
-    { "fg": "color.border", "bg": "color.ground.3", "kind": "non-text" }
+    {
+      "fg": "color.text.1",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.1",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.1",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.1",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.2",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.2",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.2",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.2",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.3",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.3",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.3",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.3",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ember",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ember",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ember",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ember",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.on-accent",
+      "bg": "color.ember",
+      "kind": "text"
+    },
+    {
+      "fg": "color.live",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.live",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.live",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.live",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.echo",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.echo",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.echo",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ok",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ok",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ok",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.ok",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.danger",
+      "bg": "color.ground.0",
+      "kind": "text"
+    },
+    {
+      "fg": "color.danger",
+      "bg": "color.ground.1",
+      "kind": "text"
+    },
+    {
+      "fg": "color.danger",
+      "bg": "color.ground.2",
+      "kind": "text"
+    },
+    {
+      "fg": "color.danger",
+      "bg": "color.ground.3",
+      "kind": "text"
+    },
+    {
+      "fg": "color.border",
+      "bg": "color.ground.0",
+      "kind": "non-text"
+    },
+    {
+      "fg": "color.border",
+      "bg": "color.ground.3",
+      "kind": "non-text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.secondary",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.secondary",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.secondary",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.secondary",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.tertiary",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.tertiary",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.tertiary",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.tertiary",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.accent",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.accent",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.accent",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.accent",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.live",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.live",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.live",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.live",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.ok",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.ok",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.ok",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.ok",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.warn",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.warn",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.warn",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.warn",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.danger",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.danger",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.danger",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.danger",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.echo",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.echo",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.echo",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.on-accent",
+      "bg": "color.accent.default",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.on-accent",
+      "bg": "color.accent.hover",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.text.on-accent",
+      "kind": "text",
+      "use": "text: ghost button inside the join band"
+    },
+    {
+      "fg": "color.state.live",
+      "bg": "color.state.live-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.state.live-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.ok",
+      "bg": "color.state.ok-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.state.ok-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.echo",
+      "bg": "color.state.echo-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.state.echo-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.warn",
+      "bg": "color.state.warn-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.state.warn-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.secondary",
+      "bg": "color.state.warn-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.state.danger",
+      "bg": "color.state.danger-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.primary",
+      "bg": "color.state.danger-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.text.secondary",
+      "bg": "color.state.danger-bg",
+      "kind": "text",
+      "use": "text"
+    },
+    {
+      "fg": "color.line.control",
+      "bg": "color.bg.canvas",
+      "kind": "non-text",
+      "use": "non-text: control boundary"
+    },
+    {
+      "fg": "color.line.control",
+      "bg": "color.bg.surface",
+      "kind": "non-text",
+      "use": "non-text: control boundary"
+    },
+    {
+      "fg": "color.line.control",
+      "bg": "color.bg.raised",
+      "kind": "non-text",
+      "use": "non-text: control boundary"
+    },
+    {
+      "fg": "color.line.control",
+      "bg": "color.bg.overlay",
+      "kind": "non-text",
+      "use": "non-text: control boundary"
+    },
+    {
+      "fg": "color.focus.ring",
+      "bg": "color.bg.canvas",
+      "kind": "non-text",
+      "use": "non-text: focus indicator"
+    },
+    {
+      "fg": "color.focus.ring",
+      "bg": "color.bg.surface",
+      "kind": "non-text",
+      "use": "non-text: focus indicator"
+    },
+    {
+      "fg": "color.focus.ring",
+      "bg": "color.bg.raised",
+      "kind": "non-text",
+      "use": "non-text: focus indicator"
+    },
+    {
+      "fg": "color.focus.ring",
+      "bg": "color.bg.overlay",
+      "kind": "non-text",
+      "use": "non-text: focus indicator"
+    },
+    {
+      "fg": "color.focus.ring-on-accent",
+      "bg": "color.accent.default",
+      "kind": "non-text",
+      "use": "non-text: focus indicator on ember"
+    },
+    {
+      "fg": "color.accent.default",
+      "bg": "color.bg.canvas",
+      "kind": "non-text",
+      "use": "non-text: your-RSVP outline, progress fill"
+    },
+    {
+      "fg": "color.accent.default",
+      "bg": "color.bg.surface",
+      "kind": "non-text",
+      "use": "non-text: your-RSVP outline, progress fill"
+    },
+    {
+      "fg": "color.accent.default",
+      "bg": "color.bg.raised",
+      "kind": "non-text",
+      "use": "non-text: your-RSVP outline, progress fill"
+    },
+    {
+      "fg": "color.accent.default",
+      "bg": "color.bg.overlay",
+      "kind": "non-text",
+      "use": "non-text: your-RSVP outline, progress fill"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.0",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.1",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.2",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.3",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.4",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.5",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.6",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.7",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.8",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.9",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.10",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "color.avatar-text",
+      "bg": "color.avatar.11",
+      "kind": "house-avatar",
+      "use": "text: fallback initials (house 5.1)"
+    },
+    {
+      "fg": "discord.embed.default",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "discord.embed.live",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "discord.embed.echo",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "discord.embed.ok",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "discord.embed.warn",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "discord.embed.danger",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "discord.embed.neutral",
+      "bg": "color.discord-embed-bg",
+      "kind": "non-text",
+      "use": "non-text: embed colour bar"
+    }
   ],
   "exclusions": [
     {
       "fg": "color.echo",
       "bg": "color.ground.3",
       "reason": "Echo rule: violet text is never used on ground 3; Echo tags sit on grounds 0-2 only."
+    },
+    {
+      "fg": "color.state.echo",
+      "bg": "color.bg.overlay",
+      "reason": "Under 4.5:1. Echo tags never sit on overlay."
+    },
+    {
+      "fg": "color.grad-magenta",
+      "bg": "color.bg.canvas",
+      "reason": "Graphic-only stop; not a text colour."
+    },
+    {
+      "fg": "color.grad-violet",
+      "bg": "color.bg.canvas",
+      "reason": "Graphic-only stop; not a text colour."
     }
   ]
 }

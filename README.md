@@ -12,7 +12,25 @@ emits them for every consumer:
 | Brand colours as `u32` for Discord embeds | `dist/rust/brand_tokens.rs` | two-bot-next |
 
 Current theme: **Ember Hours** (seeded in v0.1.0; the UX Designer owns token
-content after that). Idea-bank concepts live in `docs/idea-bank.md`.
+content after that). 
+
+## The design kit
+
+Building a page, component or bot surface? Start with [AGENTS.md](AGENTS.md).
+
+| Need | Read |
+|---|---|
+| A colour, size, font, space or motion value, and every contrast pair | [docs/tokens.md](docs/tokens.md) |
+| A component, its states, and its accessible name and role | [docs/components.md](docs/components.md) |
+| A page layout at 390 and 1280 | [docs/templates.md](docs/templates.md) |
+| Words | [docs/voice.md](docs/voice.md) |
+| WCAG 2.2 AA rules and the checks a PR runs | [docs/accessibility.md](docs/accessibility.md) |
+| Discord embeds, buttons and the bot-log line format | [docs/discord.md](docs/discord.md) |
+| Ideas that are not in the build | [docs/idea-bank.md](docs/idea-bank.md) |
+| What it should look like | [`mockups/png/`](mockups/png) (rendered from `dist/css/tokens.css`) |
+
+New components use the role tokens (`--two-color-bg-*`, `--two-color-text-*`,
+`--two-color-state-*`); the `role.*` aliases below stay for existing stylesheet hooks.
 
 ## Pinning and updating (vendored `dist/`)
 
