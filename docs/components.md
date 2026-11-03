@@ -613,7 +613,7 @@ H2 at `font-size.h3` · 3 items with a `state.ok` check icon (decorative) and a 
 
 ### H4. Join card
 
-Sticky rail card (`bg.surface`, `hairline-strong`, `radius.l`, 28 px; static at 390 where it sits right after the lede). H2 "Join with one sign-in" · three live count tiles (`bg.raised`, `radius.m`: "14 in voice now", "9 events this week", "6 joined this week") · primary `lg` full-width "Join with Discord" (Discord mark) · "Already in our server? The same button signs you in." · hairline · two privacy lines with lock icons ("We never post as you or read your messages." · "Leave any time. Delete your data from your profile, in one step.").
+Sticky rail card (`bg.surface`, `hairline-strong`, `radius.l`, 28 px; static at 390 where it sits right after the lede). H2 "Join with one sign-in" · two count tiles (`bg.raised`, `radius.m`: "9 events this week", "6 joined this week") · mono "as of" line (`text.tertiary`: "As of Tue 3 Nov, 18:40 UTC") · primary `lg` full-width "Join with Discord" (Discord mark) · "Already in our server? The same button signs you in." · hairline · two privacy lines with lock icons ("We never post as you or read your messages." · "Leave any time. Delete your data from your profile, in one step.").
 
 | State | Card content |
 |---|---|
@@ -622,7 +622,10 @@ Sticky rail card (`bg.surface`, `hairline-strong`, `radius.l`, 28 px; static at 
 | Discord denied or cancelled | heading "No problem. Nothing was shared." · primary "Try again" |
 | bot couldn't add you | warn notice "The bot couldn't add you just now." · primary "Open our Discord invite" · "The bot will give you your rank when it's back." |
 | already a member | straight sign-in; returns to the page they came from |
-| live counts stale | tiles drop to `text.tertiary`; freshness line "Last seen 18:40" |
+| a count below 3 | that tile is dropped and the other spans the row; both below 3: no tiles and no "as of" line |
+| counts unavailable when the page is rendered | no tiles and no "as of" line; never zeros or placeholders |
+
+**Cached page rule.** The join page is a static anonymous page (B1): one cached copy serves every visitor, so H4 carries no live state. No "in voice now" tile: voice presence changes by the minute, and a cached copy would show a stale number with nothing to say it is old. Live voice belongs on pages rendered per request (D1, D2). The tiles hold only counts that move slowly (this week's events, this week's joins). They are read when the cached copy is rendered, and the "as of" line names that moment. It is in UTC because a cached page can't know the viewer's zone, and it has a date because the copy can outlive the day. Don't fetch counts client-side to refresh them: that adds a script and a layout shift to the card that holds the page's one primary action, for a number that changes a few times a week. The IB-04 floor applies (numbers below 3 are never shown as a count, as in D1).
 
 ### H5. Join band
 
