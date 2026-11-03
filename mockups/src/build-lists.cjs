@@ -273,6 +273,7 @@ const joinCss = `
 .card .fine{font-size:var(--two-font-size-small);color:var(--two-color-text-secondary);margin-top:var(--two-space-4)}
 .card .live{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--two-space-2);margin-top:var(--two-space-inset-card)}
 .card .live div{background:var(--two-color-bg-raised);border-radius:var(--two-radius-m);padding:var(--two-space-inset-room)}
+.card .live div:only-child{grid-column:1/-1}
 .card .live b{display:block;font:var(--two-font-weight-medium) 28px/1 var(--two-font-display);font-stretch:var(--two-font-width-display);letter-spacing:-.03em}
 .card .live span{font-size:13px;color:var(--two-color-text-secondary)}
 .card .asof{margin-top:var(--two-space-2)}
