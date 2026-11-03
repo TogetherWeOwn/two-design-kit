@@ -1,0 +1,52 @@
+{
+  "$meta": {
+    "note": "Declared colour-role pairs for the WCAG 2.2 AA contrast gate. Text pairs need 4.5:1, non-text (control boundaries) need 3:1. Exclusions are deliberate design rules, not gaps: the checker prints them as skipped."
+  },
+  "minimums": {
+    "text": 4.5,
+    "non-text": 3
+  },
+  "pairs": [
+    { "fg": "color.text.1", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.text.1", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.text.1", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.text.1", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.text.2", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.text.2", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.text.2", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.text.2", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.text.3", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.text.3", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.text.3", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.text.3", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.ember", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.ember", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.ember", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.ember", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.on-accent", "bg": "color.ember", "kind": "text" },
+    { "fg": "color.live", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.live", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.live", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.live", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.echo", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.echo", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.echo", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.ok", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.ok", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.ok", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.ok", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.danger", "bg": "color.ground.0", "kind": "text" },
+    { "fg": "color.danger", "bg": "color.ground.1", "kind": "text" },
+    { "fg": "color.danger", "bg": "color.ground.2", "kind": "text" },
+    { "fg": "color.danger", "bg": "color.ground.3", "kind": "text" },
+    { "fg": "color.border", "bg": "color.ground.0", "kind": "non-text" },
+    { "fg": "color.border", "bg": "color.ground.3", "kind": "non-text" }
+  ],
+  "exclusions": [
+    {
+      "fg": "color.echo",
+      "bg": "color.ground.3",
+      "reason": "Echo rule: violet text is never used on ground 3; Echo tags sit on grounds 0-2 only."
+    }
+  ]
+}

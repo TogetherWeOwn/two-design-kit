@@ -1,0 +1,103 @@
+{
+  "color": {
+    "$type": "color",
+    "ground": {
+      "0": {
+        "$value": "#15100f",
+        "$description": "Page ground: ember-tinted night."
+      },
+      "1": {
+        "$value": "#1c1614",
+        "$description": "Card surface: one luminance step up, no shadows."
+      },
+      "2": {
+        "$value": "#241c19",
+        "$description": "Raised row."
+      },
+      "3": {
+        "$value": "#2e2420",
+        "$description": "Chip and event block. Never under violet Echo text."
+      }
+    },
+    "hair": {
+      "1": {
+        "$value": "rgba(246, 241, 234, 0.08)",
+        "$description": "Decorative separator only, never a control boundary."
+      },
+      "2": {
+        "$value": "rgba(246, 241, 234, 0.14)",
+        "$description": "Stronger decorative separator only."
+      }
+    },
+    "text": {
+      "1": {
+        "$value": "#f6f1ea",
+        "$description": "Warm cream body text."
+      },
+      "2": {
+        "$value": "#d2c7bd",
+        "$description": "Secondary text."
+      },
+      "3": {
+        "$value": "#a89a8e",
+        "$description": "Meta and labels."
+      }
+    },
+    "ember": {
+      "$value": "#ff9c36",
+      "$description": "The single accent, rationed. Top stop of the brand ramp."
+    },
+    "on-accent": {
+      "$value": "#1d0b00",
+      "$description": "Dark text on ember fills."
+    },
+    "accent-hi": {
+      "$value": "#ffaa47",
+      "$description": "Ember hover state."
+    },
+    "border": {
+      "$value": "#85766b",
+      "$description": "Control boundary. Meets 3:1 for inputs and toggles."
+    },
+    "live": {
+      "$value": "#ff5c7e",
+      "$description": "Live state only."
+    },
+    "echo": {
+      "$value": "#9d6aff",
+      "$description": "Echo state only. Never on ground 3."
+    },
+    "ok": {
+      "$value": "#5fd39a",
+      "$description": "Saved or confirmed."
+    },
+    "danger": {
+      "$value": "#ff7a6b",
+      "$description": "Error."
+    },
+    "warn": {
+      "$value": "#f2c14e",
+      "$description": "Caution."
+    },
+    "live-bg": {
+      "$value": "#3a1a22",
+      "$description": "Live row ground."
+    },
+    "ok-bg": {
+      "$value": "#16291f",
+      "$description": "Saved pill ground."
+    },
+    "grad-ember": {
+      "$value": "#ff9c36",
+      "$description": "Brand gradient stop 1 of 3: logo, Now marker and bot mark only."
+    },
+    "grad-magenta": {
+      "$value": "#ff0e52",
+      "$description": "Brand gradient stop 2 of 3."
+    },
+    "grad-violet": {
+      "$value": "#5701ae",
+      "$description": "Brand gradient stop 3 of 3."
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Default rules. This repo holds no secrets: tokens here are design tokens,
+# not credentials. Extend with an allowlist only for values public by design.
+[extend]
+useDefault = true

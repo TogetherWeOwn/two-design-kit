@@ -1,0 +1,19 @@
+{
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": ["Mona Sans", "system-ui", "sans-serif"],
+      "$description": "Display and UI. Variable width 75-125, weight 200-900."
+    },
+    "accent": {
+      "$type": "fontFamily",
+      "$value": ["Instrument Serif", "Georgia", "serif"],
+      "$description": "Italic accents only."
+    },
+    "data": {
+      "$type": "fontFamily",
+      "$value": ["Fragment Mono", "ui-monospace", "monospace"],
+      "$description": "Mono labels and figures."
+    }
+  }
+}

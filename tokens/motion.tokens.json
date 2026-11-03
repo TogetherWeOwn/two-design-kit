@@ -1,0 +1,26 @@
+{
+  "motion": {
+    "ease": {
+      "$type": "cubicBezier",
+      "$value": [0.22, 1, 0.36, 1],
+      "$description": "The single house easing."
+    },
+    "duration": {
+      "$type": "duration",
+      "fast": {
+        "$value": 120
+      },
+      "base": {
+        "$value": 160,
+        "$description": "Colour transitions."
+      },
+      "slow": {
+        "$value": 240
+      },
+      "enter": {
+        "$value": 500,
+        "$description": "Live Sentence fade-up."
+      }
+    }
+  }
+}

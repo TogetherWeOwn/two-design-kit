@@ -1,0 +1,82 @@
+/* DO NOT EDIT: generated from tokens/*.tokens.json by `npm run build`. */
+/* Ember Hours theme. Dark only for v1: color-scheme stays dark, light roles can be added later. */
+:root {
+  color-scheme: dark;
+  --two-page: #15100f;
+  --two-surface: #1c1614;
+  --two-raised: #241c19;
+  --two-text: #f6f1ea;
+  --two-muted: #d2c7bd;
+  --two-accent: #ff9c36;
+  --two-accent-ink: #1d0b00;
+  --two-control-border: #85766b;
+  --two-color-ground-0: #15100f;
+  --two-color-ground-1: #1c1614;
+  --two-color-ground-2: #241c19;
+  --two-color-ground-3: #2e2420;
+  --two-color-hair-1: rgba(246, 241, 234, 0.08);
+  --two-color-hair-2: rgba(246, 241, 234, 0.14);
+  --two-color-text-1: #f6f1ea;
+  --two-color-text-2: #d2c7bd;
+  --two-color-text-3: #a89a8e;
+  --two-color-ember: #ff9c36;
+  --two-color-on-accent: #1d0b00;
+  --two-color-accent-hi: #ffaa47;
+  --two-color-border: #85766b;
+  --two-color-live: #ff5c7e;
+  --two-color-echo: #9d6aff;
+  --two-color-ok: #5fd39a;
+  --two-color-danger: #ff7a6b;
+  --two-color-warn: #f2c14e;
+  --two-color-live-bg: #3a1a22;
+  --two-color-ok-bg: #16291f;
+  --two-color-grad-ember: #ff9c36;
+  --two-color-grad-magenta: #ff0e52;
+  --two-color-grad-violet: #5701ae;
+  --two-space-1: 4px;
+  --two-space-2: 8px;
+  --two-space-3: 12px;
+  --two-space-4: 16px;
+  --two-space-5: 20px;
+  --two-space-6: 24px;
+  --two-space-7: 32px;
+  --two-space-8: 40px;
+  --two-space-9: 56px;
+  --two-space-10: 72px;
+  --two-space-11: 88px;
+  --two-radius-s: 6px;
+  --two-radius-m: 10px;
+  --two-radius-l: 16px;
+  --two-radius-pill: 999px;
+  --two-grid-wrap: 1240px;
+  --two-grid-gutter: 40px;
+  --two-font-size-hero: clamp(40px, 6.1vw, 82px);
+  --two-font-size-h1: clamp(36px, 4.6vw, 60px);
+  --two-font-size-h2: clamp(30px, 3.6vw, 46px);
+  --two-font-size-h3: clamp(22px, 2vw, 26px);
+  --two-font-size-figure: clamp(56px, 7vw, 96px);
+  --two-font-size-title: 20px;
+  --two-font-size-body-reading: 17px;
+  --two-font-size-body: 16px;
+  --two-font-size-small: 14px;
+  --two-font-size-label: 12px;
+  --two-font-display: Mona Sans, system-ui, sans-serif;
+  --two-font-accent: Instrument Serif, Georgia, serif;
+  --two-font-data: Fragment Mono, ui-monospace, monospace;
+  --two-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --two-motion-duration-fast: 120ms;
+  --two-motion-duration-base: 160ms;
+  --two-motion-duration-slow: 240ms;
+  --two-motion-duration-enter: 500ms;
+}
+
+/* Reduced-motion layer: under reduce, nothing moves. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --two-motion-ease: linear;
+    --two-motion-duration-fast: 0ms;
+    --two-motion-duration-base: 0ms;
+    --two-motion-duration-slow: 0ms;
+    --two-motion-duration-enter: 0ms;
+  }
+}

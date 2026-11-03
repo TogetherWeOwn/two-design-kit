@@ -1,0 +1,44 @@
+{
+  "role": {
+    "page": {
+      "$type": "color",
+      "$value": "{color.ground.0}",
+      "$description": "Page background."
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "{color.ground.1}",
+      "$description": "Card background."
+    },
+    "raised": {
+      "$type": "color",
+      "$value": "{color.ground.2}",
+      "$description": "Raised row background."
+    },
+    "text": {
+      "$type": "color",
+      "$value": "{color.text.1}",
+      "$description": "Body text."
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "{color.text.2}",
+      "$description": "Secondary text."
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "{color.ember}",
+      "$description": "Interactive accent."
+    },
+    "accent-ink": {
+      "$type": "color",
+      "$value": "{color.on-accent}",
+      "$description": "Text on accent fills."
+    },
+    "control-border": {
+      "$type": "color",
+      "$value": "{color.border}",
+      "$description": "Input and toggle boundary."
+    }
+  }
+}

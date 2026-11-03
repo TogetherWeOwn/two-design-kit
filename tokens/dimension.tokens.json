@@ -1,0 +1,103 @@
+{
+  "space": {
+    "$type": "dimension",
+    "1": {
+      "$value": 4,
+      "$description": "Base unit."
+    },
+    "2": {
+      "$value": 8
+    },
+    "3": {
+      "$value": 12
+    },
+    "4": {
+      "$value": 16
+    },
+    "5": {
+      "$value": 20
+    },
+    "6": {
+      "$value": 24
+    },
+    "7": {
+      "$value": 32
+    },
+    "8": {
+      "$value": 40
+    },
+    "9": {
+      "$value": 56
+    },
+    "10": {
+      "$value": 72
+    },
+    "11": {
+      "$value": 88,
+      "$description": "Section band."
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "s": {
+      "$value": 6
+    },
+    "m": {
+      "$value": 10
+    },
+    "l": {
+      "$value": 16
+    },
+    "pill": {
+      "$value": 999
+    }
+  },
+  "grid": {
+    "wrap": {
+      "$type": "dimension",
+      "$value": 1240,
+      "$description": "Content width, 12 columns."
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": 40,
+      "$description": "Gutter, 20 px at 820 px and below (handled in CSS)."
+    }
+  },
+  "font-size": {
+    "$type": "dimension",
+    "hero": {
+      "$value": "clamp(40px, 6.1vw, 82px)",
+      "$description": "Display, width axis 108%, weight 560, -0.04em tracking, 0.98 line height."
+    },
+    "h1": {
+      "$value": "clamp(36px, 4.6vw, 60px)"
+    },
+    "h2": {
+      "$value": "clamp(30px, 3.6vw, 46px)"
+    },
+    "h3": {
+      "$value": "clamp(22px, 2vw, 26px)"
+    },
+    "figure": {
+      "$value": "clamp(56px, 7vw, 96px)"
+    },
+    "title": {
+      "$value": 20
+    },
+    "body-reading": {
+      "$value": 17,
+      "$description": "Reading copy: about, rules."
+    },
+    "body": {
+      "$value": 16
+    },
+    "small": {
+      "$value": 14
+    },
+    "label": {
+      "$value": 12,
+      "$description": "Mono labels, uppercase, 12 px floor."
+    }
+  }
+}
