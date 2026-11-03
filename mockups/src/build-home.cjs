@@ -186,7 +186,7 @@ const guest = page(
         <a class="pill lg" href="#">${discord}Join with Discord</a>
         <p>One tap. The bot adds you to the server, gives you your first rank and brings you back here.</p>
       </div>
-      <div class="trust"><span><b>814</b>members</span><span><b>212</b>came to an event this month</span><span><b>2023</b>founded</span></div>
+      <div class="trust"><span><b>814</b>members</span><span><b>212</b>came to an event this month</span><span><b>1998</b>founded</span></div>
     </div>
     <aside class="panel" aria-labelledby="voice-h">
       <div class="panel-h"><h2 id="voice-h">In voice now</h2><span class="mono">3 rooms · 14 people</span></div>

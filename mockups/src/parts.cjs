@@ -45,6 +45,8 @@ const NAV = [
   ["members", "Members"],
   ["about", "About"],
 ];
+// who: "member", "guest" (live presence), or "static" (B1 static anonymous: a cached
+// public page, so no presence cluster and the guest actions for every visitor).
 const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
   <a href="#" aria-label="Together We Own, home"><img class="lockup" src="brand/lockup-horizontal.svg" alt=""></a>
@@ -52,16 +54,16 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     ([k, l]) => `<li><a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a></li>`,
   ).join("")}</ul></nav>
   <div class="h-right">
-    <span class="status mono"><span class="dot ok" aria-hidden="true"></span>132 online</span>
+    ${who === "static" ? "" : '<span class="status mono"><span class="dot ok" aria-hidden="true"></span>132 online</span>'}
     ${
-      who === "guest"
+      who !== "member"
         ? `<a class="pill ghost sm hide-m" href="#">Sign in</a><a class="pill sm" href="#">Join</a>`
         : `<a class="pill ghost sm hide-m" href="#" aria-label="Notifications">${I.bell}</a><a class="me" href="#"><span class="av m" style="--c:var(--two-color-avatar-7)">MO</span><span class="hide-m">Mora</span></a>`
     }
     <button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>
   </div>
 </div></header>
-<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who === "guest" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
+<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who !== "member" ? '<a href="#">Sign in</a><a href="#">Join</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
 <script>
 (() => {
   const btn = document.querySelector(".pill.menu");
@@ -92,7 +94,7 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
 })();
 </script>`;
 
-const footer = `<footer class="foot"><div class="wrap"><span>Together We Own · a Discord gaming community since 2023</span><nav aria-label="Footer"><a href="#">Rules</a><a href="#">FAQ</a><a href="#">Privacy</a><a href="#">Status</a></nav></div></footer>`;
+const footer = `<footer class="foot"><div class="wrap"><span>Together We Own · adult gaming community · founded&nbsp;1998</span><nav aria-label="Footer"><a href="#">About</a><a href="#">FAQ</a><a href="#">House rules</a><a href="#">Privacy</a></nav></div></footer>`;
 
 const page = (title, body, extraCss = "", bodyClass = "") => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
