@@ -1,8 +1,10 @@
-const { chromium } = require(process.env.REPO + "/node_modules/playwright");
-const axeSrc = require("fs").readFileSync(
-  process.env.REPO + "/node_modules/axe-core/axe.min.js",
-  "utf8",
-);
+// Usage: node axe.cjs <page>.html ... (exits 1 on any violation).
+// Needs playwright and axe-core: `npm i --no-save playwright axe-core` in the repo root,
+// or REPO=<a checkout that has them>. CHROMIUM=<path> picks a browser binary.
+const REPO = process.env.REPO || require("path").resolve(__dirname, "../..");
+const { chromium } = require(REPO + "/node_modules/playwright");
+const axeSrc = require("fs").readFileSync(REPO + "/node_modules/axe-core/axe.min.js", "utf8");
+let failed = 0;
 void (async () => {
   const b = await chromium.launch({
     executablePath: process.env.CHROMIUM || undefined,
@@ -14,8 +16,19 @@ void (async () => {
       await p.evaluate(() => document.fonts.ready);
       await p.addScriptTag({ content: axeSrc });
       const r = await p.evaluate(() =>
-        axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21aa", "best-practice"] }),
+        axe.run(document, {
+          runOnly: [
+            "wcag2a",
+            "wcag2aa",
+            "wcag21a",
+            "wcag21aa",
+            "wcag22a",
+            "wcag22aa",
+            "best-practice",
+          ],
+        }),
       );
+      failed += r.violations.length;
       console.log(
         f,
         w,
@@ -33,4 +46,5 @@ void (async () => {
       await p.close();
     }
   await b.close();
+  process.exit(failed ? 1 : 0);
 })();

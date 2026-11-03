@@ -37,7 +37,7 @@ All seven colours are at least 3:1 against Discord's dark embed surface (`#2B2D3
 
 ### 2.1 Times
 
-Always Discord timestamps, so each reader sees their own zone, matching the site's "your time first" rule: `<t:UNIX:F>` for the full time ("Friday 7 November 2026 21:00"), `<t:UNIX:R>` for relative ("in 2 hours"), `<t:UNIX:t>` for a short time in log lines. Add the UTC anchor in text on event posts: "21:00 UTC".
+Always Discord timestamps, so each reader sees their own zone, matching the site's "your time first" rule: `<t:UNIX:F>` for the full time ("Friday 6 November 2026 21:00"), `<t:UNIX:R>` for relative ("in 2 hours"), `<t:UNIX:t>` for a short time in log lines. Add the UTC anchor in text on event posts: "21:00 UTC".
 
 ### 2.2 Field patterns
 
@@ -48,7 +48,7 @@ Always Discord timestamps, so each reader sees their own zone, matching the site
 | Host | display name (mention only in the event's own thread) | yes | event |
 | Seats | "17 of 24 in · 7 left · 3 on reserve" | yes | event, seat |
 | Game | "Deep Rock Galactic" | yes | event |
-| Repeats | "Fridays, until 19 Dec" | yes | recurring event |
+| Repeats | "Fridays, until 18 Dec" | yes | recurring event |
 | Came | "18 of 21" | yes | Echo |
 | Stayed | "16 to the end" | yes | Echo |
 | First-timers | "3" | yes | Echo |

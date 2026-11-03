@@ -20,7 +20,7 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 
 | 1280 | 390 |
 |---|---|
-| 1. **P1 hero:** freshness line · Live Sentence (guest grammar) · primary `lg` "Join with Discord" + "One tap. The bot adds you to the server, gives you your first rank and brings you back here." · trust row (mono numbers: members, came this month, founded) **|** voice panel, anonymous (D2) | 1. hero text · full-width Join · trust row |
+| 1. **P1 hero:** freshness line · Live Sentence (guest grammar) · primary `lg` "Join with Discord" + "One tap. The bot adds you to the server, gives you your first rank and brings you back here." · trust row (mono numbers: members, came this month, founded) **\|** voice panel, anonymous (D2) | 1. hero text · full-width Join · trust row |
 | 2. **What happens here:** band header + 4 highlights (H6) | 2. voice panel |
 | 3. **This week, when we play:** Now Line (D4), guest | 3. What happens here (one column) |
 | 4. **What's on. *Come along.*:** event rows (C1), guest actions | 4. Now Line (tonight + weekend) |
@@ -34,7 +34,7 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 
 | 1280 | 390 |
 |---|---|
-| 1. **P1 hero:** Live Sentence (member grammar) · primary `lg` "Pull me into Squad 1" + explanation **|** voice panel with Pull me in on each room | 1. hero text · full-width Pull me in |
+| 1. **P1 hero:** Live Sentence (member grammar) · primary `lg` "Pull me into Squad 1" + explanation **\|** voice panel with Pull me in on each room | 1. hero text · full-width Pull me in |
 | 2. **Your week, *and when we play.*:** Now Line with your RSVPs outlined | 2. voice panel |
 | 3. **What's on. *Say you're in.*:** day-grouped event rows, member actions | 3. Now Line (tonight + weekend) |
 | 4. **Two boxes:** the bot's log (names) + Where you stand (E6) | 4. What's on |

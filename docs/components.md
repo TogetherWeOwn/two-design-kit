@@ -241,7 +241,7 @@ Grid of two equal columns at 1280: H2 (`font-size.h2`, two-tone, balanced) left,
 **Job:** let a member scan events and act without opening the page.
 
 **Anatomy (1280):** a 5-column grid, 16 px gap, `size.row.calm` min height, 10 × 16 px padding, `radius.m`:
-1. **time** (118 px): first line `text.primary` ("21:00", "Live now", "Sun 2 Nov"), second line relative in mono `text.tertiary` ("in 2 h 10 m", "since 18:30")
+1. **time** (118 px): first line `text.primary` ("21:00", "Live now", "Sun 1 Nov"), second line relative in mono `text.tertiary` ("in 2 h 10 m", "since 18:30")
 2. **state glyph** (18 px)
 3. **meta:** title (17 px semibold, wraps, never truncates) + inline tags · secondary line 14 px `text.secondary` (host, room, seats left with the capacity mark)
 4. **who** (170 px): avatar stack (24 px) + count ("17 going", "4 playing", "18 were there")
@@ -270,7 +270,7 @@ Grid of two equal columns at 1280: H2 (`font-size.h2`, two-tone, balanced) left,
 
 ### C2. Day group
 
-Mono uppercase group heading (the label style (`font.data`, `font-size.label`, uppercase, `tracking.label`), `text.tertiary`, 16 px left padding to align with row content): "Today · Fri 7 Nov", "Sat 8 Nov", "Next week", "Just happened". 28 px between groups. A real heading element (`h2` on the events page).
+Mono uppercase group heading (the label style (`font.data`, `font-size.label`, uppercase, `tracking.label`), `text.tertiary`, 16 px left padding to align with row content): "Today · Fri 6 Nov", "Sat 7 Nov", "Next week", "Just happened". 28 px between groups. A real heading element (`h2` on the events page).
 
 ### C3. Empty state
 
@@ -293,18 +293,18 @@ Mono uppercase group heading (the label style (`font.data`, `font-size.label`, u
 
 **Job:** say when an event starts, in the viewer's time, with the UTC anchor.
 
-**Anatomy:** top hairline, 28 px padding top. Big numeral ("21:00", `font-size.figure`, tabular) · beside it, two lines: "Friday 7 November, your time" (17 px `text.primary`) and the mono anchor "Europe/London · 21:00 UTC · in 2 h 10 m" (13 px `text.tertiary`). Wraps under the numeral at 390.
+**Anatomy:** top hairline, 28 px padding top. Big numeral ("21:00", `font-size.figure`, tabular) · beside it, two lines: "Friday 6 November, your time" (17 px `text.primary`) and the mono anchor "Europe/London · 21:00 UTC · in 2 h 10 m" (13 px `text.tertiary`). Wraps under the numeral at 390.
 
 | State | Change |
 |---|---|
 | upcoming | as above; countdown in the anchor line |
 | starting (< 15 min) | countdown reads "starts in 12 m" |
 | live | numeral becomes "Live", anchor "since 21:00 · 16 in the room" (the tag above switches to `live`) |
-| ended | numeral shows the date ("31 Oct"), anchor "ended 23:14 · Echo frozen" |
+| ended | numeral shows the date ("30 Oct"), anchor "ended 23:14 · Echo frozen" |
 | cancelled | numeral struck through, plus "Cancelled" in words |
 | no zone known (guest) | "your time (from your browser)" |
 
-**A11y:** a `<time datetime="2026-11-07T21:00Z">` wraps the numeral. The countdown updates at most once a minute by text swap and is **not** a live region.
+**A11y:** a `<time datetime="2026-11-06T21:00Z">` wraps the numeral. The countdown updates at most once a minute by text swap and is **not** a live region.
 
 ### C5. Seat card
 
@@ -322,7 +322,7 @@ Mono uppercase group heading (the label style (`font.data`, `font-size.label`, u
 | promoted | "A seat opened. You're in. Seat 19." | `ok` "Saved" | as saved | "The bot pinged you in Discord at 20:12." |
 | room open | "You're in. Seat 7." | `live` "Room open" | primary "Pull me in" · ghost "Add to calendar" | "The bot moves you if you're in any of our voice rooms." |
 | live | "16 in the room" | `live` "Live" | primary "Pull me in" (or saved "You're in Raid 1" once moved) | — |
-| ended | The card is replaced by the Echo key facts (C10) and "Next one: Fri 14 Nov" with "I'm in". | | | |
+| ended | The card is replaced by the Echo key facts (C10) and "Next one: Fri 13 Nov" with "I'm in". | | | |
 | cancelled | "Cancelled by Vexa" | neutral "Cancelled" | ghost "See the next date" | the reason in the host's words, and "Your seat is released. Nothing else to do." |
 | error (action failed) | unchanged | unchanged | the button returns to its previous label | danger notice: "That didn't save. Try again, or say you're in from Discord." |
 | loading | unchanged | unchanged | pressed button reads "Saving…" (`aria-busy`) | — |
@@ -382,7 +382,7 @@ A chip row (`role="group" aria-label="Past dates"`) of the last 3 dates plus "Al
 
 | State | Looks |
 |---|---|
-| frozen | as above, with a mono label "Echo · Fri 31 Oct · frozen 23:14" |
+| frozen | as above, with a mono label "Echo · Fri 30 Oct · frozen 23:14" |
 | counting (event live) | numbers replaced by "Counting. The Echo freezes when the event ends." |
 | no Echo (before the bot counted) | "No Echo for this one: it ran before the bot counted attendance. 21 signed up." |
 | opted-out members | counted in totals, never named |
@@ -495,7 +495,7 @@ Three `bg.surface` cards, `radius.l`, 20 px padding, 12 px gap: big position num
 
 ### E3. Ladder table
 
-**Columns (1280):** # (56) · Move (72) · Member (avatar 36 + name + rank label) · Came (72, right) · Run (80, right, "4 wk") · Last seen at (190, "Raid Night, 31 Oct"). Row height `size.row.table`, hairline between rows, 15 px tabular `text.secondary`; position 18 px `text.primary`.
+**Columns (1280):** # (56) · Move (72) · Member (avatar 36 + name + rank label) · Came (72, right) · Run (80, right, "4 wk") · Last seen at (190, "Raid Night, 30 Oct"). Row height `size.row.table`, hairline between rows, 15 px tabular `text.secondary`; position 18 px `text.primary`.
 
 **Your row:** `bg.raised` across, plus a 2 px inset ember edge on the left, and "(you)" after the name in text.
 
@@ -558,7 +558,7 @@ Grid: avatar `xl` (120; 72 at 390) · name (`font-size.hero`, 108%) · mono line
 
 ### G2. Rank line
 
-Between hairlines, 22 px padding: 44 px rank glyph · rank name (26 px display) + how it was earned ("Two years of showing up · promoted by the bot on 2 Oct") · rank ladder strip (A7) on the right (hidden at 390).
+Between hairlines, 22 px padding: 44 px rank glyph · rank name (26 px display) + how it was earned ("Two years of showing up · promoted by the bot on 1 Oct") · rank ladder strip (A7) on the right (hidden at 390).
 
 ### G3. Echo trail
 
@@ -580,7 +580,7 @@ Three tiles in the rail (`bg.surface`, `radius.m`, 16 px): numeral (`font-size.t
 
 ### G6. You and <name>
 
-Rail card, only when a signed-in member views someone else: "You and Lumen" · numeral (44 px) "7" · "events together, most recently Raid Night on 31 Oct" · shared game chips. Hidden when either side opted out of the ladder.
+Rail card, only when a signed-in member views someone else: "You and Lumen" · numeral (44 px) "7" · "events together, most recently Raid Night on 30 Oct" · shared game chips. Hidden when either side opted out of the ladder.
 
 ### G7. Going next
 

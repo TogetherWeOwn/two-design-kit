@@ -56,11 +56,39 @@ const header = (who, cur) => `<a class="skip pill sm" href="#main">Skip to conte
     ${
       who === "guest"
         ? `<a class="pill ghost sm hide-m" href="#">Sign in</a><a class="pill sm" href="#">Join</a>`
-        : `<a class="pill ghost sm hide-m" href="#" aria-label="Notifications">${I.bell}</a><a class="me" href="#"><span class="av m" style="--c:#7A2BD1">MO</span><span class="hide-m">Mora</span></a>`
+        : `<a class="pill ghost sm hide-m" href="#" aria-label="Notifications">${I.bell}</a><a class="me" href="#"><span class="av m" style="--c:var(--two-color-avatar-7)">MO</span><span class="hide-m">Mora</span></a>`
     }
-    <button class="pill ghost sm menu" aria-expanded="false" aria-label="Menu">${I.menu}</button>
+    <button class="pill ghost sm menu" aria-expanded="false" aria-controls="menu-sheet" aria-label="Menu">${I.menu}</button>
   </div>
-</div></header>`;
+</div></header>
+<nav class="sheet" id="menu-sheet" aria-label="Menu" hidden>${NAV.map(([k, l]) => `<a href="#"${k === cur ? ' aria-current="page"' : ""}>${l}</a>`).join("")}${who === "guest" ? '<a href="#">Sign in</a>' : '<a href="#">Your profile</a><a href="#">Sign out</a>'}</nav>
+<script>
+(() => {
+  const btn = document.querySelector(".pill.menu");
+  const sheet = document.getElementById("menu-sheet");
+  const main = document.getElementById("main");
+  const links = () => [...sheet.querySelectorAll("a")];
+  const set = (open) => {
+    btn.setAttribute("aria-expanded", String(open));
+    sheet.hidden = !open;
+    if (main) main.inert = open;
+    if (open) links()[0].focus();
+    else btn.focus();
+  };
+  btn.addEventListener("click", () => set(sheet.hidden));
+  document.addEventListener("keydown", (e) => {
+    if (sheet.hidden) return;
+    if (e.key === "Escape") set(false);
+    if (e.key === "Tab") {
+      const items = [btn, ...links()];
+      const i = items.indexOf(document.activeElement);
+      const next = e.shiftKey ? (i <= 0 ? items.length - 1 : i - 1) : (i + 1) % items.length;
+      e.preventDefault();
+      items[next].focus();
+    }
+  });
+})();
+</script>`;
 
 const footer = `<footer class="foot"><div class="wrap"><span>Together We Own · a Discord gaming community since 2023</span><nav aria-label="Footer"><a href="#">Rules</a><a href="#">FAQ</a><a href="#">Privacy</a><a href="#">Status</a></nav></div></footer>`;
 
@@ -68,23 +96,23 @@ const page = (title, body, extraCss = "", bodyClass = "") => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark"><title>${title} · Together We Own</title>
 <link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="ember.css">
-<style>.rkl{display:inline-flex;align-items:center;gap:8px}${extraCss}</style></head>
+<style>.rkl{display:inline-flex;align-items:center;gap:var(--two-space-2)}${extraCss}</style></head>
 <body class="${bodyClass}">${body}</body></html>`;
 
 const av = (i, c) => `<span class="av" style="--c:${c}">${i}</span>`;
 const C = [
-  "#AB4E00",
-  "#5701AE",
-  "#B9001C",
-  "#430093",
-  "#822800",
-  "#DC0037",
-  "#4D00A1",
-  "#7A2BD1",
-  "#9A3B00",
-  "#3A0086",
-  "#C2185B",
-  "#5E35B1",
+  "var(--two-color-avatar-0)",
+  "var(--two-color-avatar-1)",
+  "var(--two-color-avatar-2)",
+  "var(--two-color-avatar-3)",
+  "var(--two-color-avatar-4)",
+  "var(--two-color-avatar-5)",
+  "var(--two-color-avatar-6)",
+  "var(--two-color-avatar-7)",
+  "var(--two-color-avatar-8)",
+  "var(--two-color-avatar-9)",
+  "var(--two-color-avatar-10)",
+  "var(--two-color-avatar-11)",
 ];
 
 module.exports = { rk, rankLabel, RANKS, discord, I, header, footer, page, av, C };

@@ -2,79 +2,79 @@ const fs = require("fs");
 const { rk, I, header, footer, page, av, C } = require("./parts.cjs");
 
 const css = `
-.crumb{padding:28px 0 0;font-size:14px;color:var(--two-color-text-tertiary)}
+.crumb{padding:var(--two-space-inset-card-lg) 0 0;font-size:var(--two-font-size-small);color:var(--two-color-text-tertiary)}
 .crumb a{color:var(--two-color-text-secondary)}
-.ed{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:0 56px;padding:36px 0 72px;align-items:start}
-.ed h1{font:560 var(--two-font-size-h1)/1 var(--two-font-display);font-stretch:108%;letter-spacing:-.04em;text-wrap:balance;margin-top:18px}
+.ed{display:grid;grid-template-columns:minmax(0,1fr) var(--two-layout-rail-seat);gap:0 var(--two-space-9);padding:36px 0 var(--two-space-10);align-items:start}
+.ed h1{font:var(--two-font-weight-display) var(--two-font-size-h1)/1 var(--two-font-display);font-stretch:var(--two-font-width-display);letter-spacing:var(--two-tracking-display);text-wrap:balance;margin-top:var(--two-space-inset-compact)}
 .ed h1 .serif{font-size:1.08em}
-.when{display:flex;align-items:flex-end;gap:24px;margin-top:36px;padding-top:28px;border-top:1px solid var(--two-color-line-hairline)}
-.when b{font:500 var(--two-font-size-figure)/.85 var(--two-font-display);font-stretch:108%;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.when p{font-size:17px;color:var(--two-color-text-primary)}
+.when{display:flex;align-items:flex-end;gap:var(--two-space-6);margin-top:36px;padding-top:var(--two-space-inset-card-lg);border-top:1px solid var(--two-color-line-hairline)}
+.when b{font:var(--two-font-weight-medium) var(--two-font-size-figure)/.85 var(--two-font-display);font-stretch:var(--two-font-width-display);letter-spacing:var(--two-tracking-figure);font-variant-numeric:tabular-nums}
+.when p{font-size:var(--two-font-size-body-reading);color:var(--two-color-text-primary)}
 .when p + p{margin-top:6px}
 .when p.mono{font-size:13px;color:var(--two-color-text-tertiary)}
-.headcol{grid-column:1}.bodycol{grid-column:1}.side{grid-column:2;grid-row:1/3;position:sticky;top:92px;display:grid;gap:16px}
-.rsvp{padding:22px}
-.rsvp .state{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.rsvp h2{font:600 20px/1.2 var(--two-font-display)}
-.seats{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 12px}
+.headcol{grid-column:1}.bodycol{grid-column:1}.side{grid-column:2;grid-row:1/3;position:sticky;top:var(--two-layout-sticky-offset);display:grid;gap:var(--two-space-4)}
+.rsvp{padding:var(--two-space-inset-card)}
+.rsvp .state{display:flex;align-items:center;justify-content:space-between;gap:var(--two-space-3)}
+.rsvp h2{font:var(--two-font-weight-semibold) var(--two-font-size-title)/1.2 var(--two-font-display)}
+.seats{display:flex;flex-wrap:wrap;gap:6px;margin:var(--two-space-5) 0 var(--two-space-3)}
 .seats .av{--bg:var(--two-color-bg-surface);border-width:0}
-.rsvp .count{font-size:15px;color:var(--two-color-text-secondary)}
+.rsvp .count{font-size:var(--two-font-size-ui);color:var(--two-color-text-secondary)}
 .rsvp .count b{color:var(--two-color-text-primary);font-weight:600}
-.rsvp .btns{display:grid;gap:10px;margin-top:20px}
+.rsvp .btns{display:grid;gap:var(--two-space-inset-tight);margin-top:var(--two-space-5)}
 .rsvp .btns .pill{width:100%}
-.rsvp .note{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;color:var(--two-color-text-secondary)}
+.rsvp .note{display:flex;gap:var(--two-space-inset-tight);align-items:flex-start;margin-top:var(--two-space-4);font-size:var(--two-font-size-small);color:var(--two-color-text-secondary)}
 .rsvp .note .ico{color:var(--two-color-accent-default);margin-top:1px}
-.linkbtn{font:500 14px/1 var(--two-font-display);color:var(--two-color-text-secondary);text-decoration:underline;text-underline-offset:3px;justify-self:center;padding:8px}
-.facts-box{padding:8px 22px}
-.blk{margin-top:56px}
-.blk > h2{font:560 var(--two-font-size-h3)/1.1 var(--two-font-display);font-stretch:108%;letter-spacing:-.025em;margin-bottom:22px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.blk > h2 .mono{font-size:12px;letter-spacing:.04em}
+.linkbtn{font:var(--two-font-weight-medium) var(--two-font-size-small)/1 var(--two-font-display);color:var(--two-color-text-secondary);text-decoration:underline;text-underline-offset:3px;justify-self:center;padding:var(--two-space-2)}
+.facts-box{padding:var(--two-space-2) var(--two-space-inset-card)}
+.blk{margin-top:var(--two-space-9)}
+.blk > h2{font:var(--two-font-weight-display) var(--two-font-size-h3)/1.1 var(--two-font-display);font-stretch:var(--two-font-width-display);letter-spacing:var(--two-tracking-h3);margin-bottom:var(--two-space-inset-card);display:flex;justify-content:space-between;align-items:baseline;gap:var(--two-space-4)}
+.blk > h2 .mono{font-size:var(--two-font-size-label);letter-spacing:var(--two-tracking-label)}
 .life{position:relative}
-.life li{display:grid;grid-template-columns:118px 28px minmax(0,1fr);gap:16px;padding-bottom:22px;position:relative}
-.life li::before{content:"";position:absolute;left:131px;top:20px;bottom:-2px;width:2px;background:var(--two-color-line-hairline-strong)}
+.life li{display:grid;grid-template-columns:118px 28px minmax(0,1fr);gap:var(--two-space-4);padding-bottom:var(--two-space-inset-card);position:relative}
+.life li::before{content:"";position:absolute;left:131px;top:var(--two-space-5);bottom:-2px;width:2px;background:var(--two-color-line-hairline-strong)}
 .life li:last-child::before{display:none}
 .life li.done::before{background:var(--two-color-text-tertiary)}
-.life time{font:400 13px/1.5 var(--two-font-data);color:var(--two-color-text-tertiary);text-align:right}
-.life .mk{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--two-color-bg-canvas);box-shadow:inset 0 0 0 2px var(--two-color-line-hairline-strong);position:relative;z-index:1}
+.life time{font:var(--two-font-weight-regular) 13px/1.5 var(--two-font-data);color:var(--two-color-text-tertiary);text-align:right}
+.life .mk{width:var(--two-size-lifeline-marker);height:var(--two-size-lifeline-marker);border-radius:50%;display:grid;place-items:center;background:var(--two-color-bg-canvas);box-shadow:inset 0 0 0 2px var(--two-color-line-hairline-strong);position:relative;z-index:1}
 .life .done .mk{background:var(--two-color-bg-overlay);box-shadow:none;color:var(--two-color-text-secondary)}
-.life .done .mk .ico{width:16px;height:16px}
+.life .done .mk .ico{width:var(--two-size-icon-sm);height:var(--two-size-icon-sm)}
 .life .next .mk{box-shadow:inset 0 0 0 2px var(--two-color-accent-default)}
 .life .next .mk::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--two-color-accent-default)}
-.life .who-did{display:inline-flex;align-items:center;gap:6px;font:400 12px/1 var(--two-font-data);text-transform:uppercase;letter-spacing:.04em;color:var(--two-color-text-tertiary);margin-bottom:4px}
+.life .who-did{display:inline-flex;align-items:center;gap:6px;font:var(--two-font-weight-regular) var(--two-font-size-label)/1 var(--two-font-data);text-transform:uppercase;letter-spacing:var(--two-tracking-label);color:var(--two-color-text-tertiary);margin-bottom:var(--two-space-1)}
 .life .who-did .bot{translate:0 0;width:12px;height:12px}
 .life .who-did .bot.site{width:12px;height:12px}
-.life h3{font:600 16px/1.35 var(--two-font-display)}
-.life p{font-size:15px;color:var(--two-color-text-secondary)}
+.life h3{font:var(--two-font-weight-semibold) var(--two-font-size-body)/1.35 var(--two-font-display)}
+.life p{font-size:var(--two-font-size-ui);color:var(--two-color-text-secondary)}
 .life .done h3{color:var(--two-color-text-secondary)}
 .life .next h3{color:var(--two-color-text-primary)}
-.about p{font-size:17px;color:var(--two-color-text-secondary);max-width:62ch}
-.about p + p{margin-top:14px}
-.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 24px}
-.person{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--two-color-line-hairline)}
+.about p{font-size:var(--two-font-size-body-reading);color:var(--two-color-text-secondary);max-width:62ch}
+.about p + p{margin-top:var(--two-space-inset-room)}
+.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--two-space-1) var(--two-space-6)}
+.person{display:flex;align-items:center;gap:var(--two-space-3);padding:var(--two-space-inset-tight) 0;border-top:1px solid var(--two-color-line-hairline)}
 .person .av{border-width:0}
-.person b{font:600 15px/1.2 var(--two-font-display);display:block}
+.person b{font:var(--two-font-weight-semibold) var(--two-font-size-ui)/1.2 var(--two-font-display);display:block}
 .person span.s{font-size:13px;color:var(--two-color-text-tertiary)}
 .person .tag{margin-left:auto}
-.last{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:24px 28px}
+.last{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--two-space-6);padding:var(--two-space-6) var(--two-space-inset-card-lg)}
 .last .fact b{font-size:var(--two-font-size-h1)}
 .last .fact p{font-size:19px}
-.inst{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.inst{display:flex;gap:var(--two-space-2);margin-bottom:var(--two-space-4);flex-wrap:wrap}
 @media (max-width:820px){
-  .ed{grid-template-columns:1fr;gap:28px;padding:20px 0 40px}
+  .ed{grid-template-columns:1fr;gap:var(--two-space-inset-card-lg);padding:var(--two-space-5) 0 var(--two-space-8)}
   .side{position:static;grid-column:1;grid-row:auto}
-  .bodycol .blk:first-child{margin-top:16px}
-  .when{gap:16px;margin-top:24px;padding-top:20px;flex-wrap:wrap}
-  .when p{font-size:15px}
+  .bodycol .blk:first-child{margin-top:var(--two-space-4)}
+  .when{gap:var(--two-space-4);margin-top:var(--two-space-6);padding-top:var(--two-space-5);flex-wrap:wrap}
+  .when p{font-size:var(--two-font-size-ui)}
   .blk{margin-top:44px}
-  .life li{grid-template-columns:28px minmax(0,1fr);gap:14px}
+  .life li{grid-template-columns:28px minmax(0,1fr);gap:var(--two-space-inset-room)}
   .life li::before{left:13px}
-  .life time{grid-column:2;grid-row:1;text-align:left;font-size:12px}
+  .life time{grid-column:2;grid-row:1;text-align:left;font-size:var(--two-font-size-label)}
   .life .mk{grid-row:1/3;grid-column:1}
   .life li > div:last-child{grid-column:2}
   .people{grid-template-columns:1fr}
-  .last{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:18px}
+  .last{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--two-space-3);padding:var(--two-space-inset-compact)}
   .last .fact b{font-size:var(--two-font-size-figure-compact)}
-  .last .fact p{font-size:15px}
+  .last .fact p{font-size:var(--two-font-size-ui)}
   .hide-mobile{display:none}
 }`;
 
@@ -120,11 +120,11 @@ const body = `${header("member", "events")}
   <p class="crumb"><a href="#">Events</a> / Raid Night</p>
   <div class="ed">
     <div class="headcol">
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag ok">Sign-ups open</span><span class="tag">Weekly · Fridays</span><span class="tag">Open to all ranks</span></div>
+      <div style="display:flex;gap:var(--two-space-2);flex-wrap:wrap"><span class="tag ok">Sign-ups open</span><span class="tag">Weekly · Fridays</span><span class="tag">Open to all ranks</span></div>
       <h1>Raid Night: <span class="serif">Deep Rock Galactic</span></h1>
       <div class="when">
         <b>21:00</b>
-        <div><p>Friday 7 November, your time</p><p class="mono">Europe/London · 21:00 UTC · in 2 h 10 m</p></div>
+        <div><p>Friday 6 November, your time</p><p class="mono">Europe/London · 21:00 UTC · in 2 h 10 m</p></div>
       </div>
 
     </div>
@@ -145,7 +145,7 @@ const body = `${header("member", "events")}
           <dt>Host</dt><dd><a href="#">Vexa</a></dd>
           <dt>Room</dt><dd>Raid 1 voice</dd>
           <dt>Game</dt><dd>Deep Rock Galactic</dd>
-          <dt>Repeats</dt><dd>Fridays, until 19 Dec</dd>
+          <dt>Repeats</dt><dd>Fridays, until 18 Dec</dd>
           <dt>Talk</dt><dd><a href="#">Discord thread</a></dd>
           <dt>Share</dt><dd><a href="#">Copy link</a></dd>
         </dl>
@@ -154,7 +154,7 @@ const body = `${header("member", "events")}
     <div class="bodycol">
       <section class="blk" aria-labelledby="life-h">
         <h2 id="life-h">Lifeline <span class="mono">What the bot has done, and will do</span></h2>
-        <ol class="life">
+        <ol class="life" role="list">
           <li class="done"><time>Mon 18:02</time><span class="mk">${I.check}</span><div><span class="who-did"><span class="bot" aria-hidden="true"></span>Bot</span><h3>Opened sign-ups and posted the event in #events</h3></div></li>
           <li class="done"><time>Tue 09:14</time><span class="mk">${I.check}</span><div><span class="who-did"><span class="bot site" aria-hidden="true"></span>You, on this site</span><h3>You said you're in. The bot saved seat 7</h3><p>Mark yourself Interested on the <a href="#">Discord event</a> too, and Discord will remind you.</p></div></li>
           <li class="next"><time>Fri 20:30</time><span class="mk"></span><div><span class="who-did"><span class="bot" aria-hidden="true"></span>Bot · next</span><h3>Pings everyone who's in, 30 minutes before</h3><p>As a Discord DM from the bot.</p></div></li>
@@ -172,18 +172,18 @@ const body = `${header("member", "events")}
 
       <section class="blk" aria-labelledby="who-h">
         <h2 id="who-h">Who's in <span class="mono">17 going · 3 reserve</span></h2>
-        <ul class="people">${going
+        <ul class="people" role="list">${going
           .map(
             ([i, n, t, r], k) =>
               `<li class="person">${av(i, C[k % C.length]).replace('class="av"', 'class="av m"')}<div><b>${n}</b><span class="s rkl">${rk(r)}${["Prospect", "Member", "Soldier", "Veteran", "Legend"][r - 1]}</span></div>${t ? `<span class="tag${t === "You" ? " you" : t === "First time" ? " ok" : ""}">${t}</span>` : ""}</li>`,
           )
           .join("")}</ul>
-        <p style="margin-top:16px"><a class="pill ghost sm" href="#">See all 20</a></p>
+        <p style="margin-top:var(--two-space-4)"><a class="pill ghost sm" href="#">See all 20</a></p>
       </section>
 
       <section class="blk" aria-labelledby="last-h">
-        <h2 id="last-h">Last time <span class="mono">Echo · Fri 31 Oct</span></h2>
-        <div class="inst chips" role="group" aria-label="Past dates"><a class="chip" aria-current="true" href="#">31 Oct</a><a class="chip" href="#">24 Oct</a><a class="chip" href="#">17 Oct</a><a class="chip" href="#">All dates</a></div>
+        <h2 id="last-h">Last time <span class="mono">Echo · Fri 30 Oct</span></h2>
+        <div class="inst chips" role="group" aria-label="Past dates"><a class="chip" aria-current="true" href="#">30 Oct</a><a class="chip" href="#">23 Oct</a><a class="chip" href="#">16 Oct</a><a class="chip" href="#">All dates</a></div>
         <div class="box last"><div class="fact"><b>18</b><p>of 21 came</p></div><div class="fact"><b>16</b><p>stayed to the end</p></div><div class="fact"><b>3</b><p>first-timers</p></div></div>
       </section>
     </div>

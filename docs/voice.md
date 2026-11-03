@@ -22,7 +22,7 @@ Ember Hours talks like a friend who runs the Friday game: warm, specific, short,
 | Serif accent | One phrase per heading; the name or the feeling, not a verb | "Raid Night: *Deep Rock Galactic*" | Serif on a whole heading or a button |
 | Times | Viewer-local first, 24-hour, zone on every time; UTC anchor on detail pages | "21:00, your time · 21:00 UTC" | "9pm", "21:00" with no zone on a detail page |
 | Relative time | "in 2 h 10 m", "since 18:30", "4 m" (log), "last week" | "updated 20 s ago" | "a few moments ago" |
-| Dates | "Fri 7 Nov" in rows, "Friday 7 November" in sentences; no year unless it isn't this year | "Sun 2 Nov" | "11/02/2026" |
+| Dates | "Fri 6 Nov" in rows, "Friday 6 November" in sentences; no year unless it isn't this year | "Sun 1 Nov" | "11/02/2026" |
 | Numbers | Digits always ("3 first-timers"); counts with a noun; "17 of 24 in" for capacity | "17 of 24 in · 7 left" | "seventeen", "17/24" |
 | Names | Discord display names only | "Lumen" | Real names, emails, user IDs |
 | Ranks | Capitalised as names: Prospect, Member, Soldier, Veteran, Legend | "You're a Member now" | "member-level user" |

@@ -38,7 +38,7 @@ Live data is the heart of Ember Hours, and the most likely place to annoy a scre
 
 1. **One polite status region per page** (`<div role="status" aria-live="polite" class="sr">`), owned by the live island. Nothing else on the page is `aria-live`.
 2. **Announce state changes, not ticks.** Announce: an event goes live ("Raid Night is live"), the room opens ("The Raid 1 room is open. Pull me in is on."), data goes stale ("Live numbers are catching up") or recovers, a Lifeline step completes, the result of the member's own action ("You're in. Seat 7."). Never announce: counts changing, relative times ageing, countdowns, new bot-log lines, the Now marker moving.
-3. **Throttle:** at most one announcement per 10 s; merge if several states change in one poll.
+3. **Throttle:** at most one *state* announcement per 10 s; merge if several states change in one poll. The result of the member's own action is exempt: announce it at once, and drop any queued state announcement it supersedes.
 4. **Clocks and countdowns are not live regions.** They update at most once a minute by text swap. The `<time datetime>` gives the absolute value.
 5. **Errors from the member's own action** may use `role="alert"`; nothing else does.
 6. **Polling:** `motion.poll.live` (30 s) while the tab is visible; pause when hidden; never refresh focus or scroll position.
@@ -49,6 +49,7 @@ Live data is the heart of Ember Hours, and the most likely place to annoy a scre
 - Every component's role and name is in [components.md](components.md). Quick rules: buttons act, links go; icon-only controls have `aria-label`; avatar images have `alt=""` with the name beside them; avatar stacks and seat strips are one `role="img"` with a count label.
 - **Charts and visual-only data** (Now Line, Echo trail, season bar, progress, seat strip) are `aria-hidden` or `role="img"` with a summary, **and** the full data is available as text (a visually hidden list or a "Show as a table" toggle).
 - Tables are real tables with `caption` and `th scope`.
+- Lists styled without markers (`list-style: none`) keep `role="list"` on the `ul`/`ol`, because Safari drops unmarked lists from the accessibility tree outside `nav`.
 - Forms: visible labels; errors linked with `aria-describedby` and `aria-invalid`; errors say how to fix.
 - Language: `<html lang="en">`; time zone names are not abbreviated alone ("Europe/London (UTC+0)").
 

@@ -1,6 +1,6 @@
 # Foundations: tokens
 
-Ember Hours as tokens. The source of truth is `tokens/*.tokens.json` in [W3C DTCG 2025.10](https://www.designtokens.org/tr/2025.10/format/) format: colours are colour objects (`colorSpace: "srgb"`, `components`, optional `alpha`, plus `hex`), dimensions are `{ value, unit }` in px, letter-spacing is a unitless number (× font size, emitted as `em`), and fluid sizes are min/vw/max triples composed into `clamp()` by the CSS build. This page explains them; if this page and the JSON disagree, the JSON wins and this page has a bug.
+Ember Hours as tokens. The source of truth is `tokens/*.tokens.json` in W3C DTCG format, in the shape this repo's validator accepts (see **Format** below). This page explains them; if this page and the JSON disagree, the JSON wins and this page has a bug.
 
 **Two layers. Components use roles, never primitives:**
 
