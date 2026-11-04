@@ -1,12 +1,12 @@
 {
   "name": "two-design-kit",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Ember Hours design tokens (W3C DTCG) with CSS, TypeScript and Rust builds.",
+  "description": "Ember Hours design tokens (W3C DTCG) with CSS, TypeScript and Rust builds, and the organic social template kit.",
   "license": "MIT",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.18"
   },
   "scripts": {
     "build": "node scripts/build.mjs",
@@ -14,12 +14,17 @@
     "contrast": "node scripts/contrast-check.mjs",
     "drift": "node scripts/check-drift.mjs",
     "check:ts": "tsc --noEmit -p tsconfig.check.json",
-    "test": "node --test test/tokens.test.mjs",
+    "test": "node --test test/tokens.test.mjs test/social.test.mjs",
+    "social:fonts": "node social/fetch-fonts.mjs",
+    "social:render": "node social/render.mjs",
+    "social:clip": "node social/clip-demo.mjs",
     "lint": "biome ci .",
     "check": "npm run validate && npm run build && npm run drift && npm run contrast && npm run check:ts && npm test"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
+    "@resvg/resvg-js": "2.6.2",
+    "satori": "0.63.2",
     "style-dictionary": "4.4.0",
     "typescript": "5.9.3"
   }

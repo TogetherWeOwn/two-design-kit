@@ -1,0 +1,22 @@
+{
+  "note": "Fixture content: shows the art slot with the labelled placeholder. No real art is cleared yet.",
+  "now": "2026-11-04T12:00:00Z",
+  "allowedHosts": ["two.example"],
+  "card": {
+    "schema": "two.social-card/1",
+    "template": "event-announcement",
+    "revision": "fx-event-art-placeholder-r1",
+    "purpose": "organic",
+    "fixture": true,
+    "title": { "text": "Town hall:", "accent": "the next season", "source": "human" },
+    "when": { "start": "2026-11-10T19:30:00Z", "zone": "UTC" },
+    "link": { "kind": "event", "url": "https://two.example/e/town-hall" },
+    "count": null,
+    "art": {
+      "assetId": "art-placeholder",
+      "sha256": "df070f2d13efed9e6e70c8c676739dc7f9f120ab6d7b795aa7bc7590159cb885",
+      "alt": "Placeholder: hatched panel where approved event art goes."
+    },
+    "disclosure": { "aiAssistedCopy": false, "aiGeneratedImagery": false, "platformAiLabel": false }
+  }
+}

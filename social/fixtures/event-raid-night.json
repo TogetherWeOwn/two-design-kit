@@ -1,0 +1,18 @@
+{
+  "note": "Fixture content: invented event, invented count, .example host. Not for posting.",
+  "now": "2026-11-04T12:00:00Z",
+  "allowedHosts": ["two.example"],
+  "card": {
+    "schema": "two.social-card/1",
+    "template": "event-announcement",
+    "revision": "fx-event-raid-night-r1",
+    "purpose": "organic",
+    "fixture": true,
+    "title": { "text": "Raid Night:", "accent": "Deep Rock Galactic", "source": "human" },
+    "when": { "start": "2026-11-06T21:00:00Z", "zone": "Europe/London" },
+    "link": { "kind": "event", "url": "https://two.example/e/raid-night" },
+    "count": { "value": 52, "noun": "going", "source": "internal-aggregate" },
+    "art": null,
+    "disclosure": { "aiAssistedCopy": false, "aiGeneratedImagery": false, "platformAiLabel": false }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "note": "Fixture content: the longest recap copy the budgets allow, with every count and stat filled. Proves the recap budgets fit. Not for posting.",
+  "now": "2026-11-02T09:00:00Z",
+  "allowedHosts": ["two.example"],
+  "card": {
+    "schema": "two.social-card/1",
+    "template": "weekly-recap",
+    "revision": "fx-recap-budget-max-r1",
+    "purpose": "organic",
+    "fixture": true,
+    "title": { "text": "Our week.", "accent": "Mammoth Monday", "source": "human" },
+    "week": { "start": "2026-10-26", "zone": "Europe/London" },
+    "highlights": [
+      {
+        "title": "Midweek Movie Marathon",
+        "day": "2026-10-28",
+        "count": { "value": 999, "noun": "came", "source": "internal-aggregate" }
+      },
+      {
+        "title": "Mammoth Monday Meetup",
+        "day": "2026-10-26",
+        "count": { "value": 999, "noun": "came", "source": "internal-aggregate" }
+      },
+      {
+        "title": "Warhammer Underworlds",
+        "day": "2026-11-01",
+        "count": { "value": 999, "noun": "came", "source": "internal-aggregate" }
+      }
+    ],
+    "stats": [
+      { "kind": "events", "value": 99, "noun": "events" },
+      { "kind": "people", "value": 9999, "noun": "first-timers", "source": "internal-aggregate" }
+    ],
+    "link": { "kind": "events", "url": "https://two.example/events" },
+    "disclosure": { "aiAssistedCopy": false, "aiGeneratedImagery": false, "platformAiLabel": false }
+  }
+}

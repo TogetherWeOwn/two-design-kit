@@ -228,6 +228,30 @@ export const twoElevation3 = "#2e2420" as const;
 export const twoElevationSticky = "rgba(21, 16, 15, 0.86)" as const;
 export const twoElevationSheet = "rgba(28, 22, 20, 0.94)" as const;
 export const twoElevationBlur = "14px" as const;
+export const twoSocialCanvasLandscapeWidth = "1200px" as const;
+export const twoSocialCanvasLandscapeHeight = "630px" as const;
+export const twoSocialCanvasStoryWidth = "1080px" as const;
+export const twoSocialCanvasStoryHeight = "1920px" as const;
+export const twoSocialSafeLandscapeX = "64px" as const;
+export const twoSocialSafeLandscapeY = "48px" as const;
+export const twoSocialSafeStoryTop = "288px" as const;
+export const twoSocialSafeStoryBottom = "384px" as const;
+export const twoSocialSafeStoryLeft = "72px" as const;
+export const twoSocialSafeStoryRight = "120px" as const;
+export const twoSocialFontSizeLandscapeDisplay = "76px" as const;
+export const twoSocialFontSizeLandscapeFigure = "48px" as const;
+export const twoSocialFontSizeLandscapeBody = "30px" as const;
+export const twoSocialFontSizeLandscapeLabel = "24px" as const;
+export const twoSocialFontSizeStoryDisplay = "112px" as const;
+export const twoSocialFontSizeStoryFigure = "80px" as const;
+export const twoSocialFontSizeStoryBody = "44px" as const;
+export const twoSocialFontSizeStoryLabel = "32px" as const;
+export const twoSocialFontSizeStoryCaption = "60px" as const;
+export const twoSocialSizeLogoLandscape = "48px" as const;
+export const twoSocialSizeLogoStory = "72px" as const;
+export const twoSocialSizeActionLandscape = "72px" as const;
+export const twoSocialSizeActionStory = "112px" as const;
+export const twoSocialSizeArtLandscape = "360px" as const;
 
 export const tokens = {
   "page": twoPage,
@@ -544,9 +568,61 @@ export const tokens = {
     "sheet": twoElevationSheet,
     "blur": twoElevationBlur,
   },
+  "social": {
+    "canvas": {
+      "landscape": {
+        "width": twoSocialCanvasLandscapeWidth,
+        "height": twoSocialCanvasLandscapeHeight,
+      },
+      "story": {
+        "width": twoSocialCanvasStoryWidth,
+        "height": twoSocialCanvasStoryHeight,
+      },
+    },
+    "safe": {
+      "landscape": {
+        "x": twoSocialSafeLandscapeX,
+        "y": twoSocialSafeLandscapeY,
+      },
+      "story": {
+        "top": twoSocialSafeStoryTop,
+        "bottom": twoSocialSafeStoryBottom,
+        "left": twoSocialSafeStoryLeft,
+        "right": twoSocialSafeStoryRight,
+      },
+    },
+    "font-size": {
+      "landscape": {
+        "display": twoSocialFontSizeLandscapeDisplay,
+        "figure": twoSocialFontSizeLandscapeFigure,
+        "body": twoSocialFontSizeLandscapeBody,
+        "label": twoSocialFontSizeLandscapeLabel,
+      },
+      "story": {
+        "display": twoSocialFontSizeStoryDisplay,
+        "figure": twoSocialFontSizeStoryFigure,
+        "body": twoSocialFontSizeStoryBody,
+        "label": twoSocialFontSizeStoryLabel,
+        "caption": twoSocialFontSizeStoryCaption,
+      },
+    },
+    "size": {
+      "logo": {
+        "landscape": twoSocialSizeLogoLandscape,
+        "story": twoSocialSizeLogoStory,
+      },
+      "action": {
+        "landscape": twoSocialSizeActionLandscape,
+        "story": twoSocialSizeActionStory,
+      },
+      "art": {
+        "landscape": twoSocialSizeArtLandscape,
+      },
+    },
+  },
 } as const;
 
-export type TokenName = "twoPage" | "twoSurface" | "twoRaised" | "twoText" | "twoMuted" | "twoAccent" | "twoAccentInk" | "twoControlBorder" | "twoColorGround0" | "twoColorGround1" | "twoColorGround2" | "twoColorGround3" | "twoColorGround4" | "twoColorHair1" | "twoColorHair2" | "twoColorText1" | "twoColorText2" | "twoColorText3" | "twoColorTextPrimary" | "twoColorTextSecondary" | "twoColorTextTertiary" | "twoColorTextOnAccent" | "twoColorTextAccent" | "twoColorTextLink" | "twoColorEmber" | "twoColorOnAccent" | "twoColorAccentHi" | "twoColorBorder" | "twoColorLive" | "twoColorEcho" | "twoColorOk" | "twoColorDanger" | "twoColorWarn" | "twoColorLiveBg" | "twoColorOkBg" | "twoColorGradEmber" | "twoColorGradMagenta" | "twoColorGradViolet" | "twoColorEchoBg" | "twoColorWarnBg" | "twoColorDangerBg" | "twoColorAvatarText" | "twoColorDiscordEmbedBg" | "twoColorScrimSticky" | "twoColorScrimSheet" | "twoColorHeatMin" | "twoColorHeatMax" | "twoColorAvatar0" | "twoColorAvatar1" | "twoColorAvatar2" | "twoColorAvatar3" | "twoColorAvatar4" | "twoColorAvatar5" | "twoColorAvatar6" | "twoColorAvatar7" | "twoColorAvatar8" | "twoColorAvatar9" | "twoColorAvatar10" | "twoColorAvatar11" | "twoColorBgCanvas" | "twoColorBgSurface" | "twoColorBgRaised" | "twoColorBgOverlay" | "twoColorBgSticky" | "twoColorBgSheet" | "twoColorLineHairline" | "twoColorLineHairlineStrong" | "twoColorLineControl" | "twoColorAccentDefault" | "twoColorAccentHover" | "twoColorFocusRing" | "twoColorFocusRingOnAccent" | "twoColorStateLive" | "twoColorStateLiveBg" | "twoColorStateEcho" | "twoColorStateEchoBg" | "twoColorStateOk" | "twoColorStateOkBg" | "twoColorStateWarn" | "twoColorStateWarnBg" | "twoColorStateDanger" | "twoColorStateDangerBg" | "twoColorRankArc1" | "twoColorRankArc2" | "twoColorRankArc3" | "twoColorRankArc4" | "twoColorRankArc5" | "twoColorRankArcOff" | "twoSpace1" | "twoSpace2" | "twoSpace3" | "twoSpace4" | "twoSpace5" | "twoSpace6" | "twoSpace7" | "twoSpace8" | "twoSpace9" | "twoSpace10" | "twoSpace11" | "twoSpaceSection" | "twoSpaceSectionCompact" | "twoSpaceInsetTagY" | "twoSpaceInsetTagX" | "twoSpaceInsetTight" | "twoSpaceInsetRoom" | "twoSpaceInsetCompact" | "twoSpaceInsetCard" | "twoSpaceInsetCardLg" | "twoRadiusS" | "twoRadiusM" | "twoRadiusL" | "twoRadiusPill" | "twoGridWrap" | "twoGridGutter" | "twoFontSizeHero" | "twoFontSizeH1" | "twoFontSizeH2" | "twoFontSizeH3" | "twoFontSizeFigure" | "twoFontSizeTitle" | "twoFontSizeBodyReading" | "twoFontSizeBody" | "twoFontSizeSmall" | "twoFontSizeLabel" | "twoFontSizeBand" | "twoFontSizeLede" | "twoFontSizeUi" | "twoFontSizeFigureCompact" | "twoFontSizeTile" | "twoTrackingDisplay" | "twoTrackingH2" | "twoTrackingH3" | "twoTrackingFigure" | "twoTrackingBody" | "twoTrackingLabel" | "twoSizeControlSm" | "twoSizeControlMd" | "twoSizeControlLg" | "twoSizeControlNav" | "twoSizeTargetMin" | "twoSizeIconSm" | "twoSizeIconMd" | "twoSizeIconGrid" | "twoSizeAvatarXs" | "twoSizeAvatarSm" | "twoSizeAvatarMd" | "twoSizeAvatarLg" | "twoSizeAvatarXl" | "twoSizeRowCalm" | "twoSizeRowTable" | "twoSizeRowDense" | "twoSizeRowAdmin" | "twoSizeHeaderWide" | "twoSizeHeaderCompact" | "twoSizeFocusWidth" | "twoSizeFocusOffset" | "twoSizeLiveDot" | "twoSizeStateGlyph" | "twoSizeLifelineMarker" | "twoLayoutContainer" | "twoLayoutGutterWide" | "twoLayoutGutterCompact" | "twoLayoutRailMin" | "twoLayoutRailDefault" | "twoLayoutRailSeat" | "twoLayoutRailMax" | "twoLayoutHeroPanel" | "twoLayoutStickyOffset" | "twoLayoutColumns" | "twoLayoutMeasureLede" | "twoLayoutMeasureReading" | "twoLayoutMeasureNote" | "twoBreakpointCompactMax" | "twoBreakpointReviewMobile" | "twoBreakpointReviewDesktop" | "twoDiscordEmbedDefault" | "twoDiscordEmbedLive" | "twoDiscordEmbedEcho" | "twoDiscordEmbedOk" | "twoDiscordEmbedWarn" | "twoDiscordEmbedDanger" | "twoDiscordEmbedNeutral" | "twoDiscordLimitTitle" | "twoDiscordLimitDescription" | "twoDiscordLimitFieldName" | "twoDiscordLimitFieldValue" | "twoDiscordLimitFields" | "twoDiscordLimitFooter" | "twoDiscordLimitButtonLabel" | "twoDiscordLimitButtonsPerRow" | "twoDiscordLimitHouseTitle" | "twoDiscordLimitHouseFields" | "twoFontDisplay" | "twoFontUi" | "twoFontAccent" | "twoFontData" | "twoFontWeightRegular" | "twoFontWeightMedium" | "twoFontWeightDisplay" | "twoFontWeightSemibold" | "twoFontWidthBody" | "twoFontWidthButton" | "twoFontWidthDisplay" | "twoFontWidthBand" | "twoLineHeightDisplay" | "twoLineHeightHeading" | "twoLineHeightTitle" | "twoLineHeightBody" | "twoLineHeightReading" | "twoLineHeightLabel" | "twoMotionEase" | "twoMotionDurationFast" | "twoMotionDurationBase" | "twoMotionDurationSlow" | "twoMotionDurationEnter" | "twoMotionDistanceEnter" | "twoMotionPollLive" | "twoMotionPollStaleAfter" | "twoGradientBrand" | "twoElevation0" | "twoElevation1" | "twoElevation2" | "twoElevation3" | "twoElevationSticky" | "twoElevationSheet" | "twoElevationBlur";
+export type TokenName = "twoPage" | "twoSurface" | "twoRaised" | "twoText" | "twoMuted" | "twoAccent" | "twoAccentInk" | "twoControlBorder" | "twoColorGround0" | "twoColorGround1" | "twoColorGround2" | "twoColorGround3" | "twoColorGround4" | "twoColorHair1" | "twoColorHair2" | "twoColorText1" | "twoColorText2" | "twoColorText3" | "twoColorTextPrimary" | "twoColorTextSecondary" | "twoColorTextTertiary" | "twoColorTextOnAccent" | "twoColorTextAccent" | "twoColorTextLink" | "twoColorEmber" | "twoColorOnAccent" | "twoColorAccentHi" | "twoColorBorder" | "twoColorLive" | "twoColorEcho" | "twoColorOk" | "twoColorDanger" | "twoColorWarn" | "twoColorLiveBg" | "twoColorOkBg" | "twoColorGradEmber" | "twoColorGradMagenta" | "twoColorGradViolet" | "twoColorEchoBg" | "twoColorWarnBg" | "twoColorDangerBg" | "twoColorAvatarText" | "twoColorDiscordEmbedBg" | "twoColorScrimSticky" | "twoColorScrimSheet" | "twoColorHeatMin" | "twoColorHeatMax" | "twoColorAvatar0" | "twoColorAvatar1" | "twoColorAvatar2" | "twoColorAvatar3" | "twoColorAvatar4" | "twoColorAvatar5" | "twoColorAvatar6" | "twoColorAvatar7" | "twoColorAvatar8" | "twoColorAvatar9" | "twoColorAvatar10" | "twoColorAvatar11" | "twoColorBgCanvas" | "twoColorBgSurface" | "twoColorBgRaised" | "twoColorBgOverlay" | "twoColorBgSticky" | "twoColorBgSheet" | "twoColorLineHairline" | "twoColorLineHairlineStrong" | "twoColorLineControl" | "twoColorAccentDefault" | "twoColorAccentHover" | "twoColorFocusRing" | "twoColorFocusRingOnAccent" | "twoColorStateLive" | "twoColorStateLiveBg" | "twoColorStateEcho" | "twoColorStateEchoBg" | "twoColorStateOk" | "twoColorStateOkBg" | "twoColorStateWarn" | "twoColorStateWarnBg" | "twoColorStateDanger" | "twoColorStateDangerBg" | "twoColorRankArc1" | "twoColorRankArc2" | "twoColorRankArc3" | "twoColorRankArc4" | "twoColorRankArc5" | "twoColorRankArcOff" | "twoSpace1" | "twoSpace2" | "twoSpace3" | "twoSpace4" | "twoSpace5" | "twoSpace6" | "twoSpace7" | "twoSpace8" | "twoSpace9" | "twoSpace10" | "twoSpace11" | "twoSpaceSection" | "twoSpaceSectionCompact" | "twoSpaceInsetTagY" | "twoSpaceInsetTagX" | "twoSpaceInsetTight" | "twoSpaceInsetRoom" | "twoSpaceInsetCompact" | "twoSpaceInsetCard" | "twoSpaceInsetCardLg" | "twoRadiusS" | "twoRadiusM" | "twoRadiusL" | "twoRadiusPill" | "twoGridWrap" | "twoGridGutter" | "twoFontSizeHero" | "twoFontSizeH1" | "twoFontSizeH2" | "twoFontSizeH3" | "twoFontSizeFigure" | "twoFontSizeTitle" | "twoFontSizeBodyReading" | "twoFontSizeBody" | "twoFontSizeSmall" | "twoFontSizeLabel" | "twoFontSizeBand" | "twoFontSizeLede" | "twoFontSizeUi" | "twoFontSizeFigureCompact" | "twoFontSizeTile" | "twoTrackingDisplay" | "twoTrackingH2" | "twoTrackingH3" | "twoTrackingFigure" | "twoTrackingBody" | "twoTrackingLabel" | "twoSizeControlSm" | "twoSizeControlMd" | "twoSizeControlLg" | "twoSizeControlNav" | "twoSizeTargetMin" | "twoSizeIconSm" | "twoSizeIconMd" | "twoSizeIconGrid" | "twoSizeAvatarXs" | "twoSizeAvatarSm" | "twoSizeAvatarMd" | "twoSizeAvatarLg" | "twoSizeAvatarXl" | "twoSizeRowCalm" | "twoSizeRowTable" | "twoSizeRowDense" | "twoSizeRowAdmin" | "twoSizeHeaderWide" | "twoSizeHeaderCompact" | "twoSizeFocusWidth" | "twoSizeFocusOffset" | "twoSizeLiveDot" | "twoSizeStateGlyph" | "twoSizeLifelineMarker" | "twoLayoutContainer" | "twoLayoutGutterWide" | "twoLayoutGutterCompact" | "twoLayoutRailMin" | "twoLayoutRailDefault" | "twoLayoutRailSeat" | "twoLayoutRailMax" | "twoLayoutHeroPanel" | "twoLayoutStickyOffset" | "twoLayoutColumns" | "twoLayoutMeasureLede" | "twoLayoutMeasureReading" | "twoLayoutMeasureNote" | "twoBreakpointCompactMax" | "twoBreakpointReviewMobile" | "twoBreakpointReviewDesktop" | "twoDiscordEmbedDefault" | "twoDiscordEmbedLive" | "twoDiscordEmbedEcho" | "twoDiscordEmbedOk" | "twoDiscordEmbedWarn" | "twoDiscordEmbedDanger" | "twoDiscordEmbedNeutral" | "twoDiscordLimitTitle" | "twoDiscordLimitDescription" | "twoDiscordLimitFieldName" | "twoDiscordLimitFieldValue" | "twoDiscordLimitFields" | "twoDiscordLimitFooter" | "twoDiscordLimitButtonLabel" | "twoDiscordLimitButtonsPerRow" | "twoDiscordLimitHouseTitle" | "twoDiscordLimitHouseFields" | "twoFontDisplay" | "twoFontUi" | "twoFontAccent" | "twoFontData" | "twoFontWeightRegular" | "twoFontWeightMedium" | "twoFontWeightDisplay" | "twoFontWeightSemibold" | "twoFontWidthBody" | "twoFontWidthButton" | "twoFontWidthDisplay" | "twoFontWidthBand" | "twoLineHeightDisplay" | "twoLineHeightHeading" | "twoLineHeightTitle" | "twoLineHeightBody" | "twoLineHeightReading" | "twoLineHeightLabel" | "twoMotionEase" | "twoMotionDurationFast" | "twoMotionDurationBase" | "twoMotionDurationSlow" | "twoMotionDurationEnter" | "twoMotionDistanceEnter" | "twoMotionPollLive" | "twoMotionPollStaleAfter" | "twoGradientBrand" | "twoElevation0" | "twoElevation1" | "twoElevation2" | "twoElevation3" | "twoElevationSticky" | "twoElevationSheet" | "twoElevationBlur" | "twoSocialCanvasLandscapeWidth" | "twoSocialCanvasLandscapeHeight" | "twoSocialCanvasStoryWidth" | "twoSocialCanvasStoryHeight" | "twoSocialSafeLandscapeX" | "twoSocialSafeLandscapeY" | "twoSocialSafeStoryTop" | "twoSocialSafeStoryBottom" | "twoSocialSafeStoryLeft" | "twoSocialSafeStoryRight" | "twoSocialFontSizeLandscapeDisplay" | "twoSocialFontSizeLandscapeFigure" | "twoSocialFontSizeLandscapeBody" | "twoSocialFontSizeLandscapeLabel" | "twoSocialFontSizeStoryDisplay" | "twoSocialFontSizeStoryFigure" | "twoSocialFontSizeStoryBody" | "twoSocialFontSizeStoryLabel" | "twoSocialFontSizeStoryCaption" | "twoSocialSizeLogoLandscape" | "twoSocialSizeLogoStory" | "twoSocialSizeActionLandscape" | "twoSocialSizeActionStory" | "twoSocialSizeArtLandscape";
 
 export const tokenNames = [
   "twoPage",
@@ -775,4 +851,28 @@ export const tokenNames = [
   "twoElevationSticky",
   "twoElevationSheet",
   "twoElevationBlur",
+  "twoSocialCanvasLandscapeWidth",
+  "twoSocialCanvasLandscapeHeight",
+  "twoSocialCanvasStoryWidth",
+  "twoSocialCanvasStoryHeight",
+  "twoSocialSafeLandscapeX",
+  "twoSocialSafeLandscapeY",
+  "twoSocialSafeStoryTop",
+  "twoSocialSafeStoryBottom",
+  "twoSocialSafeStoryLeft",
+  "twoSocialSafeStoryRight",
+  "twoSocialFontSizeLandscapeDisplay",
+  "twoSocialFontSizeLandscapeFigure",
+  "twoSocialFontSizeLandscapeBody",
+  "twoSocialFontSizeLandscapeLabel",
+  "twoSocialFontSizeStoryDisplay",
+  "twoSocialFontSizeStoryFigure",
+  "twoSocialFontSizeStoryBody",
+  "twoSocialFontSizeStoryLabel",
+  "twoSocialFontSizeStoryCaption",
+  "twoSocialSizeLogoLandscape",
+  "twoSocialSizeLogoStory",
+  "twoSocialSizeActionLandscape",
+  "twoSocialSizeActionStory",
+  "twoSocialSizeArtLandscape",
 ] as const;

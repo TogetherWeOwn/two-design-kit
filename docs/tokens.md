@@ -9,7 +9,7 @@ Ember Hours as tokens. The source of truth is `tokens/*.tokens.json` in W3C DTCG
 | Primitive | `color.ground.0`, `color.text.1`, `color.ember` (`tokens/color.tokens.json`) | Role tokens, and the v0.1.0 site aliases (`role.*`). Never a new component. |
 | Role and component value | `color.bg.canvas`, `color.text.secondary`, `color.state.live`, `size.control.md`, `layout.rail.seat` (`tokens/roles.tokens.json`, `dimension.tokens.json`) | Components and pages. |
 
-**Files:** `color.tokens.json` (primitives), `roles.tokens.json` (colour roles, gradient, elevation), `alias.tokens.json` (the v0.1.0 site aliases `role.*`), `dimension.tokens.json` (space, insets, radius, size, layout, breakpoints, type sizes, tracking), `font.tokens.json` (families, weights, widths, line heights), `motion.tokens.json`, `discord.tokens.json`, and `contrast.json` (declared pairs, not tokens).
+**Files:** `color.tokens.json` (primitives), `roles.tokens.json` (colour roles, gradient, elevation), `alias.tokens.json` (the v0.1.0 site aliases `role.*`), `dimension.tokens.json` (space, insets, radius, size, layout, breakpoints, type sizes, tracking), `font.tokens.json` (families, weights, widths, line heights), `motion.tokens.json`, `discord.tokens.json`, `social.tokens.json` (social image canvases, safe areas and type), and `contrast.json` (declared pairs, not tokens).
 
 **Format:** DTCG as this repo's validator reads it (`npm run validate`): colours are `#rrggbb` or `rgba()` strings, dimensions are numbers (px) or CSS strings (`clamp()`, `em`), durations are numbers (ms), every group sets `$type`, aliases are `{path}`. Moving to DTCG 2025.10 colour and dimension objects is a pipeline change, tracked separately; token content does not depend on it.
 
@@ -340,3 +340,20 @@ Our own inline-SVG stroke set: 24 px grid, 1.75 stroke, round caps and joins, `c
 | `discord.embed.default` | — | — | two-bot-next `BRAND_EMBED_COLOR` (`0xFF0E52` → `BRAND_DISCORD_EMBED_DEFAULT` `0xFF9C36`) |
 
 The `role.*` aliases stay for the existing stylesheet hooks; new components use the role tokens. two-web-next keeps its `--theme-*` operator-override hooks pointing at kit variables, so old CSS keeps working while surfaces migrate.
+
+## 9. Social images
+
+`social.tokens.json`: fixed pixel values for the organic social templates ([social.md](social.md)). An image has no viewport, so the fluid `font-size.*` scale does not apply; these sizes keep the title, date and action readable at phone size. Colours, spacing, radii and weights come from the tokens above.
+
+| Token | Landscape (1200 × 630) | Story (1080 × 1920) |
+|---|---|---|
+| `social.canvas.*.width` / `height` | 1200 / 630 | 1080 / 1920 |
+| `social.safe.*` | x 64, y 48 | top 288, bottom 384, left 72, right 120 |
+| `social.font-size.*.display` | 76 | 112 |
+| `social.font-size.*.figure` | 48 | 80 |
+| `social.font-size.*.body` | 30 | 44 |
+| `social.font-size.*.label` (the floor) | 24 | 32 |
+| `social.font-size.story.caption` | — | 60 |
+| `social.size.logo.*` | 48 | 72 |
+| `social.size.action.*` | 72 | 112 |
+| `social.size.art.landscape` | 360 (art column width) | — |
