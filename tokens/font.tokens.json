@@ -5,6 +5,11 @@
       "$value": ["Mona Sans", "system-ui", "sans-serif"],
       "$description": "Display and UI. Variable width 75-125, weight 200-900."
     },
+    "ui": {
+      "$type": "fontFamily",
+      "$value": "{font.display}",
+      "$description": "Body and UI stack: body copy, buttons, nav, inputs. Alias of font.display (Mona Sans)."
+    },
     "accent": {
       "$type": "fontFamily",
       "$value": ["Instrument Serif", "Georgia", "serif"],
@@ -60,7 +65,8 @@
       "$value": 1.3
     },
     "body": {
-      "$value": 1.55
+      "$value": 1.55,
+      "$description": "Body copy, set in font.ui."
     },
     "reading": {
       "$value": 1.6

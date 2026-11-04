@@ -122,7 +122,8 @@
       "$description": "Reading copy: about, rules."
     },
     "body": {
-      "$value": 16
+      "$value": 16,
+      "$description": "UI body, set in font.ui at line-height.body."
     },
     "small": {
       "$value": 14

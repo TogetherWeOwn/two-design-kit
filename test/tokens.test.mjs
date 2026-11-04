@@ -51,6 +51,14 @@ test("css exposes the Ember Hours colour roles components use", () => {
   assert.match(css, /--two-size-control-sm:\s*36px/);
 });
 
+test("font.ui is the body stack and stays an alias of font.display", () => {
+  assert.match(css, /--two-font-ui:\s*Mona Sans, system-ui, sans-serif;/);
+  assert.match(ts, /export const twoFontUi = "Mona Sans, system-ui, sans-serif" as const;/);
+  const display = css.match(/--two-font-display:\s*([^;]+);/)[1];
+  const ui = css.match(/--two-font-ui:\s*([^;]+);/)[1];
+  assert.equal(ui, display);
+});
+
 test("rust exposes one embed colour per meaning", () => {
   assert.match(rust, /pub const BRAND_DISCORD_EMBED_DEFAULT: u32 = 0xFF9C36;/);
   assert.match(rust, /pub const BRAND_DISCORD_EMBED_LIVE: u32 = 0xFF5C7E;/);
