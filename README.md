@@ -26,6 +26,7 @@ Building a page, component or bot surface? Start with [AGENTS.md](AGENTS.md).
 | Words | [docs/voice.md](docs/voice.md) |
 | WCAG 2.2 AA rules and the checks a PR runs | [docs/accessibility.md](docs/accessibility.md) |
 | Discord embeds, buttons and the bot-log line format | [docs/discord.md](docs/discord.md) |
+| Organic social images and clip captions: templates, rule checker, rights manifest | [docs/social.md](docs/social.md), `social/` |
 | Ideas that are not in the build | [docs/idea-bank.md](docs/idea-bank.md) |
 | What it should look like | [`mockups/png/`](mockups/png) (rendered from `dist/css/tokens.css`) |
 

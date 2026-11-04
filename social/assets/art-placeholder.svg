@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+  <title>Art slot placeholder (layout only, not for posting)</title>
+  <defs>
+    <pattern id="hatch" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="24" stroke="#85766b" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="#2e2420"/>
+  <rect width="400" height="400" fill="url(#hatch)" opacity="0.5"/>
+</svg>

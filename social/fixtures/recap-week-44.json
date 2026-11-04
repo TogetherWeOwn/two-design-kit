@@ -1,0 +1,29 @@
+{
+  "note": "Fixture content: invented events and counts, .example host. Not for posting.",
+  "now": "2026-11-02T09:00:00Z",
+  "allowedHosts": ["two.example"],
+  "card": {
+    "schema": "two.social-card/1",
+    "template": "weekly-recap",
+    "revision": "fx-recap-week-44-r1",
+    "purpose": "organic",
+    "fixture": true,
+    "title": { "text": "Our week.", "accent": "Six nights in.", "source": "human" },
+    "week": { "start": "2026-10-26", "zone": "Europe/London" },
+    "highlights": [
+      { "title": "Town hall", "day": "2026-10-27" },
+      {
+        "title": "Raid Night",
+        "day": "2026-10-30",
+        "count": { "value": 61, "noun": "came", "source": "internal-aggregate" }
+      },
+      { "title": "Sunday co-op", "day": "2026-11-01" }
+    ],
+    "stats": [
+      { "kind": "events", "value": 6, "noun": "events" },
+      { "kind": "people", "value": 214, "noun": "came", "source": "internal-aggregate" }
+    ],
+    "link": { "kind": "invite", "url": "https://two.example/join" },
+    "disclosure": { "aiAssistedCopy": false, "aiGeneratedImagery": false, "platformAiLabel": false }
+  }
+}

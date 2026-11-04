@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TogetherWeOwn/two-design-kit/social/schema/social-clip.schema.json",
+  "title": "two.social-clip/1",
+  "description": "Data for one captioned 9:16 clip (ffmpeg preset). checkClip in social/ffmpeg.mjs is the authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "revision",
+    "fixture",
+    "clip",
+    "title",
+    "day",
+    "zone",
+    "captions",
+    "disclosure"
+  ],
+  "properties": {
+    "schema": { "const": "two.social-clip/1" },
+    "revision": { "type": "string", "minLength": 1 },
+    "fixture": { "type": "boolean" },
+    "clip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assetId", "sha256"],
+      "properties": {
+        "assetId": {
+          "type": "string",
+          "description": "A kind \"clip\" record with release ids and consent."
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "title": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text"],
+      "properties": { "text": { "type": "string", "minLength": 1, "maxLength": 24 } }
+    },
+    "day": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "zone": { "type": "string" },
+    "captions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["start", "end", "text", "source"],
+        "properties": {
+          "start": { "type": "number", "minimum": 0 },
+          "end": { "type": "number" },
+          "text": { "type": "string", "maxLength": 64 },
+          "source": { "enum": ["human", "ai-draft"] }
+        }
+      }
+    },
+    "disclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aiAssistedCopy", "aiGeneratedImagery", "platformAiLabel"],
+      "properties": {
+        "aiAssistedCopy": { "type": "boolean" },
+        "aiGeneratedImagery": { "type": "boolean" },
+        "platformAiLabel": { "type": "boolean" }
+      }
+    }
+  }
+}

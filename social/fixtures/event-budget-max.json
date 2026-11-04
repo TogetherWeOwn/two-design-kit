@@ -1,0 +1,22 @@
+{
+  "note": "Fixture content: the longest title the budgets allow, wide letters, a four-digit count and a long zone name. Proves the event budgets fit. Not for posting.",
+  "now": "2026-11-04T12:00:00Z",
+  "allowedHosts": ["two.example"],
+  "card": {
+    "schema": "two.social-card/1",
+    "template": "event-announcement",
+    "revision": "fx-event-budget-max-r1",
+    "purpose": "organic",
+    "fixture": true,
+    "title": {
+      "text": "Monday Movie Marathon:",
+      "accent": "Warhammer Underworlds",
+      "source": "human"
+    },
+    "when": { "start": "2026-11-10T03:30:00Z", "zone": "America/Los_Angeles" },
+    "link": { "kind": "invite", "url": "https://two.example/join?utm_source=fixture" },
+    "count": { "value": 9999, "noun": "going", "source": "internal-aggregate" },
+    "art": null,
+    "disclosure": { "aiAssistedCopy": true, "aiGeneratedImagery": false, "platformAiLabel": true }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "social": {
+    "$type": "dimension",
+    "$description": "Organic social images (docs/social.md). Fixed pixel values: an image has no viewport, so the fluid web type scale does not apply.",
+    "canvas": {
+      "landscape": {
+        "width": {
+          "$value": 1200,
+          "$description": "Link-preview card (1.91:1): Discord, X, Bluesky, Mastodon, Reddit, Steam."
+        },
+        "height": {
+          "$value": 630
+        }
+      },
+      "story": {
+        "width": {
+          "$value": 1080,
+          "$description": "Vertical story and short video (9:16)."
+        },
+        "height": {
+          "$value": 1920
+        }
+      }
+    },
+    "safe": {
+      "$description": "Insets that keep every fact clear of platform crops and overlays.",
+      "landscape": {
+        "x": {
+          "$value": 64
+        },
+        "y": {
+          "$value": 48,
+          "$description": "Covers the 2:1 crop (1200 x 600) some feeds apply."
+        }
+      },
+      "story": {
+        "top": {
+          "$value": 288,
+          "$description": "Clears the profile and progress bar, and the 4:5 feed crop (285 px)."
+        },
+        "bottom": {
+          "$value": 384,
+          "$description": "Clears the caption, reply bar and action stack."
+        },
+        "left": {
+          "$value": 72
+        },
+        "right": {
+          "$value": 120,
+          "$description": "Clears the like / share column on short-video players."
+        }
+      }
+    },
+    "font-size": {
+      "$description": "The smallest value per format is the floor: no text is smaller.",
+      "landscape": {
+        "display": {
+          "$value": 76,
+          "$description": "Approved title. About 21 px in a 340 px-wide phone preview."
+        },
+        "figure": {
+          "$value": 48,
+          "$description": "Date and time; recap stats."
+        },
+        "body": {
+          "$value": 30,
+          "$description": "Highlight rows, the action label."
+        },
+        "label": {
+          "$value": 24,
+          "$description": "Mono labels, the link, the footer. The floor."
+        }
+      },
+      "story": {
+        "display": {
+          "$value": 112
+        },
+        "figure": {
+          "$value": 80
+        },
+        "body": {
+          "$value": 44
+        },
+        "label": {
+          "$value": 32,
+          "$description": "The floor (about 11.5 px on a 390 px-wide phone)."
+        },
+        "caption": {
+          "$value": 60,
+          "$description": "Burned-in clip captions (ffmpeg preset)."
+        }
+      }
+    },
+    "size": {
+      "logo": {
+        "landscape": {
+          "$value": 48
+        },
+        "story": {
+          "$value": 72
+        }
+      },
+      "action": {
+        "landscape": {
+          "$value": 72,
+          "$description": "Height of the printed action pill."
+        },
+        "story": {
+          "$value": 112
+        }
+      },
+      "art": {
+        "landscape": {
+          "$value": 360,
+          "$description": "Width of the art column (landscape event)."
+        }
+      }
+    }
+  }
+}

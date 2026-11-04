@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TogetherWeOwn/two-design-kit/social/schema/asset-rights.schema.json",
+  "title": "two.asset-rights/1",
+  "description": "The rights manifest (social/rights/manifest.json). Every file a social render or clip uses has one record; no record, no render (docs/social.md §7).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "updatedAt", "assets"],
+  "properties": {
+    "schema": { "const": "two.asset-rights/1" },
+    "updatedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "assets": { "type": "array", "items": { "$ref": "#/$defs/asset" } }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "path",
+        "sha256",
+        "owner",
+        "licence",
+        "uses",
+        "aiGenerated",
+        "depictsPeople",
+        "releaseIds",
+        "addedAt",
+        "expiresAt",
+        "withdrawnAt",
+        "withdrawalReason"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "kind": {
+          "enum": [
+            "brand-mark",
+            "font",
+            "game-art",
+            "illustration",
+            "photo",
+            "member-media",
+            "clip",
+            "placeholder"
+          ]
+        },
+        "title": { "type": "string" },
+        "path": {
+          "type": "string",
+          "description": "Repo-relative path, or the publisher's asset store path."
+        },
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "description": "Where the file was obtained."
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "font": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "weight", "style"],
+          "properties": {
+            "name": { "type": "string" },
+            "weight": { "type": "integer" },
+            "style": { "enum": ["normal", "italic"] }
+          }
+        },
+        "owner": { "type": "string" },
+        "licence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "url"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "SPDX id, \"owned\", or a licence record id."
+            },
+            "url": { "type": ["string", "null"] }
+          }
+        },
+        "uses": {
+          "type": "array",
+          "items": { "enum": ["organic", "paid", "fixture"] },
+          "description": "game-art never lists paid; placeholder lists fixture only."
+        },
+        "aiGenerated": { "type": "boolean" },
+        "depictsPeople": {
+          "type": "boolean",
+          "description": "true with aiGenerated true is always rejected."
+        },
+        "releaseIds": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Release records. Required for people, member media and clips."
+        },
+        "consent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["recordId", "purposes", "channels", "expiresAt", "withdrawnAt"],
+          "description": "Clips only: the consent covering purpose, channel, duration and withdrawal.",
+          "properties": {
+            "recordId": { "type": "string" },
+            "purposes": { "type": "array", "items": { "type": "string" } },
+            "channels": { "type": "array", "items": { "type": "string" } },
+            "expiresAt": { "type": "string", "format": "date-time" },
+            "withdrawnAt": { "type": ["string", "null"], "format": "date-time" }
+          }
+        },
+        "addedAt": { "type": "string" },
+        "expiresAt": { "type": ["string", "null"] },
+        "withdrawnAt": {
+          "type": ["string", "null"],
+          "description": "Set when rights are withdrawn. From this time every check rejects the asset."
+        },
+        "withdrawalReason": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

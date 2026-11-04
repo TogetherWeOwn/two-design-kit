@@ -1,0 +1,172 @@
+{
+  "schema": "two.asset-rights/1",
+  "updatedAt": "2026-11-04",
+  "assets": [
+    {
+      "id": "two-icon",
+      "kind": "brand-mark",
+      "title": "Together We Own icon (brand gradient)",
+      "path": "mockups/src/brand/icon-two-brand.svg",
+      "sha256": "0743a145875e7c47c6e0bc6af97ec3ecaa381b8ffb7b9cf5d05a3e78e3ab058b",
+      "owner": "Together We Own",
+      "licence": { "id": "owned", "url": null },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-03",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "font-mona-sans-regular",
+      "kind": "font",
+      "title": "Mona Sans Regular 2.0.27",
+      "path": "social/fonts/MonaSans-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/fonts/static/ttf/MonaSans-Regular.ttf",
+      "sha256": "ae4eb31f8cd332260a698b6a4391d5fff079e818c152d31d686ac0e1533cc0fa",
+      "font": { "name": "Mona Sans", "weight": 400, "style": "normal" },
+      "owner": "GitHub",
+      "licence": {
+        "id": "OFL-1.1",
+        "url": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/OFL.txt"
+      },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "font-mona-sans-medium",
+      "kind": "font",
+      "title": "Mona Sans Medium 2.0.27",
+      "path": "social/fonts/MonaSans-Medium.ttf",
+      "source": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/fonts/static/ttf/MonaSans-Medium.ttf",
+      "sha256": "e5c608f35644eecba539cc37fdaa6cbe04a28ad780f0cfa85637779bdc7ef414",
+      "font": { "name": "Mona Sans", "weight": 500, "style": "normal" },
+      "owner": "GitHub",
+      "licence": {
+        "id": "OFL-1.1",
+        "url": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/OFL.txt"
+      },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "font-mona-sans-semibold",
+      "kind": "font",
+      "title": "Mona Sans SemiBold 2.0.27",
+      "path": "social/fonts/MonaSans-SemiBold.ttf",
+      "source": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/fonts/static/ttf/MonaSans-SemiBold.ttf",
+      "sha256": "67636cd715fc8637df3d0f215f478af37924fa3f2c9ee0d3ed8f3147211811f2",
+      "font": { "name": "Mona Sans", "weight": 600, "style": "normal" },
+      "owner": "GitHub",
+      "licence": {
+        "id": "OFL-1.1",
+        "url": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/OFL.txt"
+      },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "font-mona-sans-semiexpanded-semibold",
+      "kind": "font",
+      "title": "Mona Sans SemiExpanded SemiBold 2.0.27 (static stand-in for the 108% display width)",
+      "path": "social/fonts/MonaSansSemiExpanded-SemiBold.ttf",
+      "source": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/fonts/static/ttf/MonaSansSemiExpanded-SemiBold.ttf",
+      "sha256": "6b49eba4adfe5f753b380be0348a2a43557feb403fd23067a8b439b1f75a3805",
+      "font": { "name": "Mona Sans SemiExpanded", "weight": 600, "style": "normal" },
+      "owner": "GitHub",
+      "licence": {
+        "id": "OFL-1.1",
+        "url": "https://raw.githubusercontent.com/github/mona-sans/v2.0.27/OFL.txt"
+      },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "font-instrument-serif-italic",
+      "kind": "font",
+      "title": "Instrument Serif Italic",
+      "path": "social/fonts/InstrumentSerif-Italic.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/instrumentserif/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+      "font": { "name": "Instrument Serif", "weight": 400, "style": "italic" },
+      "owner": "Instrument",
+      "licence": {
+        "id": "OFL-1.1",
+        "url": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/instrumentserif/OFL.txt"
+      },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "font-fragment-mono",
+      "kind": "font",
+      "title": "Fragment Mono Regular",
+      "path": "social/fonts/FragmentMono-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/fragmentmono/FragmentMono-Regular.ttf",
+      "sha256": "0fe011f425873c2e0fc73a189e394e340ad48d2b9a99a576bdeec75cee000460",
+      "font": { "name": "Fragment Mono", "weight": 400, "style": "normal" },
+      "owner": "Wei Huang",
+      "licence": {
+        "id": "OFL-1.1",
+        "url": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/fragmentmono/OFL.txt"
+      },
+      "uses": ["organic", "paid", "fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    },
+    {
+      "id": "art-placeholder",
+      "kind": "placeholder",
+      "title": "Art slot placeholder: hatched overlay ground, layout only",
+      "path": "social/assets/art-placeholder.svg",
+      "sha256": "df070f2d13efed9e6e70c8c676739dc7f9f120ab6d7b795aa7bc7590159cb885",
+      "owner": "Together We Own",
+      "licence": { "id": "owned", "url": null },
+      "uses": ["fixture"],
+      "aiGenerated": false,
+      "depictsPeople": false,
+      "releaseIds": [],
+      "addedAt": "2026-11-04",
+      "expiresAt": null,
+      "withdrawnAt": null,
+      "withdrawalReason": null
+    }
+  ]
+}

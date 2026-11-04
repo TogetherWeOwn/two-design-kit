@@ -228,6 +228,30 @@
   --two-elevation-sticky: rgba(21, 16, 15, 0.86);
   --two-elevation-sheet: rgba(28, 22, 20, 0.94);
   --two-elevation-blur: 14px;
+  --two-social-canvas-landscape-width: 1200px;
+  --two-social-canvas-landscape-height: 630px;
+  --two-social-canvas-story-width: 1080px;
+  --two-social-canvas-story-height: 1920px;
+  --two-social-safe-landscape-x: 64px;
+  --two-social-safe-landscape-y: 48px;
+  --two-social-safe-story-top: 288px;
+  --two-social-safe-story-bottom: 384px;
+  --two-social-safe-story-left: 72px;
+  --two-social-safe-story-right: 120px;
+  --two-social-font-size-landscape-display: 76px;
+  --two-social-font-size-landscape-figure: 48px;
+  --two-social-font-size-landscape-body: 30px;
+  --two-social-font-size-landscape-label: 24px;
+  --two-social-font-size-story-display: 112px;
+  --two-social-font-size-story-figure: 80px;
+  --two-social-font-size-story-body: 44px;
+  --two-social-font-size-story-label: 32px;
+  --two-social-font-size-story-caption: 60px;
+  --two-social-size-logo-landscape: 48px;
+  --two-social-size-logo-story: 72px;
+  --two-social-size-action-landscape: 72px;
+  --two-social-size-action-story: 112px;
+  --two-social-size-art-landscape: 360px;
 }
 
 /* Reduced-motion layer: under reduce, nothing moves. */
