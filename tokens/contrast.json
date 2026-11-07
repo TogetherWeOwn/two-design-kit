@@ -833,18 +833,6 @@
       "use": "non-text: selected box and focus on the canvas"
     },
     {
-      "fg": "color.text.primary",
-      "bg": "color.bg.well",
-      "kind": "text",
-      "use": "text: canvas empty and error states"
-    },
-    {
-      "fg": "color.text.tertiary",
-      "bg": "color.bg.well",
-      "kind": "text",
-      "use": "text: canvas empty and error states"
-    },
-    {
       "fg": "color.bg.canvas",
       "bg": "color.label.reviewed",
       "kind": "text",

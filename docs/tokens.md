@@ -249,8 +249,6 @@ Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative lumi
 | `color.label.rejected` | `color.bg.well` | 7.36 | 3 | non-text |
 | `color.label.ghost` | `color.bg.well` | 6.85 | 3 | non-text |
 | `color.focus.ring` | `color.bg.well` | 8.97 | 3 | non-text |
-| `color.text.primary` | `color.bg.well` | 16.67 | 4.5 | text |
-| `color.text.tertiary` | `color.bg.well` | 6.85 | 4.5 | text |
 | `color.bg.canvas` | `color.label.reviewed` | 10.13 | 4.5 | text |
 | `discord.embed.default` | `color.discord-embed-bg` | 6.61 | 3 | non-text |
 | `discord.embed.live` | `color.discord-embed-bg` | 4.65 | 3 | non-text |
