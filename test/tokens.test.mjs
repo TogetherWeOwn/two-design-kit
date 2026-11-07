@@ -35,6 +35,12 @@ test("rust exposes embed colours as u32", () => {
   assert.match(rust, /pub const BRAND_PAGE: u32 = 0x15100F;/);
 });
 
+test("the box-handle target exception never drops below the WCAG floor", () => {
+  const px = (name) => Number(css.match(new RegExp(`--two-${name}:\\s*(\\d+)px;`))?.[1]);
+  assert.ok(px("size-target-handle") >= px("size-target-min"));
+  assert.ok(px("size-target-handle") < px("size-control-sm"));
+});
+
 test("css exposes the Ember Hours colour roles components use", () => {
   assert.match(css, /--two-color-bg-canvas:\s*#15100f/i);
   assert.match(css, /--two-color-bg-overlay:\s*#2e2420/i);

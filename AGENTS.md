@@ -78,7 +78,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 
 **Layout**
 - [ ] Matches the template at both widths; decision block first at 390.
-- [ ] No sideways page scroll at 320 px; only chip rows, the newest strip and admin tables scroll.
+- [ ] No sideways page scroll at 320 px; only chip rows, the newest strip and admin tables scroll, and on tool screens (P6/P7) the J5 legend, the J6 crop strip and J13 tables.
 - [ ] Sticky elements limited to header, list toolbar, one rail and the event action bar.
 
 **Copy**
