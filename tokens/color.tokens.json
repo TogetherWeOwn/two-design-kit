@@ -180,6 +180,14 @@
       "11": {
         "$value": "#5e35b1"
       }
+    },
+    "machine": {
+      "$value": "#7fb2ff",
+      "$description": "Machine-accepted label (workbench). Never a person's decision, never a link."
+    },
+    "well": {
+      "$value": "#121212",
+      "$description": "Neutral image well: no warm cast, so source pixels read true. Workbench canvases only."
     }
   }
 }

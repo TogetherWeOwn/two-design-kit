@@ -267,6 +267,38 @@
     },
     "lifeline-marker": {
       "$value": 28
+    },
+    "box": {
+      "$description": "Workbench box overlay. Sizes are screen px, independent of image zoom.",
+      "stroke": {
+        "$value": 2
+      },
+      "halo": {
+        "$value": 1
+      },
+      "handle": {
+        "$value": 8,
+        "$description": "Visible resize handle."
+      },
+      "handle-target": {
+        "$value": 24,
+        "$description": "Hit area round each handle (WCAG 2.5.8 floor). Keyboard nudging is the non-drag alternative."
+      },
+      "tab": {
+        "$value": 22,
+        "$description": "Label tab height above a box."
+      }
+    },
+    "crop": {
+      "$description": "Native-crop tiles on the review screen.",
+      "tile": {
+        "$value": 112,
+        "$description": "Tile frame; the crop sits inside at 1:1 or smaller, never upscaled past 4x."
+      }
+    },
+    "toolbar": {
+      "$value": 52,
+      "$description": "Workbench tool row under the header."
     }
   },
   "layout": {
@@ -321,6 +353,14 @@
       "note": {
         "$value": 36
       }
+    },
+    "inspector": {
+      "$value": 380,
+      "$description": "Review inspector rail at 1280 and wider."
+    },
+    "queue": {
+      "$value": 300,
+      "$description": "Review queue panel when open."
     }
   },
   "breakpoint": {

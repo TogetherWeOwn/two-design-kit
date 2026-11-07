@@ -17,6 +17,7 @@ How to build a page, component or bot surface that looks and behaves exactly lik
 | Words | [docs/voice.md](docs/voice.md) |
 | Accessibility rules and checks | [docs/accessibility.md](docs/accessibility.md) |
 | A Discord embed, button or log line | [docs/discord.md](docs/discord.md) |
+| A tool screen (image review, tables, runs, costs) | [docs/components.md](docs/components.md) §J and [docs/templates.md](docs/templates.md) P6–P7 |
 | An idea that isn't in the build | [docs/idea-bank.md](docs/idea-bank.md) |
 | What it should look like | `mockups/png/` (rendered from these tokens) |
 
