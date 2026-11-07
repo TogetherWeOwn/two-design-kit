@@ -689,7 +689,7 @@ A4 tag with a leading 12 px J3 glyph. Variants `proposed`, `auto`, `reviewed`, `
 | proposed new geometry | the current box as a ghost (`label.ghost`, `box.dash.ghost`, no tab) and the proposed box in proposed style |
 | proposed split | the current box as a ghost and each part in proposed style; one tab "Split into 2" |
 | proposed new object | proposed style; tab "New · {class}" |
-| selected | a 2 px `focus.ring` outline 4 px outside the box, 8 px handles (`size.box.handle`, `text.primary` with a halo) on corners and edges, each with a 24 px hit area (`size.target-handle`; the box-handle exception to the 36 px house minimum in accessibility.md §4); tab gets the focus outline |
+| selected | a 2 px `focus.ring` outline 4 px outside the box, 8 px handles (`size.box.handle`, `text.primary` with a halo) on corners and edges, each with a 24 px hit area (`size.target-handle`; the box-handle exception to the 36 px house minimum in accessibility.md §4). Corner handles show only when the box is at least 24 px on screen both ways, edge handles at 48 px, so hit areas never overlap; a smaller box shows none until zoomed; tab gets the focus outline |
 | drawing | solid `focus.ring` stroke with handles (never dashed, so it can't read as proposed) |
 | hover (pointer) | stroke and tab step to the selected outline at 50 %; no movement |
 | hidden by filter | not drawn; the legend count still shows it |
