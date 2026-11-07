@@ -275,6 +275,7 @@ Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative lumi
 |---|---|---|
 | `size.control.sm` / `md` / `lg` | 36 / 44 / 56 px | Pill heights. 36 is the house minimum for any control. |
 | `size.target-min` | 24 px | The WCAG 2.2 SC 2.5.8 floor (the house minimum is above it). |
+| `size.target-handle` | 24 px | Hit area round each box handle on a workbench canvas; the one exception to the house minimum (accessibility.md §4). |
 | `size.icon.sm` / `md` | 16 / 20 px | Drawn on a 24 px grid, 1.75 stroke, round caps and joins. |
 | `size.avatar.xs`…`xl` | 24 / 28 / 36 / 44 / 120 px | Row stack / room and seat / header and people / member rows / profile (72 at 390). |
 | `size.row.calm` / `table` / `dense` / `admin` | 68 / 60 / 56 / 40 px | Home and lists / ladder at 1280 / ladder at 390 / admin only. |
