@@ -199,6 +199,10 @@
       "$value": 24,
       "$description": "WCAG 2.2 SC 2.5.8 floor; the house minimum (36) sits above it."
     },
+    "target-handle": {
+      "$value": 24,
+      "$description": "Hit area round each box handle on a workbench canvas. The one exception to the house minimum (accessibility.md §4); keyboard and typed coordinates are the non-drag alternative."
+    },
     "icon": {
       "sm": {
         "$value": 16
