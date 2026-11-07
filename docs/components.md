@@ -689,7 +689,7 @@ A4 tag with a leading 12 px J3 glyph. Variants `proposed`, `auto`, `reviewed`, `
 | proposed new geometry | the current box as a ghost (`label.ghost`, `box.dash.ghost`, no tab) and the proposed box in proposed style |
 | proposed split | the current box as a ghost and each part in proposed style; one tab "Split into 2" |
 | proposed new object | proposed style; tab "New · {class}" |
-| selected | a 2 px `focus.ring` outline 4 px outside the box, 8 px handles (`size.box.handle`, `text.primary` with a halo) on corners and edges, each with a 24 px hit area (`size.box.handle-target`); tab gets the focus outline |
+| selected | a 2 px `focus.ring` outline 4 px outside the box, 8 px handles (`size.box.handle`, `text.primary` with a halo) on corners and edges, each with a 24 px hit area (`size.box.handle-target`; the documented exception to the 36 px house minimum, accessibility.md §4); tab gets the focus outline |
 | drawing | solid `focus.ring` stroke with handles (never dashed, so it can't read as proposed) |
 | hover (pointer) | stroke and tab step to the selected outline at 50 %; no movement |
 | hidden by filter | not drawn; the legend count still shows it |
@@ -706,7 +706,7 @@ A4 tag with a leading 12 px J3 glyph. Variants `proposed`, `auto`, `reviewed`, `
 | State | Looks |
 |---|---|
 | loading | well at its final aspect ratio, `bg.well`, no shimmer; tabs and legend counts appear with the image |
-| image failed | well keeps its size; `text.primary` sentence "This image didn't load." + ghost "Try again"; decisions are blocked |
+| image failed | well keeps its size; centred in it, a `bg.canvas` panel (`radius.m`, `space.4` padding) holds the `text.primary` sentence "This image didn't load." + ghost "Try again" (text never sits on `bg.well`); decisions are blocked |
 | no boxes | "No boxes on this image yet." in the legend row; the well shows the image only |
 
 ### J6. Crop strip and crop tile
@@ -784,7 +784,7 @@ A4 tags for long work (runs, compiles, syncs, evaluations): neutral "Queued", ne
 
 ### J20. Spend confirm panel
 
-Paid work never starts from one click. The start button opens this panel in place (no modal): `bg.raised`, `line.control` outline, `radius.m`. A facts list of exactly what will run (release, recipe, base model with hash, hardware, epochs, images) · an estimate tile with the `warn` "Estimate" tag, the price basis and the billing rule ("Billed for time used, even if cancelled; at least 15 minutes") · the month's total after this run against the limits · a ceiling line that says what is enforced and what is not ("The run won't start if its estimate is over $5 per operation, or would take this month's spend past the $40 limit. Time-based billing can come in above the estimate; the actual cost shows as unconfirmed until the provider's bill is matched to this run.") · primary "Start · estimate $1.38" (the button names the estimate, never a cap) + ghost "Cancel". Never word the amount as a maximum ("up to", "at most", "capped at") unless the server enforces that exact amount for this run. Over a limit: no primary; a danger notice says which limit and links to Costs.
+Paid work never starts from one click. The start button opens this panel in place (no modal): `bg.raised`, `line.control` outline, `radius.m`. A facts list of exactly what will run (release, recipe, base model with hash, hardware, epochs, images) · an estimate tile with the `warn` "Estimate" tag, the price basis and the billing rule ("Billed for time used, even if cancelled; at least 15 minutes") · the month's total after this run against the limits · a ceiling line that says what is enforced and what is not ("The run won't start if its estimate is over $5 per operation, or if this month's spend, plus estimates reserved for queued work, plus this estimate would pass the $40 limit. Time-based billing can come in above the estimate; the actual cost shows as unconfirmed until the provider's bill is matched to this run.") · primary "Start · estimate $1.38" (the button names the estimate, never a cap) + ghost "Cancel". Never word the amount as a maximum ("up to", "at most", "capped at") unless the server enforces that exact amount for this run. Over a limit: no primary; a danger notice says which limit and links to Costs.
 
 ### J21. Setup steps
 

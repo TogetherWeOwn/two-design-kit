@@ -12,7 +12,7 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 | **P4 Content + rail** | `minmax(0,1fr)` + rail (`layout.rail.*`), 48–56 px gap; rail sticky at `layout.sticky-offset` | one column; the template says where the rail goes | Event detail, Ladder, Members, Profile, Join |
 | **P5 Admin dense** | current admin layout, kit tokens, `size.row.admin` | tables scroll inside their own container, never the page | Admin |
 | **P6 Workbench page** | J1 header · page header (H1 at `font-size.h3`, two-tone, no serif) · `minmax(0,1fr)` + rail (`layout.rail.default`) or two equal columns, 40 px gap, in the container | one column; the rail follows the main column unless it holds the page's decision | Tool screens (labelloop) |
-| **P7 Review canvas** | J1 header · sticky tool row (`size.toolbar`) · `minmax(0,1fr)` stage + inspector (`layout.inspector`, 380). Full viewport height; stage and inspector scroll independently; the decision dock (J12) sticks to the inspector bottom; a one-line footer closes the viewport | one column: stage, then inspector; drawing tools hidden with a note; the dock becomes a fixed bottom bar | Image review (labelloop) |
+| **P7 Review canvas** | J1 header · sticky tool row (`size.toolbar`) · `minmax(0,1fr)` stage + inspector (`layout.inspector`, 380). Full viewport height; stage and inspector scroll independently; the decision dock (J12) sticks to the inspector bottom; the footer closes the viewport (at least `space.7`, grows with its text; shell rule below) | one column: stage, then inspector; drawing tools hidden with a note; the dock becomes a fixed bottom bar | Image review (labelloop) |
 
 **Shared shell on every page:** skip link (A16) · header (B1) · `<main id="main">` · footer (B3). One top bar; event detail adds the mobile action bar (B4) at 390 and nothing else does.
 
@@ -116,7 +116,7 @@ At 390 admin is usable but not optimised: tables scroll inside their own contain
 1. Design 390 first: what does the member decide here? That block comes before any feed or description.
 2. One layout switch at `breakpoint.compact-max` (820 px). If something needs a second breakpoint, the layout is wrong.
 3. Rails move under the header block, unless the rail holds the page's decision (seat card, join card): then it moves directly after the H1 block.
-4. Horizontal scrolling only inside a chip row, the newest strip or an admin table, never the page (check at 320 px).
+4. Horizontal scrolling only inside a chip row, the newest strip, an admin table or, on tool screens, the J5 legend, the J6 crop strip and J13 tables; never the page (check at 320 px).
 5. Sticky things: the header, the list toolbar, one rail at 1280, the action bar at 390. Nothing else sticks.
 
 ## Tool surfaces (P6, P7)

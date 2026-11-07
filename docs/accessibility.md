@@ -26,6 +26,8 @@ Every state is a word plus, where possible, a shape: Live (tag + half-ring glyph
 
 WCAG 2.2 AA floor is 24 × 24 px. **House minimum is 36 px tall** for any control (chips, small pills, segments) and 44–56 px for primary actions. Inline text links are exempt but get 8 px vertical padding when they stand alone ("I can't make it").
 
+**One exception: box handles on a workbench canvas (J4)** keep a 24 × 24 px hit area (`size.box.handle-target`), the WCAG floor. 36 px areas would overlap on small boxes (a 7 × 3 px price tag at 320) and steal clicks from the box and its neighbours. Every handle action has an equivalent that needs no handle: arrows and Alt+arrows move and resize the selected box, and its coordinates can be typed (SC 2.5.7). No other control uses this exception.
+
 ## 5. Motion (SC 2.2.2, 2.3.3 as a target)
 
 - All animation and transition CSS sits inside `@media (prefers-reduced-motion: no-preference)`. Token output also zeroes durations under `reduce`.
@@ -55,7 +57,7 @@ Live data is the heart of Ember Hours, and the most likely place to annoy a scre
 
 ## 8. Zoom, reflow and text spacing (SC 1.4.4, 1.4.10, 1.4.12)
 
-- At 320 CSS px wide (400% zoom of 1280) no page scrolls sideways; chip rows and tables scroll inside themselves.
+- At 320 CSS px wide (400% zoom of 1280) no page scrolls sideways; chip rows, tables and the workbench crop strip (J6) scroll inside themselves.
 - Body text is fixed in px tokens, but every container grows with text: no fixed heights on anything holding text; rows use `min-height`.
 - With WCAG text-spacing overrides (line height 1.5, letter spacing 0.12 em, word spacing 0.16 em), nothing clips or overlaps. Headings wrap with `text-wrap: balance` and never truncate.
 
