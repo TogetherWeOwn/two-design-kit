@@ -16,7 +16,7 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 
 **Shared shell on every page:** skip link (A16) · header (B1) · `<main id="main">` · footer (B3). One top bar; event detail adds the mobile action bar (B4) at 390 and nothing else does.
 
-**Tool screens (P6, P7)** use the workbench header (J1) in place of B1; B1 never appears on a tool screen. Shell: skip link (A16) · J1 · `<main id="main">` · `<footer>` in place of B3: a source line (licence offer + version, `text.tertiary`). On P6 it is a normal footer after the content; on P7 it is one line, `space.7` high, inside the viewport height under the stage and inspector (at 390, after the inspector). Every tool screen keeps the footer landmark (accessibility.md §7). One top bar; at 390 the review canvas adds the decision dock as its bottom bar (J12) and nothing else does.
+**Tool screens (P6, P7)** use the workbench header (J1) in place of B1; B1 never appears on a tool screen. Shell: skip link (A16) · J1 · `<main id="main">` · `<footer>` in place of B3: a source line (licence offer + version, `text.tertiary`). On P6 it is a normal footer after the content; on P7 it is one line, `space.7` high, inside the viewport height under the stage and inspector above `breakpoint.compact-max`; at 820 px and below the page scrolls and the footer follows the inspector. Every tool screen keeps the footer landmark (accessibility.md §7). One top bar; at 390 the review canvas adds the decision dock as its bottom bar (J12) and nothing else does.
 
 ---
 
