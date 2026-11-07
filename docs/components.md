@@ -744,7 +744,7 @@ States: decided (the card collapses to a history line, J9); stale (the object ch
 
 ### J10. Class picker
 
-A combobox in a popover anchored beside the box (or under the Class field). Title "Class for the new box" / "Change class" · search field (matches names and aliases) · listbox options: 36 px reference thumbnail · class name · mono sub-line (reference match score, matched alias) · check on the active option. Opens ranked by reference match, never alphabetically by default. Footer: primary sm "Add {class}" (the one ember surface while open) + ghost "Cancel" · link button "None of these fits · mark uncertain". Reviewers can't create classes here; an admin edits the class catalog. **A11y:** ARIA combobox + listbox pattern; Enter commits, Esc cancels and returns focus to the box.
+A combobox in a popover anchored beside the box (or under the Class field). Title "Class for the new box" / "Change class" · search field (matches names and aliases) · listbox options: 36 px reference thumbnail · class name · mono sub-line (reference match score, matched alias) · check on the active option. Opens ranked by reference match, never alphabetically by default. Footer: primary sm "Add {class}" + ghost "Cancel" · link button "None of these fits · mark uncertain". Reviewers can't create classes here; an admin edits the class catalog. **One ember while open:** Add is the only ember action while the picker is open. The decision dock (J12) demotes its primary to a ghost button for that time (same label, same shortcut held back until the picker closes) and restores it on close or cancel. **A11y:** ARIA combobox + listbox pattern; Enter commits, Esc cancels and returns focus to the box.
 
 ### J11. Tool picker and shortcuts
 
@@ -752,7 +752,7 @@ Tool picker: A9 segmented group of pressed buttons (Select V · Box B · Split S
 
 ### J12. Decision dock
 
-The bottom of the review inspector: `elevation.sheet`, `hairline-strong` top edge, sticky inside the rail (at ≤ 820 px it becomes a B4-style bar fixed to the bottom of the screen). Mono line: scope + progress ("This image · 5 of 14 to decide") · the image's one primary action ("Accept image", Enter) + ghost "Skip" · reason line when the primary is unavailable · link button for the rare exit ("Exclude this image…"). Unavailable primary = quiet pill with `aria-disabled` and the reason in a described-by line ("Decide the 5 proposals first. Uncertain is a decision.").
+The bottom of the review inspector: `elevation.sheet`, `hairline-strong` top edge, sticky inside the rail (at ≤ 820 px it becomes a B4-style bar fixed to the bottom of the screen). Mono line: scope + progress ("This image · 5 of 14 to decide") · the image's one primary action ("Accept image", Enter) + ghost "Skip" · reason line when the primary is unavailable · link button for the rare exit ("Exclude this image…"). Unavailable primary = quiet pill with `aria-disabled` and the reason in a described-by line ("Decide the 5 proposals first. Uncertain is a decision."). While the class picker (J10) is open, the primary shows as a ghost button and Enter belongs to the picker; it returns to primary when the picker closes.
 
 ### J13. Workbench table
 
@@ -784,7 +784,7 @@ A4 tags for long work (runs, compiles, syncs, evaluations): neutral "Queued", ne
 
 ### J20. Spend confirm panel
 
-Paid work never starts from one click. The start button opens this panel in place (no modal): `bg.raised`, `line.control` outline, `radius.m`. A facts list of exactly what will run (release, recipe, base model with hash, hardware, epochs, images) · an estimate tile with the `warn` "Estimate" tag, the price basis and the billing rule ("Billed for time used, even if cancelled; at least 15 minutes") · the month's total after this run against the limits · primary "Spend up to $1.38 and start" (the amount is in the button) + ghost "Cancel". Over a limit: no primary; a danger notice says which limit and links to Costs.
+Paid work never starts from one click. The start button opens this panel in place (no modal): `bg.raised`, `line.control` outline, `radius.m`. A facts list of exactly what will run (release, recipe, base model with hash, hardware, epochs, images) · an estimate tile with the `warn` "Estimate" tag, the price basis and the billing rule ("Billed for time used, even if cancelled; at least 15 minutes") · the month's total after this run against the limits · a ceiling line that says what is enforced and what is not ("The run stops before it starts if its estimate is over $5 per operation or your $40 monthly limit. Time-based billing can come in above the estimate; the actual cost shows as unconfirmed until the provider's bill is matched to this run.") · primary "Start · estimate $1.38" (the button names the estimate, never a cap) + ghost "Cancel". Never word the amount as a maximum ("up to", "at most", "capped at") unless the server enforces that exact amount for this run. Over a limit: no primary; a danger notice says which limit and links to Costs.
 
 ### J21. Setup steps
 

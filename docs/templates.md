@@ -16,6 +16,8 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 
 **Shared shell on every page:** skip link (A16) · header (B1) · `<main id="main">` · footer (B3). One top bar; event detail adds the mobile action bar (B4) at 390 and nothing else does.
 
+**Tool screens (P6, P7)** use the workbench header (J1) in place of B1; B1 never appears on a tool screen. Shell: skip link (A16) · J1 · `<main id="main">` · on P6, a one-line source footer (licence offer + version, `text.tertiary`) in place of B3; P7 fills the viewport and has no footer (the offer moves to the account menu). One top bar; at 390 the review canvas adds the decision dock as its bottom bar (J12) and nothing else does.
+
 ---
 
 ## T1. Home, guest (logged-out landing) — `home-guest`

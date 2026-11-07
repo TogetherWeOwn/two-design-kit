@@ -128,7 +128,7 @@ Tool screens (labelloop first) keep the mechanics in §2: sentence case, verbs f
 2. **Machines propose; people review.** Only a person "reviews", "accepts" or "adjudicates". A model "proposes", "suggests" or "auto-accepts under policy P-2". Never "verified", "approved" or "confirmed" for model output.
 3. **Model text is quoted, never adopted.** Show a model's reason in a quote with "Model's reason · not checked by a person". Don't paraphrase it into our voice.
 4. **Numbers with their basis.** "mAP50-95 0.634 on test set t-2 (1,114 frames)", "Estimate $1.38 · about 2 h at $0.69/h". An estimate always says "estimate"; a finite test never becomes "perfect".
-5. **Money is exact.** "$1.38", two decimals, currency first; the button names the amount ("Spend up to $1.38 and start").
+5. **Money is exact.** "$1.38", two decimals, currency first; the button names the estimate ("Start · estimate $1.38"). Never call an estimate a cap: "up to", "at most" and "capped at" are only for an amount the server enforces.
 
 | Use | Not |
 |---|---|
