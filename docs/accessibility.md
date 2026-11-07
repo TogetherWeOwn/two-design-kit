@@ -5,7 +5,7 @@ Target: **WCAG 2.2 level AA** on every surface, at 390 and 1280, in the latest C
 ## 1. Contrast (SC 1.4.3, 1.4.11)
 
 - Text: **4.5:1** minimum on its actual ground, including 12 px mono labels and large display text (we hold display to 4.5 too). Non-text that carries meaning (control edges, focus ring, state glyphs, live dot, progress fill): **3:1**.
-- Every allowed pair is declared in `tokens/contrast.json` and checked in CI ([tokens.md](tokens.md) §1.8). Using an undeclared pair means adding it to the file first; if it fails, pick another pair.
+- Every allowed pair is declared in `tokens/contrast.json` and checked in CI ([tokens.md](tokens.md) §1.9). Using an undeclared pair means adding it to the file first; if it fails, pick another pair.
 - **Forbidden:** `state.echo` on `bg.overlay`; brand pink or violet as text; text on the brand gradient; text over images.
 - Hairlines are decorative. A control's boundary uses `border.control` (≥ 3.46:1).
 - Disabled controls are exempt from contrast in WCAG, but ours still use `text.tertiary` (≥ 5.5:1) so the reason stays readable.
@@ -57,7 +57,7 @@ Live data is the heart of Ember Hours, and the most likely place to annoy a scre
 
 ## 8. Zoom, reflow and text spacing (SC 1.4.4, 1.4.10, 1.4.12)
 
-- At 320 CSS px wide (400% zoom of 1280) no page scrolls sideways; chip rows and tables scroll inside themselves.
+- At 320 CSS px wide (400% zoom of 1280) no page scrolls sideways; chip rows, tables and the workbench crop strip (J6) scroll inside themselves.
 - Body text is fixed in px tokens, but every container grows with text: no fixed heights on anything holding text; rows use `min-height`.
 - With WCAG text-spacing overrides (line height 1.5, letter spacing 0.12 em, word spacing 0.16 em), nothing clips or overlaps. Headings wrap with `text-wrap: balance` and never truncate.
 

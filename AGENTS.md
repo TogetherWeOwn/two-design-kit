@@ -17,6 +17,7 @@ How to build a page, component or bot surface that looks and behaves exactly lik
 | Words | [docs/voice.md](docs/voice.md) |
 | Accessibility rules and checks | [docs/accessibility.md](docs/accessibility.md) |
 | A Discord embed, button or log line | [docs/discord.md](docs/discord.md) |
+| A tool screen (image review, tables, runs, costs) | [docs/components.md](docs/components.md) §J and [docs/templates.md](docs/templates.md) P6–P7 |
 | An idea that isn't in the build | [docs/idea-bank.md](docs/idea-bank.md) |
 | What it should look like | `mockups/png/` (rendered from these tokens) |
 
@@ -25,7 +26,7 @@ How to build a page, component or bot surface that looks and behaves exactly lik
 ## 2. Compose a new page in eight steps
 
 1. **Name the member's job and the one primary action.** Write it in the PR: "Members decide whether to come to Town hall; primary action: I'm in." If you can't name one primary action, the page is two pages.
-2. **Pick a layout pattern** (templates.md P1–P5). Start at 390: what's the decision block? It comes before any feed.
+2. **Pick a layout pattern** (templates.md P1–P5; P6–P7 for tool screens). Start at 390: what's the decision block? It comes before any feed.
 3. **Pick components from components.md.** Use the id (C1, D5) in your PR. Reuse before you add.
 4. **List every state** the page must render, from each component's state table: signed out / signed in, empty, error, stale, live, loading, plus the page's own. Build all of them.
 5. **Write copy with voice.md.** Use the word list. Use the Live Sentence grammar and log templates verbatim where they apply.
@@ -77,7 +78,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 
 **Layout**
 - [ ] Matches the template at both widths; decision block first at 390.
-- [ ] No sideways page scroll at 320 px; only chip rows, the newest strip and admin tables scroll.
+- [ ] No sideways page scroll at 320 px; only chip rows, the newest strip and admin tables scroll, and on tool screens (P6/P7) the J5 legend, the J6 crop strip and J13 tables.
 - [ ] Sticky elements limited to header, list toolbar, one rail and the event action bar.
 
 **Copy**

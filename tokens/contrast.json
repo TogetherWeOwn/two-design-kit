@@ -669,6 +669,174 @@
       "bg": "color.discord-embed-bg",
       "kind": "non-text",
       "use": "non-text: embed colour bar"
+    },
+    {
+      "fg": "color.label.proposed",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.proposed",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.proposed",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.proposed",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.proposed",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: box stroke against its halo"
+    },
+    {
+      "fg": "color.label.auto",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.auto",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.auto",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.auto",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.auto",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: box stroke against its halo"
+    },
+    {
+      "fg": "color.label.reviewed",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.reviewed",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.reviewed",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.reviewed",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.reviewed",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: box stroke against its halo"
+    },
+    {
+      "fg": "color.label.uncertain",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.uncertain",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.uncertain",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.uncertain",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.uncertain",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: box stroke against its halo"
+    },
+    {
+      "fg": "color.label.rejected",
+      "bg": "color.bg.canvas",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.rejected",
+      "bg": "color.bg.surface",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.rejected",
+      "bg": "color.bg.raised",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.rejected",
+      "bg": "color.bg.overlay",
+      "kind": "text",
+      "use": "text: provenance badge and tab label"
+    },
+    {
+      "fg": "color.label.rejected",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: box stroke against its halo"
+    },
+    {
+      "fg": "color.label.ghost",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: previous-box stroke against its halo"
+    },
+    {
+      "fg": "color.focus.ring",
+      "bg": "color.bg.well",
+      "kind": "non-text",
+      "use": "non-text: selected box and focus on the canvas"
+    },
+    {
+      "fg": "color.bg.canvas",
+      "bg": "color.label.reviewed",
+      "kind": "text",
+      "use": "text: filled tab on a reviewed box"
     }
   ],
   "exclusions": [

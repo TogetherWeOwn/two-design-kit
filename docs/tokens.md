@@ -91,7 +91,23 @@ State never relies on colour alone: every state colour comes with a word ("Live"
 - **Avatar fallback discs** (`color.avatar.0`…`11`): brand-ramp darks; white initials are at least 5.1:1 on each (lowest: avatar 5, 5.12:1). Choose by a stable hash of the member id, never by name. Discord avatars carry the colour; the chrome stays neutral.
 - **Now Line heat** (`color.heat.min` → `max`): ember at 0% → 42% alpha over `bg.surface`. Decorative: the text list carries the data.
 
-### 1.8 Contrast: every declared pair
+### 1.8 Workbench: image well and label provenance
+
+| Role | Value | Use |
+|---|---|---|
+| `color.bg.well` | `#121212` (primitive `color.well`) | Behind source images, crops and previews. Neutral, so the warm grounds don't tint pixels. Never behind text. |
+| `color.label.proposed` | `#F2C14E` (= `color.warn`) | A model's proposal nobody has decided: the estimate that matters on a workbench. |
+| `color.label.auto` | `#7FB2FF` (primitive `color.machine`) | Auto-accepted under a qualified policy; machine evidence only. Workbench only; never a link or "online". |
+| `color.label.reviewed` | `#5FD39A` (= `color.ok`) | Reviewed or adjudicated by a named person. |
+| `color.label.uncertain` | `#F6F1EA` (= `color.text.1`) | Marked uncertain; always with the hatch and the "?" glyph. |
+| `color.label.rejected` | `#FF7A6B` (= `color.danger`) | Rejected; history and diffs. Also flagged targets in recipe previews. |
+| `color.label.ghost` | `#A89A8E` (= `color.text.3`) | The previous box in a proposed change. |
+| `color.label.halo` | `#121212` | 1 px on both sides of every box stroke. |
+| `box.dash.*` | `6 4` proposed · `2 3` uncertain · `3 3` ghost · `none` auto and reviewed | SVG `stroke-dasharray` in screen px. Pattern carries the tier in greyscale. |
+
+Each tier is a word, a glyph and a stroke pattern as well as a colour (components.md J). Stroke colours are checked against the halo (`bg.well`), not against the image: the halo is what guarantees 3:1 on any pixels.
+
+### 1.9 Contrast: every declared pair
 
 Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative luminance). CI fails if a pair is under its floor: text 4.5, non-text 3, and the house rule for avatar initials 5.1. To use a new pair in a component, add it to `tokens/contrast.json` first. Translucent tokens (hairlines, scrims, heat) are decorative and not in the table.
 
@@ -206,6 +222,34 @@ Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative lumi
 | `color.avatar-text` | `color.avatar.9` | 13.78 | 5.1 | house-avatar |
 | `color.avatar-text` | `color.avatar.10` | 5.87 | 5.1 | house-avatar |
 | `color.avatar-text` | `color.avatar.11` | 8.02 | 5.1 | house-avatar |
+| `color.label.proposed` | `color.bg.canvas` | 11.24 | 4.5 | text |
+| `color.label.proposed` | `color.bg.surface` | 10.66 | 4.5 | text |
+| `color.label.proposed` | `color.bg.raised` | 9.97 | 4.5 | text |
+| `color.label.proposed` | `color.bg.overlay` | 9.01 | 4.5 | text |
+| `color.label.proposed` | `color.bg.well` | 11.16 | 3 | non-text |
+| `color.label.auto` | `color.bg.canvas` | 8.73 | 4.5 | text |
+| `color.label.auto` | `color.bg.surface` | 8.27 | 4.5 | text |
+| `color.label.auto` | `color.bg.raised` | 7.74 | 4.5 | text |
+| `color.label.auto` | `color.bg.overlay` | 6.99 | 4.5 | text |
+| `color.label.auto` | `color.bg.well` | 8.67 | 3 | non-text |
+| `color.label.reviewed` | `color.bg.canvas` | 10.13 | 4.5 | text |
+| `color.label.reviewed` | `color.bg.surface` | 9.60 | 4.5 | text |
+| `color.label.reviewed` | `color.bg.raised` | 8.98 | 4.5 | text |
+| `color.label.reviewed` | `color.bg.overlay` | 8.11 | 4.5 | text |
+| `color.label.reviewed` | `color.bg.well` | 10.05 | 3 | non-text |
+| `color.label.uncertain` | `color.bg.canvas` | 16.79 | 4.5 | text |
+| `color.label.uncertain` | `color.bg.surface` | 15.92 | 4.5 | text |
+| `color.label.uncertain` | `color.bg.raised` | 14.89 | 4.5 | text |
+| `color.label.uncertain` | `color.bg.overlay` | 13.45 | 4.5 | text |
+| `color.label.uncertain` | `color.bg.well` | 16.67 | 3 | non-text |
+| `color.label.rejected` | `color.bg.canvas` | 7.41 | 4.5 | text |
+| `color.label.rejected` | `color.bg.surface` | 7.02 | 4.5 | text |
+| `color.label.rejected` | `color.bg.raised` | 6.57 | 4.5 | text |
+| `color.label.rejected` | `color.bg.overlay` | 5.94 | 4.5 | text |
+| `color.label.rejected` | `color.bg.well` | 7.36 | 3 | non-text |
+| `color.label.ghost` | `color.bg.well` | 6.85 | 3 | non-text |
+| `color.focus.ring` | `color.bg.well` | 8.97 | 3 | non-text |
+| `color.bg.canvas` | `color.label.reviewed` | 10.13 | 4.5 | text |
 | `discord.embed.default` | `color.discord-embed-bg` | 6.61 | 3 | non-text |
 | `discord.embed.live` | `color.discord-embed-bg` | 4.65 | 3 | non-text |
 | `discord.embed.echo` | `color.discord-embed-bg` | 3.90 | 3 | non-text |
@@ -281,6 +325,9 @@ Output of `npm run contrast` over `tokens/contrast.json` (WCAG 2.x relative lumi
 | `size.row.calm` / `table` / `dense` / `admin` | 68 / 60 / 56 / 40 px | Home and lists / ladder at 1280 / ladder at 390 / admin only. |
 | `size.header.wide` / `compact` | 68 / 60 px | Top bar. |
 | `size.focus.width` / `offset` | 2 / 3 px | Focus ring. |
+| `size.box.stroke` / `halo` / `handle` / `tab` | 2 / 1 / 8 / 22 px | Workbench box overlay (J4), screen px at any zoom. Handle hit areas use `size.target-handle`. |
+| `size.crop.tile` | 112 px | Largest native-crop tile on a review screen (J6). |
+| `size.toolbar` | 52 px | Workbench tool row (P7). |
 
 ## 4. Elevation
 
@@ -297,6 +344,7 @@ No drop shadows. Elevation = one ground step + a hairline. Sticky and sheet laye
 | `layout.rail.min` / `default` / `seat` / `max` | 320 / 360 / 380 / 420 px |
 | `layout.measure.lede` / `reading` / `note` | 52 / 62 / 36 ch |
 | `layout.sticky-offset` | 92 px (sticky rails) |
+| `layout.inspector` / `queue` | 380 / 300 px (P7 review inspector and queue panel) |
 | `breakpoint.compact-max` | 820 px: one column, compact gutter, menu sheet, action bar |
 | `breakpoint.review-mobile` / `review-desktop` | 390 × 844 and 1280 × 800: the two review widths |
 

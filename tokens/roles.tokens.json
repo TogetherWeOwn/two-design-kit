@@ -26,6 +26,10 @@
       "sheet": {
         "$value": "{color.scrim.sheet}",
         "$description": "Mobile action bar and menu sheet."
+      },
+      "well": {
+        "$value": "{color.well}",
+        "$description": "Behind source images and crops on workbench canvases. Never behind text."
       }
     },
     "text": {
@@ -144,6 +148,37 @@
       "arc-off": {
         "$value": "{color.ground.4}"
       }
+    },
+    "label": {
+      "$description": "Label provenance on workbench canvases and badges. Each tier is a word, a glyph and a stroke pattern as well as a colour.",
+      "proposed": {
+        "$value": "{color.warn}",
+        "$description": "Proposed by a model and not yet decided. The estimate that matters on the workbench."
+      },
+      "auto": {
+        "$value": "{color.machine}",
+        "$description": "Auto-accepted under a qualified policy. Machine evidence only; no person has looked."
+      },
+      "reviewed": {
+        "$value": "{color.ok}",
+        "$description": "Reviewed or adjudicated by a named person."
+      },
+      "uncertain": {
+        "$value": "{color.text.1}",
+        "$description": "Marked uncertain: ambiguous, unknown or not enough evidence. Hatched fill."
+      },
+      "rejected": {
+        "$value": "{color.danger}",
+        "$description": "Rejected. History and diffs only; hidden on the live canvas."
+      },
+      "ghost": {
+        "$value": "{color.text.3}",
+        "$description": "The previous box in a proposed geometry change or a diff."
+      },
+      "halo": {
+        "$value": "{color.well}",
+        "$description": "1 px outline on both sides of every box stroke, so the stroke holds 3:1 on any image."
+      }
     }
   },
   "gradient": {
@@ -178,6 +213,32 @@
       "$type": "dimension",
       "$value": 14,
       "$description": "Backdrop blur on sticky and sheet layers."
+    }
+  },
+  "box": {
+    "$type": "other",
+    "$description": "Box stroke patterns (SVG stroke-dasharray, in px at 1x zoom). Pattern carries provenance in greyscale.",
+    "dash": {
+      "proposed": {
+        "$value": "6 4",
+        "$description": "Proposed: dashed."
+      },
+      "auto": {
+        "$value": "none",
+        "$description": "Auto-accepted: solid, with open corner brackets."
+      },
+      "reviewed": {
+        "$value": "none",
+        "$description": "Reviewed: solid, with a filled corner tab."
+      },
+      "uncertain": {
+        "$value": "2 3",
+        "$description": "Uncertain: dotted, over a hatched fill."
+      },
+      "ghost": {
+        "$value": "3 3",
+        "$description": "Previous box: short dashes, no tab."
+      }
     }
   }
 }
