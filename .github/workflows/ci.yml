@@ -90,7 +90,8 @@ jobs:
           cache: npm
       - run: npm ci --include=dev
       - run: npm run validate
-      - run: npm run build
+      # Drift first: it builds into a temp dir and diffs the committed dist/.
+      # Building in place first would overwrite dist/ and hide drift.
       - run: npm run drift
       - run: npm run contrast
       - run: npm run check:ts
