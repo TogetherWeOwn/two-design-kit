@@ -2,7 +2,7 @@
 
 The single source of truth for TogetherWeOwn design. Tokens are authored in
 [W3C Design Tokens (DTCG)](https://www.designtokens.org/) format under
-`tokens/`, and a [Style Dictionary 4](https://styledictionary.com/) build
+`tokens/`, and a [Style Dictionary 5](https://styledictionary.com/) build
 emits them for every consumer:
 
 | Output | File | Consumer |
@@ -102,6 +102,10 @@ npm run lint       # Biome gate
 
 `dist/` is committed. After editing `tokens/`, run `npm run build` and
 commit the result; CI fails on drift.
+
+`.npmrc` turns off dependency install scripts and refuses releases younger
+than three days when npm resolves a new version. Named commands such as
+`npm run build` still run.
 
 ## Releases
 
