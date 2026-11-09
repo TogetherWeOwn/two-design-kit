@@ -106,6 +106,9 @@ commit the result; CI fails on drift.
 `.npmrc` turns off dependency install scripts and refuses releases younger
 than three days when npm resolves a new version. Named commands such as
 `npm run build` still run.
+Use npm 11.10.0 or later to add or update dependencies: older npm
+ignores `min-release-age`. `npm ci` installs the lockfile as is, so it is
+not affected.
 
 ## Releases
 

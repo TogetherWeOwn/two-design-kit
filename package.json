@@ -16,7 +16,7 @@
     "check:ts": "tsc --noEmit -p tsconfig.check.json",
     "test": "node --test test/tokens.test.mjs",
     "lint": "biome ci .",
-    "check": "npm run validate && npm run build && npm run drift && npm run contrast && npm run check:ts && npm test"
+    "check": "npm run validate && npm run drift && npm run build && npm run contrast && npm run check:ts && npm test"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
