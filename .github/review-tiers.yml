@@ -1,0 +1,81 @@
+# Risk-tiered review map for TogetherWeOwn/two-design-kit.
+#
+# Classification: a PR's tier is the highest tier of any changed file;
+# sensitive always wins on overlap; anything unmatched is sensitive
+# (default_tier). Every new top-level path is unclassified (= sensitive)
+# until added to a named tier here.
+#
+# Content triggers escalate to sensitive regardless of path tier:
+# new/changed public endpoint or input parsing; auth/authz/session;
+# crypto/keys; secrets/credentials; permission checks; tenant
+# isolation/personal data; SQL/schema/migrations; dependency or
+# lockfile changes; CI/workflow changes; weakened test assertions,
+# deleted tests/snapshots or lowered gates in test files.
+#
+# Review per tier: low -> QA; ordinary -> QA; sensitive/unclassified
+# -> Security -> QA. QA verifies the author's classification against
+# this map and the diff, and may escalate any PR. This file itself
+# is always sensitive.
+#
+# Two tier vocabularies, two independent controls, no translation
+# between them. This map's tiers (low/ordinary/sensitive) are NOT a
+# rename of the PR template's evidence attestation (T0/T1/T2), and
+# there is intentionally no T0<->sensitive / T1<->ordinary /
+# T2<->low mapping: e.g. test/** is map-low but code, so never T2,
+# while tokens/** and scripts/** are map-sensitive without
+# necessarily hitting a T0 word floor (they may attest T1). The
+# author declares BOTH in the PR body, next to each other:
+#   risk_tier: <T0|T1|T2>          (per the PR template's own rules)
+#   map_tier: <low|ordinary|sensitive>   (this file's globs plus the
+#     content triggers above; highest tier wins)
+# QA checks each scheme independently against the diff: the reported
+# map_tier against this file, and risk_tier against the template's
+# floor rules. Neither a low map tier nor a T2 attestation lowers
+# the other's review; where they disagree on required review, the
+# stricter (more review) outcome wins. QA may escalate either way.
+version: 1
+default_tier: sensitive
+tiers:
+  low:
+    # Allowlisted docs copy: design-spec markdown and the repo README.
+    - docs/*.md
+    - README.md
+    # Static non-sensitive fixtures: generated mockup PNGs.
+    - mockups/png/**
+    # Additive unit tests only; content triggers still apply
+    # (weakened assertions, deleted tests/snapshots or lowered gates
+    # in test files escalate to sensitive regardless of this entry).
+    - test/**
+  ordinary: []
+    # No audited ordinary modules yet. Anything with untrusted input,
+    # sensitive output, permissions, persistence or a trust-boundary
+    # effect stays unlisted (= sensitive) until consciously added with
+    # a justification in the PR that classifies it.
+  sensitive:
+    # Review policy and CI: always sensitive.
+    - .github/workflows/**
+    - .github/review-tiers.yml
+    - .github/**
+    - CODEOWNERS
+    - .github/CODEOWNERS
+    # Dependency manifests, lockfiles and install/build scripts.
+    - package.json
+    - package-lock.json
+    - .npmrc
+    - sd.config.mjs
+    # Tooling and repo configuration.
+    - biome.json
+    - tsconfig.check.json
+    - .gitleaks.toml
+    - .gitignore
+    - .gitattributes
+    # Governance, agent and skill/tool-permission files.
+    - AGENTS.md
+    - CONTRIBUTING.md
+    - .claude/**
+    # Build and validation scripts (they execute code).
+    - scripts/**
+    # Token sources and built artifacts: the published design system.
+    # Changes propagate to downstream consumers, so never ordinary.
+    - tokens/**
+    - dist/**
