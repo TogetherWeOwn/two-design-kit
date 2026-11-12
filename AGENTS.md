@@ -48,7 +48,7 @@ How to build a page, component or bot surface that looks and behaves exactly lik
 | Live state changes by swapping text | Pulse, count-up, ticker, carousel, scroll reveal |
 | Motion inside `@media (prefers-reduced-motion: no-preference)` | A transition outside that query |
 | Now Line visual `aria-hidden` plus a hidden text list | A chart with only an `aria-label` |
-| Countdown updated once a minute, not a live region | `aria-live` on a clock |
+| Countdown dated "in 2 h 10 m · as of 18:50" by the server, withdrawn by JS once stale (C4) | `aria-live` on a clock, or a countdown the client recomputes |
 | `aria-disabled="true"` with "Pull me in · from 20:45" | A `disabled` button with no reason |
 | "That didn't save. Try again, or say you're in from Discord." | "Error", "Something went wrong" |
 | Empty state with one next step | An empty box, or "No data" |
@@ -84,6 +84,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 **Copy**
 - [ ] Sentence case; verbs first on buttons; the word list followed.
 - [ ] Times viewer-local with a zone; UTC anchor on detail pages.
+- [ ] Countdowns and live claims carry the server's "as of" and are withdrawn, never recomputed, once stale (components.md C4).
 - [ ] Privacy: guests see counts not names; opted-out members are "a member"; nothing in voice.md §5's never-print list.
 
 **Accessibility**

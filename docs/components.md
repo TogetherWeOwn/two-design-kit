@@ -295,18 +295,43 @@ Mono uppercase group heading (the label style (`font.data`, `font-size.label`, u
 
 **Job:** say when an event starts, in the viewer's time, with the UTC anchor.
 
-**Anatomy:** top hairline, 28 px padding top. Big numeral ("21:00", `font-size.figure`, tabular) · beside it, two lines: "Friday 6 November, your time" (17 px `text.primary`) and the mono anchor "Europe/London · 21:00 UTC · in 2 h 10 m" (13 px `text.tertiary`). Wraps under the numeral at 390.
+**Anatomy:** top hairline, 28 px padding top. Big numeral ("21:00", `font-size.figure`, tabular) · beside it, two lines: "Friday 6 November, your time" (17 px `text.primary`) and the mono anchor "Europe/London · 21:00 UTC · in 2 h 10 m · as of 18:50" (13 px `text.tertiary`). Wraps under the numeral at 390.
 
-| State | Change |
-|---|---|
-| upcoming | as above; countdown in the anchor line |
-| starting (< 15 min) | countdown reads "starts in 12 m" |
-| live | numeral becomes "Live", anchor "since 21:00 · 16 in the room" (the tag above switches to `live`) |
-| ended | numeral shows the date ("30 Oct"), anchor "ended 23:14 · Echo frozen" |
-| cancelled | numeral struck through, plus "Cancelled" in words |
-| no zone known (guest) | "your time (from your browser)" |
+**Server HTML stays true however long it is read.** A server-rendered page can stay open, sit in the back/forward cache or come from a shared cache. So every time-relative or live claim is dated with the instant the server derived it, and the client never recomputes it.
 
-**A11y:** a `<time datetime="2026-11-06T21:00Z">` wraps the numeral. The countdown updates at most once a minute by text swap and is **not** a live region.
+- **Snapshot instant (`asOf`):** the one server instant used to derive the state, the countdown and the counts. On a shared cached page it is the cache-fill time.
+- **Absolute facts** never go stale: the start numeral, the date line, the zone and UTC anchor, "since 21:00", "ended 23:14" and "Cancelled".
+- **Claims** go stale: the countdown, the "Live" numeral and the room count.
+- **`staleAt`** = the earlier of `asOf` + `motion.poll.stale-after` (5 min) and the next state boundary after `asOf`: start − 15 min (upcoming → starting), start (→ live), and the end when it is known (live → ended).
+
+| State | Numeral | Anchor line | Can go stale |
+|---|---|---|---|
+| upcoming, start > 24 h after `asOf` | "21:00" | "Europe/London · 21:00 UTC" (no countdown: the date line already says when) | no |
+| upcoming, ≤ 24 h | "21:00" | "Europe/London · 21:00 UTC · in 2 h 10 m · as of 18:50" | yes |
+| starting (< 15 min) | "21:00" | "Europe/London · 21:00 UTC · starts in 12 m · as of 20:48" | yes |
+| live | "Live" | "since 21:00 · 16 in the room · as of 21:40" (the count only when the page has it; the tag above switches to `live`) | yes |
+| ended | the date ("30 Oct") | "ended 23:14 · Echo frozen" | no |
+| cancelled | struck through, plus "Cancelled" in words | unchanged | no |
+| stale, was upcoming or starting (JS only) | "21:00" | "Europe/London · 21:00 UTC · as of 18:50 · Refresh" (the countdown is removed) | — |
+| stale, was live (JS only) | "21:00" (the "Live" claim is withdrawn) | "Europe/London · 21:00 UTC · live as of 21:40 · Refresh" (the count is removed; the `live` tag above becomes `warn` "Stale", as does any other `live` tag the page rendered from the same snapshot) | — |
+| no zone known (guest) | combines with any row above | "your time (from your browser)" | — |
+
+**"as of" clause:** `as of HH:MM` in the zone the block already names, so a guest whose zone comes from the browser sees it in that zone once the island runs; before that, or with no zone, in UTC (as in H4's cached page rule). Prefix the date ("as of 5 Nov 22:10") when the `asOf` local date differs from the event's local date. Wrap it in its own `<time datetime>`. Same style as the rest of the anchor line (mono, `text.tertiary`), with no warn dot: the absolute time is still right. The A13 `state.warn` dot stays reserved for the page's freshness line.
+
+**Refresh:** the visitor refreshes; nothing refreshes for them. No `<meta http-equiv="refresh">`, no auto-reload, no C4 polling, no moving focus or scroll. In the stale rows only, append a text link (A2) `Refresh<span class="sr"> the event time</span>`: an `<a href>` to the page's own path and query without the fragment. The no-JS snapshot has no Refresh link: it can't know it is stale, the dated "as of" is the honest part, and the browser's reload is the action.
+
+**Cache lifetime:** a shared cache never serves a C4 snapshot past its `staleAt`, so Refresh (or reload) after `staleAt` always reaches a new snapshot. The server sets the page's shared-cache lifetime (`s-maxage`) to at most `staleAt − asOf`, rounded down to whole seconds (0: not shared-cached), and its private lifetime to `max-age=0`, so the browser's own cache revalidates on every navigation, Refresh included, instead of reusing its copy: `Cache-Control: public, max-age=0, s-maxage=<lifetime>`, or `private, no-cache` when not shared-cached. No `stale-while-revalidate`, `stale-if-error` or `immutable` on a page with C4. The link adds no cache-busting query. The back/forward cache is not a shared cache: the JS check below covers it.
+
+**Behaviour with JavaScript (no ticker):**
+- C4 ships no island of its own. Stale detection lives in the page's existing island; a page with no island is complete with the server snapshot alone.
+- Check `now ≥ staleAt` at hydration, on `pageshow` (including back/forward cache restores), on `visibilitychange` to visible and on every new snapshot. While C4 is fresh, keep exactly one one-shot `setTimeout` pending, for the `staleAt` of the snapshot on screen (delay `staleAt − now`), replaced after each check that leaves C4 fresh and cleared on teardown. A check that renders the stale form clears it and arms nothing: a stale C4 has no timer, and only a fresh new snapshot arms one again. No `setInterval`, no `requestAnimationFrame`, and no recomputing the countdown: the client never changes fresh text; only a new server snapshot does.
+- `now` never runs backwards, and a slow device clock cannot hold a claim past its bound. At each check, `now` is the latest of: the wall clock; the wall clock at hydration plus the `performance.now()` elapsed since; and `asOf` plus the `performance.now()` elapsed since the snapshot's response arrived (the navigation entry's `responseStart` for the page, the response time for a poll payload). The last needs no device clock: the response arrived after `asOf`, so it never runs ahead of real time. So a claim is withdrawn by `staleAt` when the device clock is right, and in any case no later than `staleAt` plus the snapshot's age on arrival: about 0 from the origin, at most its `s-maxage` from a shared cache. A wall clock set back cannot restore or prolong a claim.
+- The client clock never decides upcoming, live, ended or cancelled, and never computes a countdown. Show the stale form when the clock is unreadable, when it reads earlier than `asOf` (it is slow by an unknown amount, so `staleAt` can't be trusted against it), or when `now ≥ staleAt`: withdrawing a claim is always safe.
+- Fresh → stale is an instant text swap, with no transition under any motion preference.
+- If the page's island already polls (`motion.poll.live`), each payload is a new server snapshot with its own state, `asOf` and `staleAt`. Run the same checks on it before rendering: a payload that is already stale renders the stale form, never its countdown or count. Only a payload that passes returns C4 to fresh. This is the only way back to fresh without a navigation.
+- A fresh payload's state change (upcoming → starting → live → ended, or cancelled) renders at once. Its new countdown or "as of" text, with the state unchanged, renders at most once a minute ([accessibility.md](accessibility.md) §6 rule 4); until then the snapshot on screen keeps its own `asOf` and `staleAt`, so it stays true. The timer always follows the `staleAt` of the snapshot on screen.
+
+**A11y:** a `<time datetime="2026-11-06T21:00Z">` wraps the numeral, and the "as of" has its own `<time datetime>`. C4 is **not** a live region. A countdown going stale is not announced (relative times ageing, [accessibility.md](accessibility.md) §6 rule 2). Live → stale is a state change: if the page owns the polite status region, announce it once, throttled (rule 3): "Live details for Raid Night are out of date. Refresh for the latest." With no status region on the page, the swap stays silent.
 
 ### C5. Seat card
 
