@@ -124,7 +124,7 @@ const body = `${header("member", "events")}
       <h1>Raid Night: <span class="serif">Deep Rock Galactic</span></h1>
       <div class="when">
         <b>21:00</b>
-        <div><p>Friday 6 November, your time</p><p class="mono">Europe/London · 21:00 UTC · in 2 h 10 m</p></div>
+        <div><p>Friday 6 November, your time</p><p class="mono">Europe/London · 21:00 UTC · in 2 h 10 m · as of <time datetime="2026-11-06T18:50Z">18:50</time></p></div>
       </div>
 
     </div>
