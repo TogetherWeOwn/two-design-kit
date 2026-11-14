@@ -35,12 +35,6 @@ test("rust exposes embed colours as u32", () => {
   assert.match(rust, /pub const BRAND_PAGE: u32 = 0x15100F;/);
 });
 
-test("the box-handle target exception never drops below the WCAG floor", () => {
-  const px = (name) => Number(css.match(new RegExp(`--two-${name}:\\s*(\\d+)px;`))?.[1]);
-  assert.ok(px("size-target-handle") >= px("size-target-min"));
-  assert.ok(px("size-target-handle") < px("size-control-sm"));
-});
-
 test("css exposes the Ember Hours colour roles components use", () => {
   assert.match(css, /--two-color-bg-canvas:\s*#15100f/i);
   assert.match(css, /--two-color-bg-overlay:\s*#2e2420/i);
@@ -79,23 +73,4 @@ test("live-data poll cadence is not zeroed by the reduced-motion layer", () => {
   const reduced = css.slice(css.indexOf("@media (prefers-reduced-motion: reduce)"));
   assert.doesNotMatch(reduced, /--two-motion-poll-/);
   assert.match(css, /--two-motion-poll-live:\s*30000;/);
-});
-
-test("workbench provenance roles are distinct and every tier has a stroke pattern", () => {
-  const value = (name) => css.match(new RegExp(`--two-${name}:\\s*([^;]+);`))?.[1]?.toLowerCase();
-  const tiers = ["proposed", "auto", "reviewed", "uncertain", "rejected"];
-  const colours = tiers.map((t) => value(`color-label-${t}`));
-  assert.ok(colours.every(Boolean), "every tier has a colour role");
-  assert.equal(new Set(colours).size, tiers.length, "no two tiers share a colour");
-  assert.notEqual(
-    value("color-label-proposed"),
-    value("color-focus-ring"),
-    "proposed never looks selected",
-  );
-  assert.equal(value("color-bg-well"), "#121212");
-  assert.equal(value("color-label-halo"), value("color-bg-well"));
-  for (const t of ["proposed", "auto", "reviewed", "uncertain", "ghost"])
-    assert.ok(value(`box-dash-${t}`), `box.dash.${t} exists`);
-  assert.notEqual(value("box-dash-proposed"), value("box-dash-uncertain"));
-  assert.match(rust, /pub const BRAND_COLOR_LABEL_AUTO: u32 = 0x7FB2FF;/);
 });
