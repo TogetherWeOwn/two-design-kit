@@ -131,8 +131,8 @@ Workbench screens follow T9's restraint: no serif accent, no gradient, H1 at `fo
 
 ## T10. Drive (qerith)
 
-**P6** with no rail. J1 header in its Drive form: product mark + "Drive" · section nav "My Drive" · "Shared with me" · "Users and invites" (owner only) · end cluster: avatar + name, which opens a K5 menu with "Sign out" (no project switcher, no spend status). Under it the K4 toolbar (sticky), then the page header (K1 breadcrumb · H1 = folder name at `font-size.h3` · mono count line "214 items · 18.2 GB"), then the K2 list. The K14 upload tray floats bottom-right at 1280 and is the bottom bar at 390. Sign-in and invite pages use K17 on a bare page (mark only, no nav).
+**P6** with no rail. J1 header in its Drive form: product mark + "Drive" · section nav "My Drive" · "Shared with me" · "Users and invites" (owner only) · end cluster: avatar + name, which opens a K5 menu with "Sign out" (no project switcher, no spend status). Under it the page header: K1 breadcrumb · H1 = folder name at `font-size.h3`, with the K4 action row (Upload, New folder, status text) at the end of the H1 row · mono count line "214 items · 18.2 GB". Then the K2 list. Only J1 sticks (tool surfaces rule 4); the page header and its Upload scroll with the page. The K14 upload tray floats bottom-right at 1280 and is the bottom bar at 390. Sign-in and invite pages use K17 on a bare page (mark only, no nav).
 
-**390:** J1 compact (mark · avatar · Menu with the three sections) · K1 "Up to {parent}" · H1 · count line · toolbar (Upload full width, New folder and Sort on one row below) · two-line K2 rows · the K14 bar.
+**390:** J1 compact (mark · avatar · Menu with the three sections) · K1 "Up to {parent}" · H1 · count line · K4 row (Upload full width, New folder and Sort on one row below) · two-line K2 rows · the K14 bar.
 
 **Must render:** every K2 state (empty, shared-empty, load failed, 5,000 items with "Show 200 more"), every K15 item state, K11 not-found, K17 states, and the owner screens with no other people and with a revoked person. The full screen spec, with copy, is in TogetherWeOwn/qerith `docs/design/`.

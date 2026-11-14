@@ -878,7 +878,7 @@ Components for a private file drive: first used by Drive v0 (TogetherWeOwn/qerit
 
 ### K4. Drive toolbar
 
-B5 for Drive. Left: the page's one primary action, `primary sm` "Upload" (icon upload) with a second, ghost `sm` "New folder". Right: on ≤ 820 px only, a "Sort" select ("Name, A to Z" · "Name, Z to A" · "Newest first" · "Oldest first" · "Largest first" · "Smallest first"). On Shared with me and inside a folder shared with you, Upload and New folder are absent (not disabled): the page lede says "Shared with you to view and download." **New folder** opens K8 in "New folder" mode. The toolbar holds a status text slot (mono, `text.tertiary`) for slow states ("Opening Taxes 2025…"). Sticky under J1 (`top` = `size.header.compact`).
+The action row of the Drive page header (P6: the page's one primary sits in the page header). It is not a B5 sticky toolbar: on tool screens only J1 sticks ([templates.md](templates.md), tool surfaces rule 4), so it scrolls away with the header. Upload is never lost with it: dropping files anywhere on the folder (K6) works at any scroll position, and every empty state carries "Upload files". Placement: at 1280, on the H1 row, end-aligned; at ≤ 820 px, under the count line. Left: the page's one primary action, `primary sm` "Upload" (icon upload) with a second, ghost `sm` "New folder". Right: on ≤ 820 px only, a "Sort" select ("Name, A to Z" · "Name, Z to A" · "Newest first" · "Oldest first" · "Largest first" · "Smallest first"). On Shared with me and inside a folder shared with you, Upload and New folder are absent (not disabled): the page lede says "Shared with you to view and download." **New folder** opens K8 in "New folder" mode. The row holds a status text slot (mono, `text.tertiary`) for slow states ("Opening Taxes 2025…").
 
 ### K5. Row action menu
 
@@ -886,7 +886,7 @@ B5 for Drive. Left: the page's one primary action, `primary sm` "Upload" (icon u
 
 **Anatomy:** A3 icon button (more, three dots), `aria-label="Actions for {name}"`, `aria-haspopup="menu"`, `aria-expanded`. Opens a `role="menu"` popover (`bg.overlay`, hairline-strong, `radius.m`, 4 px padding, min-width 200) anchored to the button, flipped to stay on screen. Items are 40 px `role="menuitem"` rows with a 16 px icon and a verb: **own item:** Download (files) · Share · Rename · Move · Details · separator · Delete (text `state.danger`). **Shared with you:** Download (files) · Details. Items that don't apply are absent, never disabled.
 
-**Behaviour:** arrow keys move between items, Home and End jump, typing a letter jumps, Enter or Space activates, Escape and Tab close and return focus to the button. Choosing an item opens its dialog (K8, K9, K10, K13) and focus returns to this button when that closes. The same menu opens on right-click on a row (pointer only; the button is always there). At ≤ 820 px the menu opens as a K7 sheet from the bottom with the item name as its title.
+**Behaviour:** arrow keys move between items, Home and End jump, typing a letter jumps, Enter or Space activates. Escape closes the menu and returns focus to the button. Tab and Shift+Tab close it and move focus on as if from the button (Tab to the next row's name, Shift+Tab to this row's name), so the menu adds no extra stop. Choosing an item opens its dialog (K8, K9, K10, K13) and focus returns to this button when that closes, unless the action removed the row (move, delete): then focus follows K2 "item just removed". The same menu opens on right-click on a row (pointer only; the button is always there). At ≤ 820 px the menu opens as a K7 sheet from the bottom with the item name as its title.
 
 **A11y:** the APG menu-button pattern. The menu is the only place these actions exist on a row; there are no hover-only icons.
 
@@ -904,12 +904,12 @@ Dragging files over the window marks the folder's list area: a 2 px dashed `bord
 
 **At ≤ 820 px:** a bottom sheet: full width, `radius.l` on the top corners only, `env(safe-area-inset-bottom)` padding, max height 90 dvh.
 
-**Behaviour:** focus moves to the first field, or to the primary action when there is no field (Delete: to "Cancel", so Enter never deletes by accident). Tab stays inside. Escape, the close button and Cancel close it without changes; a click on the backdrop does too, except while it is saving. The page behind is `inert`. Focus returns to the control that opened it. Under `no-preference` the sheet uses the B2 fade and slide; under `reduce` nothing moves.
+**Behaviour:** focus moves to the first field, or to the primary action when there is no field (Delete: to "Cancel", so Enter never deletes by accident). Tab stays inside. Escape, the close button, Cancel and a click on the backdrop close it without changes. While it is saving, none of them do: the request may already have been committed, so the dialog stays until it can show the result. The page behind is `inert`. Focus returns to the control that opened it, or, when the action removed that control's row, to the place K2 "item just removed" names. Under `no-preference` the sheet uses the B2 fade and slide; under `reduce` nothing moves.
 
 | State | Looks |
 |---|---|
 | default | as above |
-| saving | the primary reads the present participle ("Renaming…", `aria-busy`); fields read-only; Cancel stays |
+| saving | the primary reads the present participle ("Renaming…", `aria-busy`); fields read-only; Cancel and the close button are `aria-disabled`; Escape and the backdrop do nothing |
 | error | A14 danger notice at the top of the body, `role="alert"` (the person's own action), saying what to do; the fields keep their values; focus moves to the notice's first link or the field at fault |
 | done | the dialog closes and the page's status region announces the result ("Renamed to Taxes 2026") |
 
@@ -922,7 +922,7 @@ K7 with one A11 field. **Rename:** title "Rename "{name}"", field label "Name", 
 **Validation**, on submit and then live once shown (A11 error state):
 - empty: "Type a name."
 - only spaces or dots, or "/" in it: "Names can't contain "/" or be only dots or spaces."
-- over 255 bytes: "Use a shorter name, up to 255 characters."
+- over 255 bytes (UTF-8): "That name is too long. Shorten it and try again." The limit is in bytes, and emoji and many non-Latin characters take up to 4 each, so the copy names no number and the field shows no character counter.
 - clash: "There's already a {file|folder} called "{name}" here. Pick another name."
 - unchanged (rename): the dialog just closes.
 
@@ -930,7 +930,9 @@ Rename and move are instant whatever the size (metadata only), so there is no pr
 
 ### K9. Move dialog and folder picker
 
-K7, title "Move "{name}"". Body: the K1 path of the folder being browsed ("My Drive / Taxes") and a `role="listbox"` of its subfolders (40 px options: folder glyph · name · a "›" button `aria-label="Open {folder}"` to go into it). "Up" link at the top when not at root. Only your own folders appear. The folder being moved and everything inside it show as options with the reason in a 13 px second line ("Can't move a folder into itself") and `aria-disabled="true"`. The current location says "Already here" the same way. Footer: primary "Move here" (names the folder: "Move to Taxes") · ghost "Cancel" · ghost `sm` "New folder" on the left (K8 inside the picker, which then opens the new folder).
+K7, title "Move "{name}"". The picker has no selection: the person browses to the destination, and the folder being browsed is the target. Body: the K1 path of the folder being browsed ("My Drive / Taxes", as an H3 with `aria-live="polite"`) · a ghost `sm` "Up to {parent}" button when not at root · a native list (`<ul>`) of its subfolders, each a 40 px native `<button>` (folder glyph `aria-hidden` · name · "›" `aria-hidden`) whose accessible name is the folder name and which opens that folder in the picker. No `listbox`, no controls nested in options. Only your own folders appear. The folder being moved shows in the list as `aria-disabled="true"` with the reason in a 13 px second line, tied by `aria-describedby` ("Can't move a folder into itself"), so nobody can browse into it or its descendants. A folder with no subfolders says "No folders in Taxes." in the list's place. Footer: primary names the browsed folder ("Move to Taxes") · ghost "Cancel" · ghost `sm` "New folder" on the left (K8 inside the picker, which then opens the new folder). When the browsed folder is the item's current folder, the primary is a quiet `aria-disabled` pill with the reason "Already here".
+
+**Keyboard:** Tab moves through Up, the folder buttons and the footer. Enter or Space on a folder opens it; focus moves to the path heading, which announces "Taxes, 4 folders". Up does the same for the parent. Moving is always the footer primary, so opening and choosing never share a key.
 
 Errors (K7 error): clash "There's already a file called "{name}" in Taxes. Rename one of them first." · gone "That folder was deleted. Pick another one." **Done:** the row leaves the list; status "Moved to Taxes" with a link "Open Taxes" in an A14 ok notice at the top of the list for the rest of the visit.
 
@@ -951,7 +953,7 @@ One page for a folder or file that is missing, deleted, or not yours, so it neve
 
 ### K12. Download
 
-A file name link and the K5 "Download" item are both `<a href>` to the download URL with the `download` attribute, so the browser's own download manager handles progress and resume. No in-page progress. If the URL needs to be fetched first (signed link), the menu item reads "Preparing download…" (`aria-busy`) for up to 5 s, then the browser takes over. **Error:** A14 danger notice above the list "{name} didn't download. Try again." with ghost "Try again"; an expired signed link is refetched silently once before showing it. Video and audio open in the browser's own player only through the optional image/media preview (not in v0's must-haves).
+A file name link and the K5 "Download" item are both `<a href>` to the download URL with the `download` attribute, so the browser's own download manager handles progress and resume. No in-page progress. If the URL needs to be fetched first (signed link), the menu item reads "Preparing download…" (`aria-busy`) for up to 5 s, then the browser takes over. **Error:** the page can't read the status of a plain download link, so the download URL answers a failure before any bytes with a redirect: signed out → Sign in with `next` = the folder URL; anything else (gone, unshared, expired link, server error) → the folder URL with a one-shot flag that shows an A14 danger notice above the list "{name} didn't download. Try again." with ghost "Try again". An expired signed link is refetched silently once before showing it. A failure after bytes have started is the browser's own download error, with its own retry. Video and audio open in the browser's own player only through the optional image/media preview (not in v0's must-haves).
 
 ### K13. Share dialog
 
@@ -961,7 +963,7 @@ K7, title "Share "{name}"". Body in this order:
 1. A 14 px `text.secondary` line: "People you add can view and download. They can't change, delete or re-share it." Folder: "…They also see anything you add to it later."
 2. **Add people:** a J10-style combobox, label "Add people", placeholder "Find someone by name". Options are only active people on this drive, excluding you and people who already have access (they're listed below): 36 px avatar (A8 fallback disc) · name · mono `text.tertiary` "Invited 3 Nov". Picked people become removable chips inside the field ("Sam ×", the × is a button "Remove Sam"). No free text: typing an email or a name that isn't in the list shows "Nobody called "zz" is on this drive. The owner can invite them." Primary "Share" (names the count when > 1: "Share with 2 people"), only when at least one person is picked; else quiet with `aria-disabled` and "Pick someone to share with".
 3. **People with access:** an H3 "People with access" and a list: you first ("You · owner"), then each person: avatar · name · neutral tag "Can view" · ghost danger `sm` "Remove" (`aria-label="Remove Sam's access"`), which confirms in place (I1): "Remove Sam's access? *Remove* · Cancel". For an item inside a shared folder, people who have it through the folder show "Through Taxes" in a 13 px second line and no Remove (it's removed on the folder).
-4. A footer close: ghost "Done" (when nothing is picked, Done is the only footer button).
+4. **Footer:** the K7 footer, always the same two buttons: the item 2 "Share" primary, then ghost "Done" in Cancel's place (removals take effect at once, so there's nothing to cancel). With nobody picked, Share is the quiet `aria-disabled` pill with its reason line, and Done closes the dialog.
 
 | State | Looks |
 |---|---|
@@ -1005,11 +1007,11 @@ K7, title "Share "{name}"". Body in this order:
 | failed | "Didn't upload: {reason}. Try again." Reasons in words: "the connection dropped", "you're out of space" (if the provider refuses), "the file changed while uploading", "you no longer have access to this folder" | `state.danger` fill at the failed point | "Try again" ghost `sm` · "Remove" |
 | cancelled | the row disappears; status "Cancelled {name}". Parts already sent are cleaned up by the server | — | — |
 
-**Rules:** one file failing never stops the others. "Try again" and "Resume" reuse the parts already uploaded. A 0-byte file goes straight to done. Resume across a closed tab needs the same file in the same folder: the item matches on name, size and modified time and says so ("Pick "{name}" again to carry on").
+**Rules:** one file failing never stops the others. "Try again" and "Resume" reuse the parts already uploaded. A 0-byte file goes straight to done. Resume across a closed tab needs the same file in the same folder: the item matches on name, size and modified time and says so ("Pick "{name}" again to carry on"). Name, size and time only find the candidate: before any part is reused, the uploaded parts are checked against the picked file's bytes (during "checking"; the checksum method is the engineers' choice). If they don't match, nothing is reused and the item starts from zero with the line "This isn't the same file, so it starts from the beginning." shown once.
 
 ### K16. Name-clash choice
 
-Shown inline in a K15 item (and as a single K7 when one file is dropped and the tray is collapsed). Sentence: "There's already a file called "report.pdf" in Taxes." Two ghost `sm` buttons of equal weight: **"Keep both"** (uploads as "report (1).pdf"; the next free number) and **"Replace"**, plus link button "Skip". Replace asks once more in place: "Replace the existing report.pdf (2.1 MB, 3 Nov)? It's deleted for good. *Replace* · Cancel". When several files clash in one batch, a check box "Do this for the other 4 clashes" appears under the buttons. Nothing uploads over an existing file without an explicit Replace. Folder clashes on a dropped folder merge into the existing folder and only clash file by file.
+Shown inline in a K15 item (and as a single K7 when one file is dropped and the tray is collapsed). Sentence: "There's already a file called "report.pdf" in Taxes." Two ghost `sm` buttons of equal weight: **"Keep both"** (uploads as "report (1).pdf"; the next free number) and **"Replace"**, plus link button "Skip". Replace asks once more in place: "Replace the existing report.pdf (2.1 MB, 3 Nov)? It's deleted for good. *Replace* · Cancel". When several files clash in one batch, a check box "Do this for the other 4 clashes" appears under the buttons. Nothing uploads over an existing file without an explicit Replace. Replace is bound to the file it named (its identity and version, not its name): if that file changed or was removed before the upload finishes, nothing is replaced and the item shows the clash again with the current size and date (or uploads normally if the name is now free). Folder clashes on a dropped folder merge into the existing folder and only clash file by file.
 
 ### K17. Passkey card
 
