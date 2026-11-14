@@ -4,10 +4,12 @@ How to build a page, component or bot surface that looks and behaves exactly lik
 
 ## 1. What this kit is
 
-`two-design-kit` is the single source of truth for Together We Own design. Product repos pin a tagged release and consume:
+`two-design-kit` is the design source of truth for the TWO product, used by two-web-next and two-bot-next only. Those two repos pin a tagged release and consume:
 - `dist/css/tokens.css` and `dist/ts/tokens.ts` (two-web-next, Hono and `web/` Kit),
 - `dist/rust/brand_tokens.rs` (two-bot-next `crates/discord/src/brand.rs`),
 - the specs in `docs/`.
+
+Other products keep their design in their own repo under `docs/design/` and may copy token values with provenance, but they never add components or tokens to this kit.
 
 | Need | Read |
 |---|---|
@@ -21,7 +23,7 @@ How to build a page, component or bot surface that looks and behaves exactly lik
 | An idea that isn't in the build | [docs/idea-bank.md](docs/idea-bank.md) |
 | What it should look like | `mockups/png/` (rendered from these tokens) |
 
-**Design decisions go to the UX Designer.** If the kit doesn't cover what you need, don't invent it in a product repo: open a kit change (§5) or ask the UX Designer on your card.
+**Design decisions go to the UX Designer.** If the kit doesn't cover what you need, don't invent it in a TWO product repo (two-web-next, two-bot-next): open a kit change (§5) or ask the UX Designer on your card.
 
 ## 2. Compose a new page in eight steps
 
@@ -99,7 +101,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 
 ## 5. Changing the kit
 
-- **Add, never fork.** A product repo never defines its own token or variant. Open a PR here.
+- **Add, never fork.** A TWO product repo (two-web-next, two-bot-next) never defines its own token or variant. Open a PR here.
 - **Branch** `feat/<slug>` or `fix/<slug>`, draft PR, the org PR template with Attestation.
 - **Tokens:** edit `tokens/*.tokens.json`; add any new colour pair to `tokens/contrast.json`; rebuild `dist/`; the CI checks DTCG validity, `dist/` drift and contrast.
 - **Components:** add the component or state to components.md with anatomy, sizing, the state table, content rules and the accessible name and role, before any product PR uses it.
