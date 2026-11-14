@@ -11,7 +11,7 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 | **P3 List page** | page header (B7) · sticky toolbar (B5) · list in the container | same; chips scroll sideways; end action drops below | Events, Ladder, Members |
 | **P4 Content + rail** | `minmax(0,1fr)` + rail (`layout.rail.*`), 48–56 px gap; rail sticky at `layout.sticky-offset` | one column; the template says where the rail goes | Event detail, Ladder, Members, Profile, Join |
 | **P5 Admin dense** | current admin layout, kit tokens, `size.row.admin` | tables scroll inside their own container, never the page | Admin |
-| **P6 Workbench page** | J1 header · page header (H1 at `font-size.h3`, two-tone, no serif) · `minmax(0,1fr)` + rail (`layout.rail.default`) or two equal columns, 40 px gap, in the container | one column; the rail follows the main column unless it holds the page's decision | Tool screens (labelloop) |
+| **P6 Workbench page** | J1 header · page header (H1 at `font-size.h3`, two-tone, no serif) · `minmax(0,1fr)` + rail (`layout.rail.default`) or two equal columns, 40 px gap, in the container | one column; the rail follows the main column unless it holds the page's decision | Tool screens (labelloop), Drive (qerith) |
 | **P7 Review canvas** | J1 header · sticky tool row (`size.toolbar`) · `minmax(0,1fr)` stage + inspector (`layout.inspector`, 380). Full viewport height; stage and inspector scroll independently; the decision dock (J12) sticks to the inspector bottom; the footer closes the viewport (at least `space.7`, grows with its text; shell rule below) | one column: stage, then inspector; drawing tools hidden with a note; the dock becomes a fixed bottom bar | Image review (labelloop) |
 
 **Shared shell on every page:** skip link (A16) · header (B1) · `<main id="main">` · footer (B3). One top bar; event detail adds the mobile action bar (B4) at 390 and nothing else does.
@@ -128,3 +128,11 @@ Workbench screens follow T9's restraint: no serif accent, no gradient, H1 at `fo
 3. **Independent scroll on P7 only.** The review canvas never scrolls away while the inspector scrolls. Every other tool page scrolls as a page.
 4. **Sticky on tool screens:** the J1 header, the P7 tool row and the J12 dock. Nothing else.
 
+
+## T10. Drive (qerith)
+
+**P6** with no rail. J1 header in its Drive form: product mark + "Drive" · section nav "My Drive" · "Shared with me" · "Users and invites" (owner only) · end cluster: avatar + name, which opens a K5 menu with "Sign out" (no project switcher, no spend status). Under it the K4 toolbar (sticky), then the page header (K1 breadcrumb · H1 = folder name at `font-size.h3` · mono count line "214 items · 18.2 GB"), then the K2 list. The K14 upload tray floats bottom-right at 1280 and is the bottom bar at 390. Sign-in and invite pages use K17 on a bare page (mark only, no nav).
+
+**390:** J1 compact (mark · avatar · Menu with the three sections) · K1 "Up to {parent}" · H1 · count line · toolbar (Upload full width, New folder and Sort on one row below) · two-line K2 rows · the K14 bar.
+
+**Must render:** every K2 state (empty, shared-empty, load failed, 5,000 items with "Show 200 more"), every K15 item state, K11 not-found, K17 states, and the owner screens with no other people and with a revoked person. The full screen spec, with copy, is in TogetherWeOwn/qerith `docs/design/`.

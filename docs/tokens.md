@@ -368,7 +368,7 @@ Mobile first. **One layout switch** at 820 px. Content column plus a rail on det
 
 ## 7. Iconography
 
-Our own inline-SVG stroke set: 24 px grid, 1.75 stroke, round caps and joins, `currentColor`, `aria-hidden="true"`. No icon font, no third-party set. The current set: pull (Pull me in), calendar, share, thread, voice, search, check, bell, menu, up, down, edit, lock, plus the Discord mark (fill, used only on Discord sign-in and join buttons). An icon-only button has an `aria-label`; an icon next to text is decorative.
+Our own inline-SVG stroke set: 24 px grid, 1.75 stroke, round caps and joins, `currentColor`, `aria-hidden="true"`. No icon font, no third-party set. The current set: pull (Pull me in), calendar, share, thread, voice, search, check, bell, menu, up, down, edit, lock, plus the Discord mark (fill, used only on Discord sign-in and join buttons). **Drive (K):** upload (arrow up from a bar under it, no tray, so it never reads as share), download (arrow down onto a bar), folder, folder-shared, file, image, video, audio, document, archive (the K3 kind glyphs: one page outline with a different mark inside, so they differ by shape), more (three dots, horizontal), close (×), trash, move (folder with an arrow), copy (two offset rounded squares), key (passkey), user-plus (invite), info (details). Same grid, stroke and rules as the rest of the set. An icon-only button has an `aria-label`; an icon next to text is decorative.
 
 **State glyphs (event rows; readable in greyscale):** ring = upcoming · half-filled ring in live = live · ember ring with ember dot = yours · filled `text.tertiary` = past / Echo.
 

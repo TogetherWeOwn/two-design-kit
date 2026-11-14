@@ -147,3 +147,25 @@ Tool screens (labelloop first) keep the mechanics in §2: sentence case, verbs f
 | key fingerprint | key, secret (when showing one) |
 | Spend without asking | autonomous spend (in UI copy) |
 
+
+## 8. Drive
+
+Drive uses the tool voice (§7): plain, exact, and honest about what can and can't be undone.
+
+1. **Say what happens to the bytes.** "Rename" and "Move" are instant; say nothing about time. "Delete" is permanent: say "for good" and "There's no bin" every time.
+2. **Exact sizes, plain units.** "5.4 GB", with the full byte count in details ("5,368,709,120 bytes"). Never "large file" in place of a size.
+3. **Name the person and the place.** "Shared with Sam", "Moved to Taxes", "Mora invited you".
+4. **Never reveal what isn't yours.** A missing item and an item you can't see get the same words ("This folder isn't here"). A used, expired and unknown link get the same words.
+
+| Use | Not |
+|---|---|
+| My Drive · Shared with me | Home, root, inbox |
+| file · folder | document, item (in UI copy; "items" is fine in counts) |
+| upload · download | import, export, sync |
+| share · people with access · can view | permissions, ACL, collaborator, viewer role |
+| remove (someone's access) | unshare, revoke (for a share) |
+| invite · invite link · sign-in link | registration, magic link, token |
+| revoke access · restore access (for a person, owner only) | ban, suspend, disable account |
+| passkey | WebAuthn, credential, security key (unless it is one) |
+| delete permanently · for good | purge, destroy, erase |
+| keep both · replace · skip | overwrite, merge (for files) |
