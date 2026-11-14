@@ -114,7 +114,7 @@ not affected.
 
 ## Releases
 
-Semver tags (`v0.x.y`) with a release note. Tagging a release:
+Semver tags (`vX.Y.Z`) with a release note; AGENTS.md §5 says which part to bump. Tagging a release:
 
 ```sh
 npm run check
