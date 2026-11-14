@@ -1,6 +1,8 @@
 # two-design-kit
 
-The single source of truth for TogetherWeOwn design. Tokens are authored in
+The design source of truth for the TWO product, used by two-web-next and
+two-bot-next only. Other products keep their design in their own repo under
+`docs/design/` (see [AGENTS.md](AGENTS.md) §1). Tokens are authored in
 [W3C Design Tokens (DTCG)](https://www.designtokens.org/) format under
 `tokens/`, and a [Style Dictionary 5](https://styledictionary.com/) build
 emits them for every consumer:
