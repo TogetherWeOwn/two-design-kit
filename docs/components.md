@@ -64,14 +64,16 @@ Every Ember Hours component: its job, anatomy, sizing, states, content rules and
 
 **Anatomy:** mono label (the label style (`font.data`, `font-size.label`, uppercase, `tracking.label`), uppercase), `space.inset.tag-y` × `space.inset.tag-x` (5 × 7 px) padding, `radius.s`, inset 1 px outline. Optional leading 7 px dot.
 
-| Variant | Text | Outline | Use |
-|---|---|---|---|
-| neutral | `text.secondary` | `border.hairline-strong` | Recurrence, visibility ("Open to all", "Members"), role badges (Guide, Host, Moderator), record kinds |
-| `live` | `state.live` | `state.live` at 45% | "Live" only |
-| `you` | `text.accent` | ember at 45% | "You're in", "You" |
-| `echo` | `state.echo` | `state.echo` at 50% | "Echo" only; never on `bg.overlay` |
-| `ok` | `state.ok` | `state.ok` at 45% | "Sign-ups open", "Saved", "First time", "New" |
-| `warn` | `state.warn` | `state.warn` at 45% | "Reserve · 2nd", "Stale", "Estimate" |
+| Variant | Text | Fill | Outline | Use |
+|---|---|---|---|---|
+| neutral | `text.secondary` | none | `border.hairline-strong` | Recurrence, visibility ("Open to all", "Members"), role badges (Guide, Host, Moderator), record kinds |
+| `live` | `state.live` | none | `state.live` at 45% | "Live" only |
+| `you` | `text.accent` | none | ember at 45% | "You're in", "You" |
+| `echo` | `state.echo` | `state.echo-bg` | `state.echo` at 50% | "Echo" only; never on `bg.overlay` |
+| `ok` | `state.ok` | none | `state.ok` at 45% | "Sign-ups open", "Saved", "First time", "New" |
+| `warn` | `state.warn` | none | `state.warn` at 45% | "Reserve · 2nd", "Stale", "Estimate" |
+
+**Echo fill:** the `echo` tag is the only tag with a fill. The opaque `state.echo-bg` fill keeps the violet label at 4.52:1 (the `state.echo` on `state.echo-bg` pair in tokens §1.8) on any ground, so its contrast never depends on where a page puts it. Keep the fill opaque: no alpha and no `color-mix` on it. The placement rule is unchanged: Echo tags go on grounds 0–2 (`bg.canvas`, `bg.surface`, `bg.raised`), never on `bg.overlay` (tokens §1.5).
 
 **Content:** 1–3 words. Sentence case in source; CSS uppercases. Role badges carry the role as text ("Guide · Deep Rock"), never an icon alone.
 
