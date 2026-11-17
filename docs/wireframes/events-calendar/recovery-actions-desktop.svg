@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" font-family="-apple-system, system-ui, sans-serif" fill="#fff" stroke="#000" stroke-width="1.5">
+<!-- Desktop 1280x800. Recovery actions in the partial-source notice and the read-error empty state. Before (top) vs decided (bottom). -->
+<rect x="0" y="0" width="1280" height="800"/>
+<text x="48" y="48" font-size="20" stroke="none" fill="#000">Recovery actions — desktop 1280</text>
+<text x="48" y="96" font-size="14" stroke="none" fill="#666">BEFORE (Hono + Kit today): two inline links, one space apart</text>
+<rect x="48" y="112" width="720" height="104" rx="8"/>
+<text x="72" y="152" font-size="14" stroke="none" fill="#000">Some Discord events may be missing from this schedule right now.</text>
+<text x="72" y="192" font-size="14" stroke="none" fill="#000">Retry Join the Discord</text>
+<line x1="72" y1="198" x2="232" y2="198"/>
+<text x="800" y="192" font-size="12" stroke="none" fill="#d33">Reads as one underlined link</text>
+<text x="48" y="280" font-size="14" stroke="none" fill="#666">DECIDED: action row — two separate actions, gap space.6 (24px)</text>
+<rect x="48" y="296" width="720" height="120" rx="8"/>
+<text x="72" y="336" font-size="14" stroke="none" fill="#000">Some Discord events may be missing from this schedule right now.</text>
+<text x="72" y="384" font-size="14" stroke="none" fill="#000">Retry</text>
+<line x1="72" y1="390" x2="112" y2="390"/>
+<text x="136" y="384" font-size="14" stroke="none" fill="#000">Join the Discord</text>
+<line x1="136" y1="390" x2="248" y2="390"/>
+<g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="64" y="360" width="200" height="40"/></g><circle cx="264" cy="360" r="10" fill="#d33" stroke="none"/><text x="264" y="364" font-size="12" text-anchor="middle" stroke="none" fill="#fff">1</text>
+<text x="48" y="472" font-size="14" stroke="none" fill="#666">DECIDED: read-error empty state (role=alert) uses the same row</text>
+<rect x="48" y="488" width="720" height="168" rx="8"/>
+<text x="72" y="528" font-size="20" stroke="none" fill="#000">We couldn&#8217;t load the calendar.</text>
+<text x="72" y="568" font-size="14" stroke="none" fill="#666">The Discord always has the latest — come ask there.</text>
+<text x="72" y="624" font-size="14" stroke="none" fill="#000">Retry</text>
+<line x1="72" y1="630" x2="112" y2="630"/>
+<text x="136" y="624" font-size="14" stroke="none" fill="#000">Join the Discord</text>
+<line x1="136" y1="630" x2="248" y2="630"/>
+<g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="64" y="600" width="200" height="40"/></g><circle cx="264" cy="600" r="10" fill="#d33" stroke="none"/><text x="264" y="604" font-size="12" text-anchor="middle" stroke="none" fill="#fff">2</text>
+<text x="800" y="336" font-size="12" stroke="none" fill="#d33">1 — row: display:flex; flex-wrap:wrap; align-items:center;</text>
+<text x="800" y="356" font-size="12" stroke="none" fill="#d33">    gap: space.3 (12px) row / space.6 (24px) column; margin-top space.3</text>
+<text x="800" y="376" font-size="12" stroke="none" fill="#d33">    Retry first, Join the Discord second (DOM = visual order)</text>
+<text x="800" y="396" font-size="12" stroke="none" fill="#d33">    Both stay A2 running-text links; testids unchanged</text>
+<text x="800" y="624" font-size="12" stroke="none" fill="#d33">2 — same row in EmptyError; no new copy, no buttons</text>
+</svg>

@@ -79,7 +79,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 
 **Layout**
 - [ ] Matches the template at both widths; decision block first at 390.
-- [ ] No sideways page scroll at 320 px; only chip rows, the newest strip and admin tables scroll.
+- [ ] No sideways page scroll at 320 px; only chip rows, the newest strip, the month grid (C11) and admin tables scroll.
 - [ ] Sticky elements limited to header, list toolbar, one rail and the event action bar.
 
 **Copy**

@@ -293,6 +293,8 @@ Mono uppercase group heading (the label style (`font.data`, `font-size.label`, u
 
 **Never:** an illustration, an apology, "Oops", or an empty box with no next step.
 
+**Recovery (a read failed, or one source is partial):** two actions, never one run of text. Retry (re-issues the same URL) comes first, then the human fallback ("Join the Discord"). Both are A2 running-text links in an action row: `display: flex`, `flex-wrap: wrap`, `align-items: center`, gap `space.3` between rows and `space.6` between actions, `space.3` above the row. DOM order is visual order. The full error keeps `role="alert"`; the partial-source notice keeps `role="status"` and sits beside the healthy rows. Wireframes: [desktop](wireframes/events-calendar/recovery-actions-desktop.svg), [390](wireframes/events-calendar/recovery-actions-mobile.svg).
+
 ### C4. Time block
 
 **Job:** say when an event starts, in the viewer's time, with the UTC anchor.
@@ -417,6 +419,29 @@ A chip row (`role="group" aria-label="Past dates"`) of the last 3 dates plus "Al
 | opted-out members | counted in totals, never named |
 
 **A11y:** each fact is one sentence in the DOM ("18 of 21 came"); the numeral is not split from its words for screen readers.
+
+### C11. Month grid (calendar view)
+
+**Job:** show a month of events by weekday so a member can spot the nights that suit them.
+
+**Anatomy:** month nav (previous, month label, next, "This month") · "Jump to month" form · scroll frame holding the scroll hint and the scroll region · a 7-column `<table>` (Mon–Sun) with a visually hidden caption naming the month. A day cell shows its date and a list of event links (time, zone, title, then any tags).
+
+**Narrow widths:** the table keeps all seven columns and a fixed minimum width; the region scrolls sideways inside itself, never the page (accessibility.md §8). While the frame is narrower than the table, two cues say there is more to the right:
+
+1. **Hint:** "Scroll sideways for Fri–Sun →" above the grid, label style, `text.tertiary`, `aria-hidden="true"` (the region's accessible name already says it).
+2. **Edge fade:** a static `space.7` gradient on the frame's inline end, from transparent to the page ground. `pointer-events: none`. It never moves or reacts to scroll (tokens.md, "What never moves"). The table ends with a `space.7` margin, so at the end of the scroll Sunday is never under the fade. Hidden under `forced-colors: active`, where the hint carries the cue alone.
+
+Show both with a container query on the frame (narrower than the table's minimum width plus `space.7`). When the whole week fits, neither shows. Wireframe: [decided](wireframes/events-calendar/calendar-option-a-edge-fade.svg). The stacked agenda at narrow widths was considered and rejected ([wireframe](wireframes/events-calendar/calendar-option-b-narrow-agenda.svg)): it duplicates the list view, loses the month's shape, needs `display: block` on table parts (which strips table semantics in Safari) and makes the region's "scroll horizontally" name untrue.
+
+| State | Looks | Does |
+|---|---|---|
+| fits | seven columns, no hint, no fade | — |
+| overflowing | hint above, fade at the inline end | region scrolls sideways; keyboard arrows scroll once it has focus |
+| scrolled to end | fade sits over the end margin, Sunday clear | — |
+| today | 2 px inset `accent.default` outline on the cell and `aria-current="date"` | — |
+| outside the month | cell on the page ground | — |
+
+**A11y:** the scroll region is `role="region"` with the name "Events calendar; scroll horizontally to see all days" and `tabindex="0"`, with the common focus ring. Each event link's accessible name carries its full time and title (the visible text may be shortened).
 
 ---
 
