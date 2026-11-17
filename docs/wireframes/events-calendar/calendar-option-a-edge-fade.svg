@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" font-family="-apple-system, system-ui, sans-serif" fill="#fff" stroke="#000" stroke-width="1.5">
+<!-- Mobile 390x844. Option A (DECIDED): keep the 7-column grid in its scroll region; add a visible hint and a right-edge fade. -->
+<defs><linearGradient id="fade" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#e6e6e6" stop-opacity="0"/><stop offset="1" stop-color="#e6e6e6" stop-opacity="1"/></linearGradient></defs>
+<rect x="0" y="0" width="390" height="844"/>
+<text x="24" y="40" font-size="20" stroke="none" fill="#000">Option A — fade + hint (decided)</text>
+<rect x="24" y="64" width="48" height="40"/>
+<text x="48" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">←</text>
+<text x="136" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">June 2026</text>
+<rect x="200" y="64" width="48" height="40"/>
+<text x="224" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">→</text>
+<rect x="264" y="64" width="104" height="40"/>
+<text x="316" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">This month</text>
+<text x="24" y="136" font-size="14" stroke="none" fill="#000">Jump to month</text>
+<rect x="136" y="116" width="168" height="32"/>
+<text x="24" y="192" font-size="12" stroke="none" fill="#666">Scroll sideways for Fri–Sun →</text>
+<g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="16" y="172" width="232" height="32"/></g><circle cx="248" cy="172" r="10" fill="#d33" stroke="none"/><text x="248" y="176" font-size="12" text-anchor="middle" stroke="none" fill="#fff">1</text>
+<rect x="24" y="208" width="344" height="560"/>
+<line x1="24" y1="208" x2="24" y2="768"/>
+<line x1="120" y1="208" x2="120" y2="768"/>
+<line x1="216" y1="208" x2="216" y2="768"/>
+<line x1="312" y1="208" x2="312" y2="768"/>
+<text x="72" y="236" font-size="14" stroke="none" fill="#000" text-anchor="middle">Mon</text>
+<text x="168" y="236" font-size="14" stroke="none" fill="#000" text-anchor="middle">Tue</text>
+<text x="264" y="236" font-size="14" stroke="none" fill="#000" text-anchor="middle">Wed</text>
+<text x="360" y="236" font-size="14" stroke="none" fill="#000" text-anchor="middle">Thu</text>
+<line x1="24" y1="248" x2="368" y2="248"/>
+<line x1="24" y1="376" x2="368" y2="376"/>
+<text x="32" y="272" font-size="12" stroke="none" fill="#000">1</text>
+<text x="128" y="272" font-size="12" stroke="none" fill="#000">2</text>
+<text x="224" y="272" font-size="12" stroke="none" fill="#000">3</text>
+<text x="320" y="272" font-size="12" stroke="none" fill="#000">4</text>
+<line x1="24" y1="504" x2="368" y2="504"/>
+<text x="32" y="400" font-size="12" stroke="none" fill="#000">8</text>
+<text x="128" y="400" font-size="12" stroke="none" fill="#000">9</text>
+<text x="224" y="400" font-size="12" stroke="none" fill="#000">10</text>
+<text x="320" y="400" font-size="12" stroke="none" fill="#000">11</text>
+<line x1="24" y1="632" x2="368" y2="632"/>
+<text x="32" y="528" font-size="12" stroke="none" fill="#000">15</text>
+<text x="128" y="528" font-size="12" stroke="none" fill="#000">16</text>
+<text x="224" y="528" font-size="12" stroke="none" fill="#000">17</text>
+<text x="320" y="528" font-size="12" stroke="none" fill="#000">18</text>
+<line x1="24" y1="760" x2="368" y2="760"/>
+<text x="32" y="656" font-size="12" stroke="none" fill="#000">22</text>
+<text x="128" y="656" font-size="12" stroke="none" fill="#000">23</text>
+<text x="224" y="656" font-size="12" stroke="none" fill="#000">24</text>
+<text x="320" y="656" font-size="12" stroke="none" fill="#000">25</text>
+<rect x="32" y="528" width="80" height="40" fill="#e6e6e6" stroke="none"/>
+<text x="36" y="544" font-size="12" stroke="none" fill="#000">18:00 UTC</text>
+<text x="36" y="560" font-size="12" stroke="none" fill="#000">Game night</text>
+<rect x="336" y="208" width="32" height="560" fill="url(#fade)" stroke="none"/>
+<g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="328" y="200" width="40" height="576"/></g><circle cx="368" cy="200" r="10" fill="#d33" stroke="none"/><text x="368" y="204" font-size="12" text-anchor="middle" stroke="none" fill="#fff">2</text>
+<text x="24" y="792" font-size="12" stroke="none" fill="#d33">1 — hint: label size, text.tertiary, real text; shown</text><text x="24" y="806" font-size="12" stroke="none" fill="#d33">    only while the grid overflows (container query)</text><text x="24" y="822" font-size="12" stroke="none" fill="#d33">2 — static space.7 fade to the page ground; while</text><text x="24" y="836" font-size="12" stroke="none" fill="#d33">    shown, a space.7 end margin keeps Sun clear</text></svg>

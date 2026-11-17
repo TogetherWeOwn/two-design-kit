@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" font-family="-apple-system, system-ui, sans-serif" fill="#fff" stroke="#000" stroke-width="1.5">
+<!-- Mobile 390x844. Option B (REJECTED): reflow the month table into a stacked agenda under the compact breakpoint. -->
+<rect x="0" y="0" width="390" height="844"/>
+<text x="24" y="40" font-size="20" stroke="none" fill="#000">Option B — agenda (rejected)</text>
+<rect x="24" y="64" width="48" height="40"/>
+<text x="48" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">←</text>
+<text x="136" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">June 2026</text>
+<rect x="200" y="64" width="48" height="40"/>
+<text x="224" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">→</text>
+<rect x="264" y="64" width="104" height="40"/>
+<text x="316" y="89" font-size="14" stroke="none" fill="#000" text-anchor="middle">This month</text>
+<text x="24" y="136" font-size="14" stroke="none" fill="#000">Jump to month</text>
+<rect x="136" y="116" width="168" height="32"/>
+<text x="24" y="176" font-size="14" stroke="none" fill="#666">Week of 1 Jun</text>
+<rect x="24" y="192" width="344" height="40" fill="#e6e6e6"/>
+<text x="40" y="216" font-size="12" stroke="none" fill="#666">No events this week (empty days hidden)</text>
+<text x="24" y="256" font-size="14" stroke="none" fill="#666">Week of 8 Jun</text>
+<rect x="24" y="272" width="344" height="40" fill="#e6e6e6"/>
+<text x="40" y="296" font-size="12" stroke="none" fill="#666">No events this week (empty days hidden)</text>
+<text x="24" y="336" font-size="14" stroke="none" fill="#666">Week of 15 Jun</text>
+<rect x="24" y="352" width="344" height="72"/>
+<text x="40" y="376" font-size="14" stroke="none" fill="#000">Mon 15</text>
+<text x="120" y="376" font-size="14" stroke="none" fill="#000">18:00 UTC Game night</text>
+<rect x="120" y="388" width="112" height="24"/>
+<text x="128" y="404" font-size="12" stroke="none" fill="#000">Happening now</text>
+<text x="248" y="404" font-size="12" stroke="none" fill="#000">2 seats left</text>
+<rect x="24" y="432" width="344" height="72"/>
+<text x="40" y="456" font-size="14" stroke="none" fill="#000">Tue 16</text>
+<text x="120" y="456" font-size="14" stroke="none" fill="#000">Continues Game night</text>
+<text x="120" y="484" font-size="12" stroke="none" fill="#000">18:00 UTC Cancelled night</text>
+<rect x="24" y="512" width="344" height="48"/>
+<text x="40" y="540" font-size="14" stroke="none" fill="#000">Sat 20</text>
+<text x="120" y="540" font-size="14" stroke="none" fill="#000">20:00 UTC Raid night</text>
+<g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="16" y="176" width="360" height="392"/></g><circle cx="376" cy="176" r="10" fill="#d33" stroke="none"/><text x="376" y="180" font-size="12" text-anchor="middle" stroke="none" fill="#fff">1</text>
+<text x="24" y="592" font-size="12" stroke="none" fill="#d33">1 — every day visible, but it duplicates the list view,</text>
+<text x="24" y="608" font-size="12" stroke="none" fill="#d33">    drops the month shape, needs display:block on table</text>
+<text x="24" y="624" font-size="12" stroke="none" fill="#d33">    parts (Safari loses table semantics) and makes the</text>
+<text x="24" y="640" font-size="12" stroke="none" fill="#d33">    scroll hint untrue</text>
+</svg>
