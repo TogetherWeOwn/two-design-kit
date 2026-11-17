@@ -16,7 +16,7 @@
 <text x="136" y="384" font-size="14" stroke="none" fill="#000">Join the Discord</text>
 <line x1="136" y1="390" x2="248" y2="390"/>
 <g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="64" y="360" width="200" height="40"/></g><circle cx="264" cy="360" r="10" fill="#d33" stroke="none"/><text x="264" y="364" font-size="12" text-anchor="middle" stroke="none" fill="#fff">1</text>
-<text x="48" y="472" font-size="14" stroke="none" fill="#666">DECIDED: read-error empty state (role=alert) uses the same row</text>
+<text x="48" y="472" font-size="14" stroke="none" fill="#666">DECIDED: read-error empty state (A14 danger) uses the same row</text>
 <rect x="48" y="488" width="720" height="168" rx="8"/>
 <text x="72" y="528" font-size="20" stroke="none" fill="#000">We couldn&#8217;t load the calendar.</text>
 <text x="72" y="568" font-size="14" stroke="none" fill="#666">The Discord always has the latest — come ask there.</text>

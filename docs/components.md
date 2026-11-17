@@ -293,7 +293,7 @@ Mono uppercase group heading (the label style (`font.data`, `font-size.label`, u
 
 **Never:** an illustration, an apology, "Oops", or an empty box with no next step.
 
-**Recovery (a read failed, or one source is partial):** two actions, never one run of text. Retry (re-issues the same URL) comes first, then the human fallback ("Join the Discord"). Both are A2 running-text links in an action row: `display: flex`, `flex-wrap: wrap`, `align-items: center`, gap `space.3` between rows and `space.6` between actions, `space.3` above the row. DOM order is visual order. The full error keeps `role="alert"`; the partial-source notice keeps `role="status"` and sits beside the healthy rows. Wireframes: [desktop](wireframes/events-calendar/recovery-actions-desktop.svg), [390](wireframes/events-calendar/recovery-actions-mobile.svg).
+**Recovery (a read failed, or one source is partial):** two actions, never one run of text. Retry (re-issues the same URL) comes first, then the human fallback ("Join the Discord"). Both are A2 links in an action row: `display: flex`, `flex-wrap: wrap`, `align-items: center`, gap `space.3` between rows and `space.6` between actions, `space.3` above the row. They stand alone, so each gets `space.2` vertical padding for a target at least 36 px tall (accessibility.md §4). DOM order is visual order. The full error is an A14 danger notice and the partial-source notice an A14 warn notice that sits beside the healthy rows. Both are plain content, with no `role="alert"`, `role="status"` or `aria-live`: neither is the result of an in-page member action (Retry is a navigation that loads a new page), and the page's only polite region belongs to the live island (accessibility.md §6). If the island learns in-page that a source has failed or recovered, it announces that once through its own status region. Wireframes: [desktop](wireframes/events-calendar/recovery-actions-desktop.svg), [390](wireframes/events-calendar/recovery-actions-mobile.svg).
 
 ### C4. Time block
 
@@ -426,12 +426,12 @@ A chip row (`role="group" aria-label="Past dates"`) of the last 3 dates plus "Al
 
 **Anatomy:** month nav (previous, month label, next, "This month") · "Jump to month" form · scroll frame holding the scroll hint and the scroll region · a 7-column `<table>` (Mon–Sun) with a visually hidden caption naming the month. A day cell shows its date and a list of event links (time, zone, title, then any tags).
 
-**Narrow widths:** the table keeps all seven columns and a fixed minimum width; the region scrolls sideways inside itself, never the page (accessibility.md §8). While the frame is narrower than the table, two cues say there is more to the right:
+**Narrow widths:** the table keeps all seven columns and a minimum width of 672 px (seven 96 px columns; the existing Hono value, `42rem`); the region scrolls sideways inside itself, never the page (accessibility.md §8). While the frame is narrower than the table, two cues say there is more to the right:
 
-1. **Hint:** "Scroll sideways for Fri–Sun →" above the grid, label style, `text.tertiary`, `aria-hidden="true"` (the region's accessible name already says it).
-2. **Edge fade:** a static `space.7` gradient on the frame's inline end, from transparent to the page ground. `pointer-events: none`. It never moves or reacts to scroll (tokens.md, "What never moves"). The table ends with a `space.7` margin, so at the end of the scroll Sunday is never under the fade. Hidden under `forced-colors: active`, where the hint carries the cue alone.
+1. **Hint:** "Scroll sideways for Fri–Sun →" above the grid, label style, `text.tertiary`. It is real text, not `aria-hidden`: it is the only place the scroll instruction lives, and the container query hides it with `display: none` when the week fits, so screen readers hear it only when it is true.
+2. **Edge fade:** a static `space.7` gradient on the frame's inline end, from transparent to the page ground. `pointer-events: none`. It never moves or reacts to scroll (tokens.md, "What never moves"). While the cues show, the table ends with a `space.7` margin, so at the end of the scroll Sunday is never under the fade. Hidden under `forced-colors: active`, where the hint carries the cue alone.
 
-Show both with a container query on the frame (narrower than the table's minimum width plus `space.7`). When the whole week fits, neither shows. Wireframe: [decided](wireframes/events-calendar/calendar-option-a-edge-fade.svg). The stacked agenda at narrow widths was considered and rejected ([wireframe](wireframes/events-calendar/calendar-option-b-narrow-agenda.svg)): it duplicates the list view, loses the month's shape, needs `display: block` on table parts (which strips table semantics in Safari) and makes the region's "scroll horizontally" name untrue.
+Show both with a container query on the frame (narrower than the table's 672 px minimum width). When the whole week fits, neither the cues nor the end margin show. Wireframe: [decided](wireframes/events-calendar/calendar-option-a-edge-fade.svg). The stacked agenda at narrow widths was considered and rejected ([wireframe](wireframes/events-calendar/calendar-option-b-narrow-agenda.svg)): it duplicates the list view, loses the month's shape, needs `display: block` on table parts (which strips table semantics in Safari) and makes the scroll hint untrue.
 
 | State | Looks | Does |
 |---|---|---|
@@ -441,7 +441,7 @@ Show both with a container query on the frame (narrower than the table's minimum
 | today | 2 px inset `accent.default` outline on the cell and `aria-current="date"` | — |
 | outside the month | cell on the page ground | — |
 
-**A11y:** the scroll region is `role="region"` with the name "Events calendar; scroll horizontally to see all days" and `tabindex="0"`, with the common focus ring. Each event link's accessible name carries its full time and title (the visible text may be shortened).
+**A11y:** the scroll region is `role="region"` with the stable name "Events calendar" (the hint carries the scroll instruction, and only while it is true). It renders with `tabindex="0"` and the common focus ring, so a keyboard user can scroll it without scripts. Once the island has loaded it removes the tab stop while the grid fits (`scrollWidth <= clientWidth`, rechecked on resize) and restores it when the grid overflows; it never hides the table or its event links from assistive technology. Each event link's accessible name carries its full time and title (the visible text may be shortened).
 
 ---
 

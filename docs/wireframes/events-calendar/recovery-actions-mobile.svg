@@ -22,6 +22,6 @@
 <g stroke="#d33" stroke-dasharray="4 4" fill="none"><rect x="32" y="512" width="200" height="40"/></g><circle cx="232" cy="512" r="10" fill="#d33" stroke="none"/><text x="232" y="516" font-size="12" text-anchor="middle" stroke="none" fill="#fff">2</text>
 <text x="24" y="632" font-size="12" stroke="none" fill="#d33">1 — row fits on one line at 390; wraps at 320 with</text>
 <text x="24" y="652" font-size="12" stroke="none" fill="#d33">    a 12px row gap, Retry stays first</text>
-<text x="24" y="680" font-size="12" stroke="none" fill="#d33">2 — role=alert container unchanged; only the action</text>
+<text x="24" y="680" font-size="12" stroke="none" fill="#d33">2 — A14 danger notice, plain content (no role); the action</text>
 <text x="24" y="700" font-size="12" stroke="none" fill="#d33">    paragraph becomes the row</text>
 </svg>

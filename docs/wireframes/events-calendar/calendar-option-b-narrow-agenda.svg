@@ -35,5 +35,5 @@
 <text x="24" y="592" font-size="12" stroke="none" fill="#d33">1 — every day visible, but it duplicates the list view,</text>
 <text x="24" y="608" font-size="12" stroke="none" fill="#d33">    drops the month shape, needs display:block on table</text>
 <text x="24" y="624" font-size="12" stroke="none" fill="#d33">    parts (Safari loses table semantics) and makes the</text>
-<text x="24" y="640" font-size="12" stroke="none" fill="#d33">    region label &#8216;scroll horizontally&#8217; untrue</text>
+<text x="24" y="640" font-size="12" stroke="none" fill="#d33">    scroll hint untrue</text>
 </svg>
