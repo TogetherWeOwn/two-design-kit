@@ -85,7 +85,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 **Copy**
 - [ ] Sentence case; verbs first on buttons; the word list followed.
 - [ ] Times viewer-local with a zone; UTC anchor on detail pages.
-- [ ] Server and no-JS HTML show C4's claim-bearing states (upcoming ≤ 24 h, starting, live) in the dated form, with Refresh when the path is safe (an unsafe path keeps the "as of" and drops the link); upcoming > 24 h, ended and cancelled show no "as of" and no Refresh. Countdowns and live claims appear only after the island's freshness check, carry the server's "as of" and are withdrawn, never recomputed, once stale (components.md C4).
+- [ ] Server and no-JS HTML show C4's claim-bearing states (upcoming ≤ 24 h, starting, live) in the dated form, with Refresh when the path is safe (an unsafe path keeps the "as of", or "Live status unavailable", and drops the link); upcoming > 24 h, ended and cancelled show no "as of" and no Refresh. With no usable `asOf`, live shows "Live status unavailable", upcoming and starting drop the countdown, and the page is not shared-cached. Countdowns and live claims appear only after the island's freshness check, carry the server's "as of" and are withdrawn, never recomputed, once stale (components.md C4).
 - [ ] Privacy: guests see counts not names; opted-out members are "a member"; nothing in voice.md §5's never-print list.
 
 **Accessibility**
