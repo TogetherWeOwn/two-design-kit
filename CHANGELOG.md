@@ -2,6 +2,17 @@
 
 Release notes for each tag are also on the GitHub release. Versions follow semver as AGENTS.md §5 sets out: a changed token value is a minor bump; a removed or renamed token is a major bump.
 
+## v1.0.2
+
+**Docs patch: C4 server HTML is always dated.** components.md C4 no longer lets server or no-JS HTML show a countdown, the "Live" numeral or a room count: a page that is already open is never fetched again, so those claims could sit on screen long after they stopped being true. Every server render uses the dated form ("Europe/London · 21:00 UTC · as of 18:50 · Refresh"), with the same-origin Refresh link (an unsafe path renders no link). The former "stale (JS only)" rows are now "dated (server/no-JS, and JS when stale)"; there is no new wording.
+
+- The page's island may upgrade the dated form to the fresh form once at hydration, only after its freshness check, instantly and unannounced. Otherwise the client still never adds or recomputes a claim.
+- Every cache-lifetime directive is unchanged. The paragraph now says what it is for: making Refresh reach a new snapshot.
+- A page's `live` tag rendered from the same snapshot follows the same rule.
+- AGENTS.md §3 and the §4 checklist say the same.
+
+**Migration:** none. No token changes; `dist/` is unchanged. A C4 that rendered the countdown or "Live" in server HTML now renders the dated row there and shows the fresh row from the island.
+
 ## v1.0.1
 
 **Docs patch: the Echo tag has its own fill.** components.md A4 `echo` now sets the label in `state.echo` on an opaque `state.echo-bg` fill, with the `state.echo` outline at 50%. The fill keeps the label at 4.52:1 (the existing tokens §1.8 pair) on any ground. The A4 table gains a Fill column; every other tag has none. The placement rule (grounds 0–2, never `bg.overlay`, tokens §1.5) is unchanged.
