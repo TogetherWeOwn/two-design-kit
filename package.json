@@ -1,6 +1,6 @@
 {
   "name": "two-design-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "type": "module",
   "description": "Ember Hours design tokens (W3C DTCG) with CSS, TypeScript and Rust builds.",

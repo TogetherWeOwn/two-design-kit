@@ -49,7 +49,7 @@ Other products keep their design in their own repo under `docs/design/` and may 
 | Live state changes by swapping text | Pulse, count-up, ticker, carousel, scroll reveal |
 | Motion inside `@media (prefers-reduced-motion: no-preference)` | A transition outside that query |
 | Now Line visual `aria-hidden` plus a hidden text list | A chart with only an `aria-label` |
-| Countdown dated "in 2 h 10 m · as of 18:50" by the server, withdrawn by JS once stale (C4) | `aria-live` on a clock, or a countdown the client recomputes |
+| Server HTML dated "as of 18:50 · Refresh"; the island shows the server's "in 2 h 10 m · as of 18:50" only after its freshness check, and withdraws it once stale (C4) | `aria-live` on a clock, a countdown the client recomputes, or an undated countdown or "Live" in server HTML |
 | `aria-disabled="true"` with "Pull me in · from 20:45" | A `disabled` button with no reason |
 | "That didn't save. Try again, or say you're in from Discord." | "Error", "Something went wrong" |
 | Empty state with one next step | An empty box, or "No data" |
@@ -85,7 +85,7 @@ Run this on every UI or bot-surface PR. The author fills it in the PR body; desi
 **Copy**
 - [ ] Sentence case; verbs first on buttons; the word list followed.
 - [ ] Times viewer-local with a zone; UTC anchor on detail pages.
-- [ ] Countdowns and live claims carry the server's "as of" and are withdrawn, never recomputed, once stale (components.md C4).
+- [ ] Server and no-JS HTML show C4's claim-bearing states (upcoming ≤ 24 h, starting, live) in the dated form, with Refresh when the path is safe (an unsafe path keeps the "as of", or "Live status unavailable", and drops the link); upcoming > 24 h, ended and cancelled show no "as of" and no Refresh. With no usable `asOf`, live shows "Live status unavailable" (with Refresh when the path is safe), upcoming and starting render the absolute row with no countdown, no "as of" and no Refresh, and the page is not shared-cached. Countdowns and live claims appear only after the island's freshness check, carry the server's "as of" and are withdrawn, never recomputed, once stale (components.md C4).
 - [ ] Privacy: guests see counts not names; opted-out members are "a member"; nothing in voice.md §5's never-print list.
 
 **Accessibility**
