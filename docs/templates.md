@@ -58,14 +58,14 @@ Each template gives the regions at **1280** (desktop) and the order at **390** (
 | 1280 main column | 1280 rail (sticky) |
 |---|---|
 | breadcrumb "Events / Raid Night" · tags (state, recurrence, visibility) · H1 "Raid Night: *Deep Rock Galactic*" · time block (C4) | seat card (C5) |
-| Lifeline (C7) | facts list (C6) |
+| Lifeline (C7; optional under the C5 existing-RSVP projection) | facts list (C6) |
 | About this one (17 px reading copy, max 62 ch) | |
 | Who's in (C8) | |
 | Last time: instance switcher (C9) + key facts (C10) in a box | |
 
-**390 order (decision first):** breadcrumb · tags · H1 · time block · **seat card** · facts list · Lifeline · About · Who's in · Last time. The mobile action bar (B4) is fixed at the bottom with the seat state, Add to calendar and the seat card's primary action, only when the seat card has a button (B4 visibility); the page has matching bottom padding.
+**390 order (decision first):** breadcrumb · tags · H1 · time block · **seat card** · facts list · Lifeline (when shown) · About · Who's in · Last time. The mobile action bar (B4) is fixed at the bottom with the seat state, Add to calendar and the seat card's primary action, only when the seat card has a button (B4 visibility); the page has matching bottom padding.
 
-**Must render:** every seat-card state (C5 table, or its existing-RSVP projection), every Lifeline step state, guest (no names in Who's in), members-only event viewed by a guest (facts visible, people replaced by a join prompt), cancelled (this template, whatever the HTTP status; Who's in hidden), ended (Echo, or the no-Echo line, replaces the seat card), bot unreachable (C5), "moved or ended" page for dead links.
+**Must render:** every seat-card state (C5 table, or its existing-RSVP projection), every Lifeline step state (when the Lifeline renders; with existing RSVP only it is optional and shows no step the product doesn't perform), guest (no names in Who's in), members-only event viewed by a guest (facts visible, people replaced by a join prompt), cancelled (this template, whatever the HTTP status; Who's in hidden), ended (Echo, or the no-Echo line, replaces the seat card), bot unreachable (C5), "moved or ended" page for dead links.
 
 ## T5. Ladder — `ladder`
 

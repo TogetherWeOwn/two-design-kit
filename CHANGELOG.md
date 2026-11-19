@@ -4,12 +4,12 @@ Release notes for each tag are also on the GitHub release. Versions follow semve
 
 ## v1.0.3
 
-**Docs patch: event-detail states for a product with the site's RSVP only.** components.md C5 gains a projection rule: a product that has only the site's RSVP renders each seat-card state minus every element that claims something it doesn't do (no seat number, no Pull me in, no bot note, no reserve states), with no invented substitute. The projected open, saved, starting and live states are spelled out.
+**Docs patch: event-detail states for a product with the site's RSVP only.** components.md C5 gains a projection rule: a product that has only the site's RSVP renders each seat-card state minus every element that claims something it doesn't do (no seat number, no Pull me in, no bot note, no reserve or promoted states, no Lifeline step it doesn't perform), with no invented substitute. The projected open, saved, starting, full (no button), live and cancelled states are spelled out, and a successful RSVP announces "You're in.".
 
-- C5 adds three rows: **live, no room count** ("You're in.", `live` tag, no buttons without Pull me in), **ended, no Echo** (C10's no-Echo line, then "Next one" as a link, not "I'm in") and **bot unreachable** (state and buttons unchanged, an A14 warn notice in the note slot, bot-derived claims dropped). The cancelled row omits the reason line, the next-date line and "See the next date" when there is no stored reason or next instance.
+- C5 adds three rows: **live, no room count** ("You're in.", `live` tag, no buttons without Pull me in), **ended, no Echo** (C10's no-Echo line, then "Next one" as a link, not "I'm in") and **bot unreachable** (state and buttons unchanged, live takes the no-room-count heading, an A14 warn notice in the note slot even when the state has no note, bot-derived claims dropped). C4's ended anchor drops "Echo frozen" when there is no Echo. The cancelled row omits the reason line, the next-date line and "See the next date" when there is no stored reason or next instance.
 - B4 has a visibility rule: the bar renders only when the seat card has a button, so not for live without Pull me in, ended or cancelled. Its height is in `scroll-padding-bottom`, and its existing-RSVP and bot-unreachable lines are given.
 - C4's `live` tag note covers a failed bot read: no room count, and a bot-derived `live` tag renders as `warn` "Stale".
-- templates.md T4: B4 follows the visibility rule; Must render adds the C5 projection, the no-Echo ended state and bot unreachable, and says cancelled uses this template whatever the HTTP status.
+- templates.md T4: B4 follows the visibility rule; the Lifeline is optional under the existing-RSVP projection; Must render adds the C5 projection, the no-Echo ended state and bot unreachable, and says cancelled uses this template whatever the HTTP status.
 
 **Migration:** none. No token changes; `dist/` is unchanged. Full-bot states are unchanged.
 
