@@ -218,7 +218,9 @@ Hairline top, 32 / 44 px padding, 14 px `text.tertiary`. Left: "Together We Own 
 
 ### B4. Mobile action bar
 
-**Only on event detail, only at ≤ 820 px.** Fixed to the bottom, `elevation.sheet`, `hairline-strong` top, 12 px padding plus `env(safe-area-inset-bottom)`. Content: the seat state in two short lines ("**You're in · seat 7** / Pull me in opens at 20:45") · an icon button (Add to calendar) · the primary seat action. The page adds bottom padding equal to the bar so nothing hides behind it. `<aside aria-label="Your seat">`. Never a second bar, never a bottom tab bar.
+**Only on event detail, only at ≤ 820 px.** Fixed to the bottom, `elevation.sheet`, `hairline-strong` top, 12 px padding plus `env(safe-area-inset-bottom)`. Content: the seat state in two short lines ("**You're in · seat 7** / Pull me in opens at 20:45") · an icon button (Add to calendar, accessible name "Add to calendar") · the C5 primary action, when the state has one. The page adds bottom padding equal to the bar, and the bar's height is in `scroll-padding-bottom` (accessibility.md), so nothing, focus included, hides behind it. `<aside aria-label="Your seat">`. Never a second bar, never a bottom tab bar.
+
+**Visibility:** render the bar only when the C5 state has at least one button: signed out, open, saved, starting, full, reserve, promoted, room open, and live when it has Pull me in. No bar when C5 has no buttons (live without Pull me in), when the card is replaced (ended) or when the event is cancelled. With existing RSVP only (C5 projection), the lines are "**17 of 24 in** / Sign-ups open" (open) or "**You're in** / Starts at 21:00" (saved, starting), with no seat number and no Pull me in. When the bot is unreachable (C5), the bar follows the underlying state and its second line reads "The bot is catching up".
 
 ### B5. Sticky toolbar
 
@@ -325,7 +327,7 @@ The rows that can go stale (upcoming ≤ 24 h, starting, live) are the **fresh f
 
 **No usable `asOf`:** with no instant to date there is no `staleAt`, so no fresh form exists and the island never upgrades the row. A live snapshot renders the "Live status unavailable" row, with Refresh when the path is safe. An upcoming or starting snapshot withdraws its countdown and renders the absolute row (as "upcoming, start > 24 h"): "Europe/London · 21:00 UTC", with no "as of" and no Refresh. Withdrawing a claim is always safe. The page is not shared-cached (see **Cache lifetime**).
 
-**The page's `live` tag** (A4), and any other live claim a page renders from the same snapshot, follows the same rule. Server HTML shows it dated or withholds it; the island adds the `live` tag only after the check passes. When a rendered `live` tag's snapshot goes stale, the tag becomes `warn` "Stale".
+**The page's `live` tag** (A4), and any other live claim a page renders from the same snapshot, follows the same rule. Server HTML shows it dated or withholds it; the island adds the `live` tag only after the check passes. When a rendered `live` tag's snapshot goes stale, the tag becomes `warn` "Stale". When the server's read of the bot failed for the request (C5 "bot unreachable"), the snapshot carries no bot-derived claim: no room count, and a `live` tag that comes from bot data renders as `warn` "Stale".
 
 **"as of" clause:** `as of HH:MM` in the zone the block already names, so a guest whose zone comes from the browser sees it in that zone once the island runs, fresh or not (see **Localizing** below); before that, or with no zone, in UTC (as in H4's cached page rule). Prefix the date ("as of 5 Nov 22:10") when the `asOf` local date differs from the event's local date. Wrap it in its own `<time datetime>`. Same style as the rest of the anchor line (mono, `text.tertiary`), with no warn dot: the absolute time is still right. The A13 `state.warn` dot stays reserved for the page's freshness line.
 
@@ -363,10 +365,26 @@ The rows that can go stale (upcoming ≤ 24 h, starting, live) are the **fresh f
 | promoted | "A seat opened. You're in. Seat 19." | `ok` "Saved" | as saved | "The bot pinged you in Discord at 20:12." |
 | room open | "You're in. Seat 7." | `live` "Room open" | primary "Pull me in" · ghost "Add to calendar" | "The bot moves you if you're in any of our voice rooms." |
 | live | "16 in the room" | `live` "Live" | primary "Pull me in" (or saved "You're in Raid 1" once moved) | — |
+| live, no room count | "You're in." (not RSVP'd: "17 of 24 in") | `live` "Live" | none, unless the product has Pull me in | — |
 | ended | The card is replaced by the Echo key facts (C10) and "Next one: Fri 13 Nov" with "I'm in". | | | |
-| cancelled | "Cancelled by Vexa" | neutral "Cancelled" | ghost "See the next date" | the reason in the host's words, and "Your seat is released. Nothing else to do." |
+| ended, no Echo | The card is replaced by C10's "no Echo" line, then "Next one: Fri 13 Nov" as an A2 link to that event, only when a next instance exists. No "I'm in" here: saying you're in for another event happens on that event's page. | | | |
+| cancelled | "Cancelled by Vexa" ("Cancelled" alone when the host is unknown or opted out) | neutral "Cancelled" | ghost "See the next date" (only when a next instance exists) | the reason in the host's words (only when one is stored), then "Next one: Fri 13 Nov, 21:00." (only with a next instance) and "Your seat is released. Nothing else to do." |
+| bot unreachable | unchanged | unchanged | unchanged | warn notice (A14) in the note slot: "The bot is catching up, so Discord may be behind this page. Your RSVP here still counts." |
 | error (action failed) | unchanged | unchanged | the button returns to its previous label | danger notice: "That didn't save. Try again, or say you're in from Discord." |
 | loading | unchanged | unchanged | pressed button reads "Saving…" (`aria-busy`) | — |
+
+**Live, no room count:** the page has no count of who is in the room, so the heading is the member's own state and C4's anchor drops the count ("since 21:00 · as of 21:40"). With no Pull me in the card has no buttons and no note.
+
+**Bot unreachable:** the server's read of the bot failed for this request, in any upcoming or live state. The server still decides the state from the site's own data; the client never infers it (C4). The seat state and its buttons don't change, because the RSVP is saved on the site, not through Discord. Only the claims that came from the bot change: drop them (the room count), and a `live` tag rendered from bot data becomes `warn` "Stale" (C4). The notice is plain content, not `role="alert"`: it is not the result of the member's own action (A14). When the viewer has no RSVP, drop the second sentence.
+
+**Existing RSVP only (projection):** the table describes the full bot. A product that has only the site's RSVP renders each state **minus every element that claims something it doesn't do**, and never puts an invented substitute in its place:
+- No seat number: "You're in. Seat 7." becomes "You're in."; B4 reads "You're in".
+- No Pull me in, not even the quiet `aria-disabled` form. Omit the button. With no bot voice room there is no "room open" state: start − 15 min to start is C4's starting, and the card stays saved.
+- No bot note ("The bot saves your seat and pings you…", "If you drop out, the first reserve…") unless the product performs that exact action. An omitted note leaves no empty slot.
+- No full, reserve or promoted state until the product has a reserve list.
+- Counts say "seats" (voice.md word list): "2 seats left" in the count line, or "0 of 2 in" as the heading.
+
+Projected states: **open** "17 of 24 in" (no cap: "17 going") · `ok` "Sign-ups open" · primary "I'm in" · ghost "Add to calendar". **Saved** and **starting** "You're in." · `ok` "Saved" · ghost "Add to calendar" · link "I can't make it". **Live** as "live, no room count". **Ended** and **cancelled** as in the table, with their omissions.
 
 **Pull me in** button sub-states (shared with D3): default "Pull me in" → loading "Moving you…" → done (`saved`) "You're in Raid 1" → fallback ghost "Open Raid 1 in Discord" when the member is not connected to voice ("You're not in voice, so Discord will open the room for you.").
 
@@ -425,7 +443,7 @@ A chip row (`role="group" aria-label="Past dates"`) of the last 3 dates plus "Al
 |---|---|
 | frozen | as above, with a mono label "Echo · Fri 30 Oct · frozen 23:14" |
 | counting (event live) | numbers replaced by "Counting. The Echo freezes when the event ends." |
-| no Echo (before the bot counted) | "No Echo for this one: it ran before the bot counted attendance. 21 signed up." |
+| no Echo (before the bot counted) | "No Echo for this one: it ran before the bot counted attendance. 21 signed up." On event detail it replaces the seat card (C5 "ended, no Echo"). |
 | opted-out members | counted in totals, never named |
 
 **A11y:** each fact is one sentence in the DOM ("18 of 21 came"); the numeral is not split from its words for screen readers.
