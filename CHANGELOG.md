@@ -2,6 +2,17 @@
 
 Release notes for each tag are also on the GitHub release. Versions follow semver as AGENTS.md §5 sets out: a changed token value is a minor bump; a removed or renamed token is a major bump.
 
+## v1.0.3
+
+**Docs patch: event-detail states for a product with the site's RSVP only.** components.md C5 gains a projection rule: a product that has only the site's RSVP renders each seat-card state minus every element that claims something it doesn't do (no seat number, no Pull me in, no bot note, no reserve or promoted states, no Lifeline step it doesn't perform), with no invented substitute. The projected open, saved, starting, full (no button), live and cancelled states are spelled out, and a successful RSVP announces "You're in.".
+
+- C5 adds three rows: **live, no room count** ("You're in.", `live` tag, no buttons without Pull me in), **ended, no Echo** (C10's no-Echo line, then "Next one" as a link, not "I'm in") and **bot unreachable** (state and buttons unchanged, live takes the no-room-count heading, an A14 warn notice in the note slot even when the state has no note, bot-derived claims dropped). C4's ended anchor drops "Echo frozen" when there is no Echo. The cancelled row omits the reason line, the next-date line and "See the next date" when there is no stored reason or next instance.
+- B4 has a visibility rule: the bar renders only when the seat card has a button, so not for live without Pull me in, ended or cancelled. Its height is in `scroll-padding-bottom`, and its existing-RSVP and bot-unreachable lines are given.
+- C4's `live` tag note covers a failed bot read: no room count, and a bot-derived `live` tag renders as `warn` "Stale".
+- templates.md T4: B4 follows the visibility rule; the Lifeline is optional under the existing-RSVP projection; Must render adds the C5 projection, the no-Echo ended state and bot unreachable, and says cancelled uses this template whatever the HTTP status.
+
+**Migration:** none. No token changes; `dist/` is unchanged. Full-bot states are unchanged.
+
 ## v1.0.2
 
 **Docs patch: C4 server HTML is always dated.** components.md C4 no longer lets server or no-JS HTML show a countdown, the "Live" numeral or a room count: a page that is already open is never fetched again, so those claims could sit on screen long after they stopped being true. Every server render of a claim-bearing state (upcoming ≤ 24 h, starting, live) uses the dated form ("Europe/London · 21:00 UTC · as of 18:50 · Refresh"), with the same-origin Refresh link (an unsafe path renders no link and keeps the "as of"). Upcoming > 24 h, ended and cancelled are unchanged, with no "as of" and no Refresh. The former "stale (JS only)" rows are now "dated (server/no-JS, and JS when stale)"; there is no new wording. A live snapshot with no usable `asOf` gets the dated row "Live status unavailable · Refresh", which the island never upgrades. An upcoming or starting snapshot with no usable `asOf` drops its countdown and renders the absolute row, with no "as of" and no Refresh, and a page with no usable `asOf` is not shared-cached (`private, no-cache`).
